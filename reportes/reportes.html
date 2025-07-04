@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Crear Reporte Ciudadano</title>
+    <link rel="stylesheet" href="styleReporte.css" />
+  </head>
+  <body>
+    <div class="formulario-container">
+      <h2 class="formulario-titulo texto-principal">
+        Creación de Reportes Ciudadanos
+      </h2>
+
+      <div class="formulario-grupo">
+        <label class="formulario-etiqueta">Título</label>
+        <textarea class="formulario-textarea"></textarea>
+      </div>
+
+      <div class="formulario-grupo">
+        <label class="formulario-etiqueta">Descripción</label>
+        <textarea
+          class="formulario-textarea"
+          placeholder="Descripción del reporte"
+        ></textarea>
+      </div>
+
+      <div class="formulario-fila">
+        <div class="formulario-columna">
+          <label class="formulario-etiqueta">Fecha de Inicio</label>
+          <input
+            class="formulario-campo"
+            type="text"
+            value="6/20/2025"
+            disabled
+          />
+        </div>
+        <div class="formulario-columna">
+          <label class="formulario-etiqueta">Fecha de Finalización</label>
+          <input
+            class="formulario-campo"
+            type="text"
+            value="6/20/2025"
+            disabled
+          />
+        </div>
+      </div>
+
+      <div class="formulario-grupo">
+        <label class="formulario-etiqueta">Imagen de Promoción</label>
+        <div class="formulario-fila sin-espacio"></div>
+      </div>
+
+      <div class="formulario-grupo">
+        <button class="formulario-boton">Crear Reporte</button>
+        <p class="formulario-nota">
+          Al enviar este formulario, el usuario declara que la información
+          proporcionada es veraz y está actualizada.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
