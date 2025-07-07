@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="ruta.css" />
+    <link rel="stylesheet" href="../templates/navbar/navbar.css" />
+    <title>Ruta de Transporte - Línea 101</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-logo">Comunidades conectadas</div>
+
+      <div class="navbar-options">
+        <a href="../index.html" class="navbar-link">Inicio</a>
+        <a href="../calendario/calendario.html" class="navbar-link"
+          >Calendario</a
+        >
+        <a href="../listadoRutas/listadoRutas.html" class="navbar-link"
+          >Horario Bus</a
+        >
+
+        <div class="navbar-submenu-container">
+          <a href="#" class="navbar-link navbar-link--dropdown">Comunidad</a>
+          <div class="navbar-submenu">
+            <a
+              href="../Pagina de eventos/paginaEventos.html"
+              class="navbar-submenu-link"
+              >Eventos</a
+            >
+            <a href="../eventos/eventos.html" class="navbar-submenu-link"
+              >Crear un evento</a
+            >
+            <a href="../reportes/reportes.html" class="navbar-submenu-link"
+              >Reportes</a
+            >
+          </div>
+        </div>
+
+        <div class="navbar-submenu-container">
+          <a href="#" class="navbar-link navbar-link--dropdown"
+            >Emprendimiento</a
+          >
+          <div class="navbar-submenu">
+            <a href="../anuncios/anuncios.html" class="navbar-submenu-link"
+              >Crear anuncio</a
+            >
+            <a href="/registrar" class="navbar-submenu-link">Registrar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="navbar-user">
+        <span class="navbar-user-email">usuario@correo.com</span>
+        <a href="/cerrar-sesion" class="navbar-user-logout">Cerrar sesión</a>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="header">
+        <a href="index.html" class="back-button">Regresar</a>
+        <div class="route-info">
+          <div class="route-number">101</div>
+          <div class="route-name">Centro - Universidad</div>
+        </div>
+        <div class="date-info">Fecha: Lunes 23 de junio, 2025</div>
+      </div>
+
+      <div class="content">
+        <h1 class="section-title">Información de la Ruta</h1>
+
+        <p class="description">
+          La ruta 101 conecta el centro de la ciudad con la zona universitaria,
+          pasando por los principales puntos comerciales y residenciales. Este
+          servicio opera durante todo el día con frecuencias regulares y cuenta
+          con unidades modernas equipadas con aire acondicionado y acceso para
+          personas con discapacidad.
+        </p>
+
+        <div class="info-cards">
+          <div class="info-card">
+            <h3>Horarios de Servicio</h3>
+            <div class="schedule-grid">
+              <div class="schedule-item">
+                <div class="schedule-day">Lun - Vie</div>
+                <div class="schedule-time">05:30 - 22:00</div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-day">Sábados</div>
+                <div class="schedule-time">06:00 - 21:00</div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-day">Domingos</div>
+                <div class="schedule-time">07:00 - 20:00</div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-day">Frecuencia</div>
+                <div class="schedule-time">Cada 15 min</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Tarifas Vigentes</h3>
+            <table class="tariff-table">
+              <thead>
+                <tr>
+                  <th>Tipo de Usuario</th>
+                  <th>Tarifa</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Adulto General</td>
+                  <td>₡540</td>
+                </tr>
+                <tr>
+                  <td>Adulto Mayor</td>
+                  <td>₡270</td>
+                </tr>
+                <tr>
+                  <td>Persona con Discapacidad</td>
+                  <td>Gratuito</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h3>Contacto de la Empresa</h3>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="contact-label">Empresa:</span>
+              <span class="contact-value">Transportes Lared</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Teléfono:</span>
+              <span class="contact-value">2234-5678</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">WhatsApp:</span>
+              <span class="contact-value">8888-9999</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Email:</span>
+              <span class="contact-value">info@transmetro.cr</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Sitio Web:</span>
+              <span class="contact-value">www.transmetro.cr</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="update-info">
+          <strong>Última Actualización:</strong> 20 de junio, 2025 - Los
+          horarios y tarifas están sujetos a cambios.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,264 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: white;
+  min-height: 100vh;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  position: relative;
+  height: 180px;
+  background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1.5" fill="white" opacity="0.1"/><circle cx="40" cy="80" r="1" fill="white" opacity="0.1"/><circle cx="90" cy="10" r="1" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="2" fill="white" opacity="0.1"/></svg>');
+  background-size: 100px 100px;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #e9ebec;
+  border: none;
+  color: black;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: #1a1a1a 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  color: white;
+  z-index: 1;
+}
+
+.header-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.header-subtitle {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.date-info {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+  text-align: right;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.content {
+  padding: 32px;
+}
+
+.routes-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.routes-table th {
+  background-color: #4285f4;
+  color: white;
+  padding: 18px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.routes-table td {
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+  color: #333;
+  vertical-align: top;
+}
+
+.routes-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.routes-table tr:hover {
+  background-color: #f0f8ff;
+  transition: background-color 0.2s ease;
+}
+
+.route-number {
+  background-color: #34a853;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  display: inline-block;
+  min-width: 50px;
+  text-align: center;
+}
+
+.route-name {
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.route-details {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 8px;
+}
+
+.schedule-item {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 8px 6px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.schedule-day {
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 2px;
+}
+
+.schedule-time {
+  font-family: monospace;
+  color: #6c757d;
+  font-size: 11px;
+}
+
+.frequency {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.status-active {
+  color: #34a853;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.status-active::before {
+  content: "●";
+  margin-right: 6px;
+}
+
+.status-inactive {
+  color: #ea4335;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.status-inactive::before {
+  content: "●";
+  margin-right: 6px;
+}
+
+.status-maintenance {
+  color: #fbbc04;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.status-maintenance::before {
+  content: "●";
+  margin-right: 6px;
+}
+
+.update-info {
+  background-color: #e8f5e8;
+  border: 1px solid #c3e6c3;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 24px;
+  font-size: 14px;
+  color: #2d5a2d;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 16px;
+  }
+
+  .header-title {
+    font-size: 24px;
+  }
+
+  .routes-table th,
+  .routes-table td {
+    padding: 12px 8px;
+  }
+
+  .schedule-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .routes-table {
+    font-size: 12px;
+  }
+
+  .route-number {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .schedule-item {
+    padding: 6px 4px;
+  }
+}
