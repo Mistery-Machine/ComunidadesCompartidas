@@ -3,14 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="listadoRutas.css" />
+    <link rel="stylesheet" href="./calendario.css" />
     <link rel="stylesheet" href="../templates/navbar/navbar.css" />
     <title>Calendario</title>
   </head>
   <body>
     <nav class="navbar">
       <div class="navbar-logo">Comunidades conectadas</div>
-
       <div class="navbar-options">
         <a href="../index.html" class="navbar-link">Inicio</a>
         <a href="../calendario/calendario.html" class="navbar-link"
@@ -19,7 +18,6 @@
         <a href="../listadoRutas/listadoRutas.html" class="navbar-link"
           >Horario Bus</a
         >
-
         <div class="navbar-submenu-container">
           <a href="#" class="navbar-link navbar-link--dropdown">Comunidad</a>
           <div class="navbar-submenu">
@@ -36,7 +34,6 @@
             >
           </div>
         </div>
-
         <div class="navbar-submenu-container">
           <a href="#" class="navbar-link navbar-link--dropdown"
             >Emprendimiento</a
@@ -45,18 +42,140 @@
             <a href="../anuncios/anuncios.html" class="navbar-submenu-link"
               >Crear anuncio</a
             >
-            <a href="/registrar" class="navbar-submenu-link">Registrar</a>
+            <a
+              href="../EmprendimientoFormulario/emprendimiento.html"
+              class="navbar-submenu-link"
+              >Registrar</a
+            >
           </div>
         </div>
       </div>
-
       <div class="navbar-user">
         <span class="navbar-user-email">usuario@correo.com</span>
         <a href="/cerrar-sesion" class="navbar-user-logout">Cerrar sesión</a>
       </div>
     </nav>
+
     <div class="container">
-      <div class="content"></div>
+      <div class="content">
+        <div class="calendar-header">
+          <h1>Calendario de Eventos</h1>
+          <div class="calendar-controls">
+            <button class="btn-nav" id="prevMonth">&#8249;</button>
+            <h2 id="currentMonth">Julio 2025</h2>
+            <button class="btn-nav" id="nextMonth">&#8250;</button>
+          </div>
+        </div>
+
+        <div class="calendar-container">
+          <div class="calendar-grid">
+            <div class="calendar-day-header">Dom</div>
+            <div class="calendar-day-header">Lun</div>
+            <div class="calendar-day-header">Mar</div>
+            <div class="calendar-day-header">Mié</div>
+            <div class="calendar-day-header">Jue</div>
+            <div class="calendar-day-header">Vie</div>
+            <div class="calendar-day-header">Sáb</div>
+
+            <!-- Los días se generarán dinámicamente con JavaScript -->
+            <div class="calendar-days" id="calendarDays"></div>
+          </div>
+        </div>
+
+        <div class="events-section">
+          <h3>Eventos del Mes</h3>
+          <div class="events-list" id="eventsList">
+            <div class="event-item">
+              <div class="event-date">15 Jul</div>
+              <div class="event-info">
+                <h4>Reunión Comunitaria</h4>
+                <p>Discusión sobre mejoras en el transporte público</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <script>
+      // JavaScript para funcionalidad del calendario
+      const monthNames = [
+        "Enero",
+        "Febrero",
+        "Marzo",
+        "Abril",
+        "Mayo",
+        "Junio",
+        "Julio",
+        "Agosto",
+        "Septiembre",
+        "Octubre",
+        "Noviembre",
+        "Diciembre",
+      ];
+
+      let currentDate = new Date();
+      let currentMonth = currentDate.getMonth();
+      let currentYear = currentDate.getFullYear();
+
+      function generateCalendar(month, year) {
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const calendarDays = document.getElementById("calendarDays");
+        const currentMonthElement = document.getElementById("currentMonth");
+
+        calendarDays.innerHTML = "";
+        currentMonthElement.textContent = `${monthNames[month]} ${year}`;
+
+        for (let i = 0; i < firstDay; i++) {
+          const emptyDay = document.createElement("div");
+          emptyDay.classList.add("calendar-day", "empty");
+          calendarDays.appendChild(emptyDay);
+        }
+
+        for (let day = 1; day <= daysInMonth; day++) {
+          const dayElement = document.createElement("div");
+          dayElement.classList.add("calendar-day");
+          dayElement.textContent = day;
+
+          if (
+            year === new Date().getFullYear() &&
+            month === new Date().getMonth() &&
+            day === new Date().getDate()
+          ) {
+            dayElement.classList.add("today");
+          }
+
+          // TODO PARA AGREGAR EVENTOS
+          if (day === 15) {
+            dayElement.classList.add("has-event");
+          }
+
+          calendarDays.appendChild(dayElement);
+        }
+      }
+
+      // Event listeners para navegación
+      document.getElementById("prevMonth").addEventListener("click", () => {
+        currentMonth--;
+        if (currentMonth < 0) {
+          currentMonth = 11;
+          currentYear--;
+        }
+        generateCalendar(currentMonth, currentYear);
+      });
+
+      document.getElementById("nextMonth").addEventListener("click", () => {
+        currentMonth++;
+        if (currentMonth > 11) {
+          currentMonth = 0;
+          currentYear++;
+        }
+        generateCalendar(currentMonth, currentYear);
+      });
+
+      // Generar calendario inicial
+      generateCalendar(currentMonth, currentYear);
+    </script>
   </body>
 </html>
