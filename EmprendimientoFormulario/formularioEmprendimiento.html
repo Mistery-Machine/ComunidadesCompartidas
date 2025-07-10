@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="formulario-emprendimiento.css">
+    <link rel="stylesheet" href="/templates/navbar/navbar.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>Registro de emprendimientos</title>
+</head>
+<header class="mb-1">
+   <nav class="navbar">
+      <div class="navbar-logo">Comunidades conectadas</div>
+
+      <div class="navbar-options">
+        <a href="../index.html" class="navbar-link">Inicio</a>
+        <a href="../calendario/calendario.html" class="navbar-link"
+          >Calendario</a
+        >
+        <a href="../listadoRutas/listadoRutas.html" class="navbar-link"
+          >Horario Bus</a
+        >
+
+        <div class="navbar-submenu-container">
+          <a href="#" class="navbar-link navbar-link--dropdown">Comunidad</a>
+          <div class="navbar-submenu">
+            <a
+              href="../Pagina de eventos/paginaEventos.html"
+              class="navbar-submenu-link"
+              >Eventos</a
+            >
+            <a href="../eventos/eventos.html" class="navbar-submenu-link"
+              >Crear un evento</a
+            >
+            <a href="../reportes/reportes.html" class="navbar-submenu-link"
+              >Reportes</a
+            >
+          </div>
+        </div>
+
+        <div class="navbar-submenu-container">
+          <a href="#" class="navbar-link navbar-link--dropdown"
+            >Emprendimiento</a
+          >
+          <div class="navbar-submenu">
+            <a href="../anuncios/anuncios.html" class="navbar-submenu-link"
+              >Crear anuncio</a
+            >
+            <a href="/registrar" class="navbar-submenu-link">Registrar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="navbar-user">
+        <span class="navbar-user-email">usuario@correo.com</span>
+        <a href="/cerrar-sesion" class="navbar-user-logout">Cerrar sesión</a>
+      </div>
+    </nav>
+</header>
+<body>
+  <form class="contenedor-formulario" id="formularioEmprendimiento">
+    <h2 class="titulo-formulario texto-oscuro mb-2">Nuevo Emprendimiento</h2>
+  
+    <div class="grupo-formulario" id="grupo-nombreNegocio">
+      <label class="etiqueta-formulario">Nombre</label>
+      <input type="text" class="campo-formulario" placeholder="Nombre del negocio" name="nombreNegocio" id="nombre-negocio">
+      <p class="formulario-input-error ">El nombre del negocio debe tener entre 6 a 32 caracteres.</p>
+      <p class="texto-secundario mt-1">Emprendedor: Sebastian Ortiz Vargas <i class="fa-solid fa-user icono-usuario"></i></p>
+    </div>
+  
+    <div class="grupo-formulario" id="grupo-telefono">
+      <label class="etiqueta-formulario">Teléfono</label>
+      <input type="text" class="campo-formulario" placeholder="1234-5678" name="telefono" id="telefono">
+      <p class="formulario-input-error ">El telefono debe ser de 8 numeros, formato +506 Costa Rica</p>
+    </div>
+  
+    <div class="grupo-formulario" id="grupo-ubicacion">
+      <label class="etiqueta-formulario">Ubicación</label>
+      <input type="text" class="campo-formulario" placeholder="Distrito, Cantón, Provincia" name="ubicacion" id="ubicacion">
+      <p class="formulario-input-error">La ubicacion debe tener entre 6 a 32 caracteres</p>
+    </div>
+  
+    <div class="grupo-formulario" id="grupo-categoria">
+      <label class="etiqueta-formulario">Categoría</label>
+      <select class="seleccion-formulario" name="categoria" id="categoria">
+        <option selected disabled>Categoría</option>
+        <option>Electrodomésticos</option>
+        <option>Comida</option>
+        <option>Ropa</option>
+        <option>Eventos</option>
+        <option>Artículos variados</option>
+      </select>
+      <p class="formulario-input-error">Es necesario seleccionar el estado incial del ticket de emprendimiento</p>
+    </div>
+  
+    <div class="grupo-formulario" id="grupo-descripcion">
+      <label class="etiqueta-formulario">Descripción</label>  
+      <textarea class="area-texto" placeholder="Descripción del negocio" name="descripcion" id="descripcion"></textarea>
+      <p class="formulario-input-error">La descripcion debe ser entre 6 a 32 caracteres de largo</p>
+    </div>
+  
+    <div class="fila-formulario mb-2" id="grupo-fechaRegistro">
+      <div class="columna-formulario">
+        <label class="etiqueta-formulario">Fecha de registro</label>
+        <input class="campo-formulario" disabled type="text" value="6/20/2025" id="fechaRegistro" name="fecha-registro">
+      </div>
+
+      <div class="columna-formulario" id="grupo-estado">
+        <label class="etiqueta-formulario">Estado</label>
+        <select class="seleccion-formulario" name="estado" id="estado">
+          <option selected disabled>Estado</option>
+          <option>Activo</option>
+          <option>Inactivo</option>
+          <option>En revisión</option>
+        </select>
+        <p class="formulario-input-error">Es necesario seleccionar el estado incial del ticket de emprendimiento</p>
+      </div>
+    </div>
+  
+    <div class="grupo-formulario" id="grupo-logo">
+      <label class="etiqueta-formulario">Logo</label>
+      <div class="fila-formulario mb-2 nogap">
+        <div class="columna-formulario">
+          <button class="boton-subir" id="boton-subir-logo">Subir logo</button>
+        </div>
+        <div class="columna-formulario">
+          <input type="text" class="campo-formulario" disabled value="fotoEmprendimiento.png" id="input-detalles-logo">
+        </div>
+      </div>
+    </div>
+
+    <div class="grupo-formulario" id="grupo-boton">
+      <button class="boton-subir" id="boton-submit">Crear negocio</button>
+      <p class="texto-secundario mb-1">Al enviar este formulario de registro de emprendimiento, el usuario declara que la información proporcionada es veraz y está actualizada. </p>
+    </div>
+
+  </form>
+  <script src="validacion-emprendimiento.js"></script>
+</body>
+</html>
+  

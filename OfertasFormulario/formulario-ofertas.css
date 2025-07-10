@@ -137,3 +137,29 @@
 .nogap {
     gap: 0;
 }
+
+.formulario-input-error {
+    color: #dc3545;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.input-error-activo {
+    display: block !important;
+}
+
+.campo-correcto {
+  border-color: rgb(70, 228, 70);
+  background-color: rgb(228, 247, 228);
+}
+
+.campo-incorrecto {
+  border-color: rgb(252, 27, 27);
+  background-color: rgb(252, 218, 218);
+}
+
+.boton-deshabilitado {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

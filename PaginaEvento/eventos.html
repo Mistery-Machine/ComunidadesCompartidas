@@ -11,44 +11,55 @@
     />
     <title>Pagina de eventos</title>
 </head>
-<header>
-    <header class="mb-1">
-  <nav style="display:flex; justify-content:space-between; align-items:center; padding:10px 20px; background-color:#f3f3f3; border-bottom:1px solid #ccc; position:relative; font-family:sans-serif;">
-  <div style="font-size:1.5rem; font-weight:bold;">
-    Comunidades conectadas
-  </div>
-  <div style="display:flex; gap:20px; align-items:center; margin-left:auto; margin-right:40px; position:relative;">
-    <a href="/inicio" style="font-size:1rem; color:#333; text-decoration:none;">Inicio</a>
-    <a href="/calendario" style="font-size:1rem; color:#333; text-decoration:none;">Calendario</a>
-    <a href="/horario-bus" style="font-size:1rem; color:#333; text-decoration:none;">Horario Bus</a>
+  <header class="mb-1">
+   <nav class="navbar">
+      <div class="navbar-logo">Comunidades conectadas</div>
 
-    <div class="submenu-container" style="position:relative;">
-      <a href="#" style="font-size:1rem; color:#333; text-decoration:none;">Comunidad ▾</a>
-      <div class="submenu">
-        <a href="/eventos">Eventos</a>
-        <a href="/crear-evento">Crear un evento</a>
-        <a href="/reportes">Reportes</a>
+      <div class="navbar-options">
+        <a href="../index.html" class="navbar-link">Inicio</a>
+        <a href="../calendario/calendario.html" class="navbar-link"
+          >Calendario</a
+        >
+        <a href="../listadoRutas/listadoRutas.html" class="navbar-link"
+          >Horario Bus</a
+        >
+
+        <div class="navbar-submenu-container">
+          <a href="#" class="navbar-link navbar-link--dropdown">Comunidad</a>
+          <div class="navbar-submenu">
+            <a
+              href="../Pagina de eventos/paginaEventos.html"
+              class="navbar-submenu-link"
+              >Eventos</a
+            >
+            <a href="../eventos/eventos.html" class="navbar-submenu-link"
+              >Crear un evento</a
+            >
+            <a href="../reportes/reportes.html" class="navbar-submenu-link"
+              >Reportes</a
+            >
+          </div>
+        </div>
+
+        <div class="navbar-submenu-container">
+          <a href="#" class="navbar-link navbar-link--dropdown"
+            >Emprendimiento</a
+          >
+          <div class="navbar-submenu">
+            <a href="../anuncios/anuncios.html" class="navbar-submenu-link"
+              >Crear anuncio</a
+            >
+            <a href="/registrar" class="navbar-submenu-link">Registrar</a>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="submenu-container" style="position:relative;">
-      <a href="#" style="font-size:1rem; color:#333; text-decoration:none;">Emprendimiento ▾</a>
-      <div class="submenu">
-        <a href="/crear-anuncio">Crear anuncio</a>
-        <a href="/registrar">Registrar</a>
+
+      <div class="navbar-user">
+        <span class="navbar-user-email">usuario@correo.com</span>
+        <a href="/cerrar-sesion" class="navbar-user-logout">Cerrar sesión</a>
       </div>
-    </div>
-  </div>
-  <div style="display:flex; align-items:center; gap:15px;">
-    <span style="font-size:1rem; color:#555;">
-      usuario@correo.com
-    </span>
-    <a href="/cerrar-sesion" style="font-size:1rem; color:#007BFF; text-decoration:none;">
-      Cerrar sesión
-    </a>
-  </div>
-</nav>
-</header>
-</header>
+    </nav>
+  </header>
 <body>
   <div class="contenedor mb-2">
     <div class="evento">
