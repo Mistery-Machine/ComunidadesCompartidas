@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styleReporte.css" />
     <link rel="stylesheet" href="../templates/navbar/navbar.css" />
   </head>
+  <script src="validacion.js"></script>
   <body>
     <nav class="navbar">
       <div class="navbar-logo">Comunidades conectadas</div>
@@ -55,6 +56,7 @@
         <a href="/cerrar-sesion" class="navbar-user-logout">Cerrar sesión</a>
       </div>
     </nav>
+
     <div class="formulario-container">
       <h2 class="formulario-titulo texto-principal">
         Creación de Reportes Ciudadanos
@@ -62,7 +64,11 @@
 
       <div class="formulario-grupo">
         <label class="formulario-etiqueta">Título</label>
-        <textarea class="formulario-textarea"></textarea>
+        <textarea
+          class="formulario-textarea"
+          id="titulo"
+          name="titulo"
+        ></textarea>
       </div>
 
       <div class="formulario-grupo">
@@ -70,6 +76,8 @@
         <textarea
           class="formulario-textarea"
           placeholder="Descripción del reporte"
+          id="descripcion"
+          name="descripcion"
         ></textarea>
       </div>
 
@@ -100,7 +108,9 @@
       </div>
 
       <div class="formulario-grupo">
-        <button class="formulario-boton">Crear Reporte</button>
+        <button class="formulario-boton" id="crear-reporte">
+          Crear Reporte
+        </button>
         <p class="formulario-nota">
           Al enviar este formulario, el usuario declara que la información
           proporcionada es veraz y está actualizada.
