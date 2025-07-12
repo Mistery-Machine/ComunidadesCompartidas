@@ -3,11 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Crear Reporte Ciudadano</title>
-    <link rel="stylesheet" href="styleReporte.css" />
+    <title>Reportes Públicos</title>
+    <link rel="stylesheet" href="verReportes.css" />
     <link rel="stylesheet" href="../templates/navbar/navbar.css" />
   </head>
-  <script src="validacion.js"></script>
   <header>
     <nav class="barra-navegacion">
       <div class="contenedor-navegacion">
@@ -105,65 +104,35 @@
     </nav>
   </header>
   <body>
-    <div class="formulario-container">
-      <h2 class="formulario-titulo texto-principal">
-        Creación de Reportes Ciudadanos
-      </h2>
+    <main class="contenedor-eventos">
+      <h1 class="titulo-eventos">Reportes Disponibles</h1>
 
-      <div class="formulario-grupo">
-        <label class="formulario-etiqueta">Título</label>
-        <textarea
-          class="formulario-textarea-titulo"
-          id="titulo"
-          name="titulo"
-        ></textarea>
-      </div>
+      <div class="grid-eventos">
+        <!-- Tarjeta de evento -->
+        <div class="tarjeta-evento">
+          <h2 class="titulo-tarjeta">Problemas Calles</h2>
+          <p class="descripcion-evento">
+            Baches, alumbrado público defectuoso, basura acumulada, actos de
+            vandalismo, problemas de seguridad, etc.
+          </p>
 
-      <div class="formulario-grupo">
-        <label class="formulario-etiqueta">Descripción</label>
-        <textarea
-          class="formulario-textarea"
-          placeholder="Descripción del reporte"
-          id="descripcion"
-          name="descripcion"
-        ></textarea>
-      </div>
+          <p class="fecha-evento">Domingo 23 de Junio, 2025</p>
 
-      <div class="formulario-fila">
-        <div class="formulario-columna">
-          <label class="formulario-etiqueta">Fecha de Inicio</label>
-          <input
-            class="formulario-campo"
-            type="text"
-            value="6/20/2025"
-            disabled
-          />
+          <button class="boton-participar">Ver Reporte</button>
+          <p class="estado-evento">Activo</p>
         </div>
-        <div class="formulario-columna">
-          <label class="formulario-etiqueta">Fecha de Finalización</label>
-          <input
-            class="formulario-campo"
-            type="text"
-            value="6/20/2025"
-            disabled
-          />
+
+        <div class="tarjeta-evento">
+          <h2 class="titulo-tarjeta">Sugerencias mejoras</h2>
+          <p class="descripcion-evento">
+            Ideas para espacios verdes, actividades comunitarias, mejoras en
+            servicios públicos,
+          </p>
+          <p class="fecha-evento">Domingo 23 de Junio, 2025</p>
+          <button class="boton-participar">Ver Reporte</button>
+          <p class="estado-evento">Activo</p>
         </div>
       </div>
-
-      <div class="formulario-grupo">
-        <label class="formulario-etiqueta">Imagen de Promoción</label>
-        <div class="formulario-fila sin-espacio"></div>
-      </div>
-
-      <div class="formulario-grupo">
-        <button class="formulario-boton" id="crear-reporte">
-          Crear Reporte
-        </button>
-        <p class="formulario-nota">
-          Al enviar este formulario, el usuario declara que la información
-          proporcionada es veraz y está actualizada.
-        </p>
-      </div>
-    </div>
+    </main>
   </body>
 </html>

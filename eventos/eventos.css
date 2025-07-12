@@ -65,7 +65,7 @@ body {
 }
 
 .evento-area-texto {
-  min-height: 6em;
+  height: 3.4em;
   padding: 1em;
   resize: none;
 }
