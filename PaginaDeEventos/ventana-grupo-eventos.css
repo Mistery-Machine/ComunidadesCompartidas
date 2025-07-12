@@ -66,12 +66,14 @@ body {
 .area-texto,
 .boton-subir {
     width: 100%;
-    font-size: 1em;
+    font-size: 0.7em;
+    margin-top:  0.7em;
     border: 1px solid #e5e5e5;
     border-radius: 4px;
     background-color: #f9f9f9;
     color: #333;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 .campo-formulario,
@@ -213,16 +215,6 @@ body {
     color: #6c757d;
 }
 
-.boton {
-    width: 100%;
-    background: #3f9bff;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 4px;
-    font-weight: 600;
-    margin-top: 10px;
-}
 
 .info-adicional {
     display: flex;
