@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./calendario.css" />
     <link rel="stylesheet" href="../templates/navbar/navbar.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <script src="./calendario.js" defer></script>
     <title>Calendario</title>
   </head>
@@ -123,9 +127,13 @@
         <div class="calendar-header">
           <h1>Calendario de Eventos</h1>
           <div class="calendar-controls">
-            <button class="btn-nav" id="prevMonth">&#8249;</button>
+            <button class="btn-nav" id="prevMonth">
+              <i class="fas fa-chevron-left"></i>
+            </button>
             <h2 id="currentMonth">Julio 2025</h2>
-            <button class="btn-nav" id="nextMonth">&#8250;</button>
+            <button class="btn-nav" id="nextMonth">
+              <i class="fas fa-chevron-right"></i>
+            </button>
           </div>
         </div>
 
@@ -139,7 +147,6 @@
             <div class="calendar-day-header">Vie</div>
             <div class="calendar-day-header">Sáb</div>
 
-            <!-- Los días se generarán dinámicamente con JavaScript -->
             <div class="calendar-days" id="calendarDays"></div>
           </div>
         </div>
