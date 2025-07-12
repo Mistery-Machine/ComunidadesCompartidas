@@ -1,4 +1,3 @@
-
 // Obtener elementos del DOM
 const inputs = document.querySelectorAll('#formularioOfertas input');
 const textarea = document.querySelectorAll('#formularioOfertas textarea');
@@ -9,12 +8,12 @@ const boton = document.querySelector("#boton-submit");
 
 // Expresiones regulares
 const expresiones = {
-    nombre: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{5,50}$/, 
-    descripcion: /^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s\.,#\-]{10,100}$/, 
+    nombre: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{5,50}$/,
+    descripcion: /^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s\.,#\-]{10,100}$/,
     articulo: /^(?!Articulo$).+$/,
-    fechaInicio: /^(?!DD\/MM\/YYYY$).+$/, 
+    fechaInicio: /^(?!DD\/MM\/YYYY$).+$/,
     fechaFin: /^(?!DD\/MM\/YYYY$).+$/
-    
+
 }
 
 // Estado de los campos
@@ -29,8 +28,8 @@ const campos = {
 // Función principal de validación
 const validarFormulario = (e) => {
     const nombreCampo = e.target.name;
-    
-    switch(nombreCampo) {
+
+    switch (nombreCampo) {
         case "nombre":
         case "descripcion":
         case "fechaInicio":
@@ -47,15 +46,15 @@ const validarCampo = (expresion, input, campo) => {
     const mensajeError = grupo.querySelector('.formulario-input-error');
     const textArea = grupo.querySelector('.area-texto');
     const selectArea = grupo.querySelector('.seleccion-formulario');
-    
-    if(expresion.test(input.value)) {
+
+    if (expresion.test(input.value)) {
         // Validación correcta
         input.classList.remove("campo-incorrecto");
         input.classList.add("campo-correcto");
         mensajeError.classList.remove("input-error-activo");
 
         // Solo aplica a textareas si existen
-        if(textArea) {
+        if (textArea) {
             textArea.classList.remove("campo-incorrecto");
             textArea.classList.add("campo-correcto");
         }
@@ -73,7 +72,7 @@ const validarCampo = (expresion, input, campo) => {
         mensajeError.classList.add("input-error-activo");
 
         // Solo aplica a textareas si existen
-        if(textArea) {
+        if (textArea) {
             textArea.classList.add("campo-incorrecto");
             textArea.classList.remove("campo-correcto");
         }
@@ -94,11 +93,10 @@ const verificarCampos = () => {
         boton.disabled = false;
         boton.classList.remove('boton-deshabilitado')
     } else {
-        boton.disabled = true; 
+        boton.disabled = true;
         boton.classList.add('boton-deshabilitado')
     }
 }
-
 
 
 // Llamar la funcion ayuda a que el boton salga como deshabilitado al cargar la pagina.

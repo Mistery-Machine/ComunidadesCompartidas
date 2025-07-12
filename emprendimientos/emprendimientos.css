@@ -1,74 +1,74 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  color: #333;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
 }
 
 .emprendimientos-contenedor {
-  max-width: 1200px;
-  margin: auto;
+    max-width: 1200px;
+    margin: auto;
 }
 
 .emprendimientos-titulo {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-  text-align: center;
-  color: #1b1b1b;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #1b1b1b;
 }
 
 .emprendimientos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
 }
 
 .tarjeta-emprendimiento {
-  background-color: #fff;
-  border-radius: 6px;
-  padding: 1.2rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 1.2rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .nombre-emprendimiento {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: #1b1b1b;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #1b1b1b;
 }
 
 .descripcion-emprendimiento {
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
-  color: #444;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    color: #444;
 }
 
 .categorias-emprendimiento {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 .categoria {
-  display: inline-block;
-  background-color: #e8e8e8;
-  color: #555;
-  font-size: 0.75rem;
-  padding: 0.3em 0.6em;
-  margin-right: 0.4em;
-  border-radius: 4px;
+    display: inline-block;
+    background-color: #e8e8e8;
+    color: #555;
+    font-size: 0.75rem;
+    padding: 0.3em 0.6em;
+    margin-right: 0.4em;
+    border-radius: 4px;
 }
 
 .ubicacion-emprendimiento,
 .contacto-emprendimiento {
-  font-size: 0.9rem;
-  color: #333;
-  margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 0.4rem;
 }

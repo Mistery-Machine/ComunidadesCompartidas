@@ -1,169 +1,169 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  background-color: #e3e3e3;
-  color: #b9b9b9;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    background-color: #e3e3e3;
+    color: #b9b9b9;
 }
 
 .contenedor-formulario {
-  max-width: 600px;
-  margin: auto;
-  padding: 1.5em;
-  background-color: #fff;
-  border-radius: 5px;
+    max-width: 600px;
+    margin: auto;
+    padding: 1.5em;
+    background-color: #fff;
+    border-radius: 5px;
 }
 
 .titulo-formulario {
-  font-size: 1.5rem;
-  font-weight: bold;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .texto-oscuro {
-  color: #1b1b1b;
+    color: #1b1b1b;
 }
 
 .subtitulo-formulario {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #1b1b1b;
-  padding-top: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1b1b1b;
+    padding-top: 20px;
 }
 
 .mb-2 {
-  margin-bottom: 2rem;
+    margin-bottom: 2rem;
 }
 
 .texto-secundario {
-  font-size: 0.9em;
-  padding-right: 2rem;
+    font-size: 0.9em;
+    padding-right: 2rem;
 }
 
 .icono-usuario {
-  color: #74c0fc;
+    color: #74c0fc;
 }
 
 .grupo-formulario {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 .etiqueta-formulario {
-  display: block;
-  margin-bottom: 0.5em;
-  color: #3f9bff;
-  font-weight: bold;
+    display: block;
+    margin-bottom: 0.5em;
+    color: #3f9bff;
+    font-weight: bold;
 }
 
 .campo-formulario,
 .seleccion-formulario,
 .area-texto,
 .boton-subir {
-  width: 100%;
-  font-size: 1em;
-  border: 1px solid #e5e5e5;
-  border-radius: 4px;
-  background-color: #f9f9f9;
-  color: #333;
-  box-sizing: border-box;
+    width: 100%;
+    font-size: 1em;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    color: #333;
+    box-sizing: border-box;
 }
 
 .campo-formulario,
 .seleccion-formulario {
-  height: 3.4em;
-  padding: 0 1em;
+    height: 3.4em;
+    padding: 0 1em;
 }
 
 .campo-formulario::placeholder {
-  color: #b9b9b9;
+    color: #b9b9b9;
 }
 
 .campo-formulario:focus,
 .seleccion-formulario:focus {
-  border-color: black;
-  outline: none;
+    border-color: black;
+    outline: none;
 }
 
 .seleccion-formulario option:disabled {
-  color: #b9b9b9;
+    color: #b9b9b9;
 }
 
 .seleccion-formulario option {
-  background-color: #fff;
-  color: #333;
+    background-color: #fff;
+    color: #333;
 }
 
 .area-texto {
-  min-height: 7em;
-  padding: 1em;
-  resize: none;
+    min-height: 7em;
+    padding: 1em;
+    resize: none;
 }
 
 .boton-subir {
-  height: 3.4em;
-  background-color: #3f9bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  margin-bottom: 1em;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
+    height: 3.4em;
+    background-color: #3f9bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 1em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
 }
 
 .boton-subir:hover {
-  background-color: #237cdd;
+    background-color: #237cdd;
 }
 
 .fila-formulario {
-  display: flex;
-  gap: 2em;
-  margin-bottom: 1em;
+    display: flex;
+    gap: 2em;
+    margin-bottom: 1em;
 }
 
 .columna-formulario {
-  width: 50%;
+    width: 50%;
 }
 
 .mt-1 {
-  margin-top: 1rem;
+    margin-top: 1rem;
 }
 
 .mb-1 {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 .nogap {
-  gap: 0;
+    gap: 0;
 }
 
 .formulario-input-error {
-  color: #dc3545;
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  display: none;
+    color: #dc3545;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    display: none;
 }
 
 .input-error-activo {
-  display: block !important;
+    display: block !important;
 }
 
 .campo-correcto {
-  border-color: rgb(70, 228, 70);
-  background-color: rgb(228, 247, 228);
+    border-color: rgb(70, 228, 70);
+    background-color: rgb(228, 247, 228);
 }
 
 .campo-incorrecto {
-  border-color: rgb(252, 27, 27);
-  background-color: rgb(252, 218, 218);
+    border-color: rgb(252, 27, 27);
+    background-color: rgb(252, 218, 218);
 }
 
 .boton-deshabilitado {
-  cursor: not-allowed;
-  opacity: 0.5;
+    cursor: not-allowed;
+    opacity: 0.5;
 }

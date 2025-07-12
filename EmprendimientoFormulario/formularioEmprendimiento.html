@@ -1,246 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./formulario-emprendimiento.css" />
-    <link rel="stylesheet" href="../templates/navbar/navbar.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="./formulario-emprendimiento.css" rel="stylesheet"/>
+    <link href="../templates/navbar/navbar.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
     <title>Registro de emprendimientos</title>
-  </head>
-  <header>
+</head>
+<header>
     <nav class="barra-navegacion">
-      <div class="contenedor-navegacion">
-        <a href="/" class="logo-navegacion">Comunidades Conectadas</a>
-
-        <ul class="navegacion-principal">
-          <li class="elemento-navegacion">
-            <a href="../index.html" class="enlace-navegacion">Inicio</a>
-          </li>
-
-          <li class="elemento-navegacion menu-desplegable">
-            <a href="#" class="enlace-navegacion desplegable-toggle"
-              >Comunidad</a
-            >
-            <div class="submenu-desplegable">
-              <a
-                href="../calendario/calendario.html"
-                class="elemento-desplegable"
-                >Calendario de Eventos</a
-              >
-              <a href="../eventos/eventos.html" class="elemento-desplegable"
-                >Crear Evento</a
-              >
-              <a href="../anuncios/anuncios.html" class="elemento-desplegable"
-                >Anuncios</a
-              >
-              <a href="../reportes/reportes.html" class="elemento-desplegable"
-                >Reportes y Sugerencias</a
-              >
-              <a href="../mapa/mapa.html" class="elemento-desplegable"
-                >Mapa Interactivo</a
-              >
+        <div class="contenedor-navegacion">
+            <a href="/" class="logo-navegacion">Comunidades Conectadas</a>
+            <ul class="navegacion-principal">
+                <li class="elemento-navegacion">
+                    <a href="../index.html" class="enlace-navegacion">Inicio</a>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Comunidad</a>
+                    <div class="submenu-desplegable">
+                        <a href="../calendario/calendario.html" class="elemento-desplegable">Calendario de Eventos</a>
+                        <a href="../mapa/mapa.html" class="elemento-desplegable">Mapa Interactivo</a>
+                        <a href="../reportes/reportes.html" class="elemento-desplegable">Reportes y Sugerencias</a>
+                    </div>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Explorar</a>
+                    <div class="submenu-desplegable">
+                        <a href="../anuncios/anuncios.html" class="elemento-desplegable">Anuncios</a>
+                        <a href="../PaginaDeEventos/paginaEventos.html" class="elemento-desplegable">Eventos</a>
+                        <a href="../emprendimientos/emprendimientos.html" class="elemento-desplegable">Emprendimientos</a>
+                    </div>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Transporte</a>
+                    <div class="submenu-desplegable">
+                        <a href="../ruta/ruta.html" class="elemento-desplegable">Rutas</a>
+                        <a href="../listadoRutas/listadoRutas.html" class="elemento-desplegable">Listado de Rutas</a>
+                    </div>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Creacion</a>
+                    <div class="submenu-desplegable">
+                        <a href="../eventos/eventos.html" class="elemento-desplegable">Crear Evento</a>
+                        <a href="../CreacionAnuncioForm/anuncio.html" class="elemento-desplegable">Crear Anuncio</a>
+                        <a href="../EmprendimientoFormulario/formularioEmprendimiento.html" class="elemento-desplegable">Crear Emprendimiento</a>
+                        <a href="../rutaFormulario/formularioRuta.html" class="elemento-desplegable">Crear Ruta</a>
+                    </div>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Panel</a>
+                    <div class="submenu-desplegable">
+                        <a href="../dashboard/dashboard.html" class="elemento-desplegable">Dashboard</a>
+                        <a href="/perfil" class="elemento-desplegable">Mi Perfil</a>
+                        <a href="/mis-reportes" class="elemento-desplegable">Mis Reportes</a>
+                        <a href="../login/login.html" class="elemento-desplegable">Cerrar sesion</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="seccion-usuario">
+                <div class="info-usuario">
+                    <div class="avatar-usuario">U</div>
+                    <span class="correo-usuario">usuario@correo.com</span>
+                </div>
             </div>
-          </li>
-
-          <li class="elemento-navegacion menu-desplegable">
-            <a href="#" class="enlace-navegacion desplegable-toggle"
-              >Emprendimientos</a
-            >
-            <div class="submenu-desplegable">
-              <a
-                href="../emprendimientos/emprendimientos.html"
-                class="elemento-desplegable"
-                >Ver Emprendimientos</a
-              >
-              <a
-                href="../EmprendimientoFormulario/formularioEmprendimiento.html"
-                class="elemento-desplegable"
-                >Registrar Emprendimiento</a
-              >
-              <a
-                href="../CreacionAnuncioForm/anuncio.html"
-                class="elemento-desplegable"
-                >Crear Anuncio</a
-              >
-            </div>
-          </li>
-
-          <li class="elemento-navegacion menu-desplegable">
-            <a href="#" class="enlace-navegacion desplegable-toggle"
-              >Transporte</a
-            >
-            <div class="submenu-desplegable">
-              <a href="../ruta/ruta.html" class="elemento-desplegable">Rutas</a>
-              <a
-                href="../listadoRutas/listadoRutas.html"
-                class="elemento-desplegable"
-                >Listado de Rutas</a
-              >
-            </div>
-          </li>
-
-          <li class="elemento-navegacion menu-desplegable">
-            <a href="#" class="enlace-navegacion desplegable-toggle">Panel</a>
-            <div class="submenu-desplegable">
-              <a href="/dashboard" class="elemento-desplegable">Dashboard</a>
-              <a href="/perfil" class="elemento-desplegable">Mi Perfil</a>
-              <a href="/mis-reportes" class="elemento-desplegable"
-                >Mis Reportes</a
-              >
-              <a href="../login/login.html" class="elemento-desplegable"
-                >Cerrar sesion</a
-              >
-            </div>
-          </li>
-        </ul>
-
-        <div class="seccion-usuario">
-          <div class="info-usuario">
-            <div class="avatar-usuario">U</div>
-            <span class="correo-usuario">usuario@correo.com</span>
-          </div>
         </div>
-      </div>
     </nav>
-  </header>
-  <body>
-    <form class="contenedor-formulario" id="formularioEmprendimiento">
-      <h2 class="titulo-formulario texto-oscuro mb-2">Nuevo Emprendimiento</h2>
+</header>
+<body>
+<form class="contenedor-formulario" id="formularioEmprendimiento">
+    <h2 class="titulo-formulario texto-oscuro mb-2">Nuevo Emprendimiento</h2>
 
-      <div class="grupo-formulario" id="grupo-nombreNegocio">
+    <div class="grupo-formulario" id="grupo-nombreNegocio">
         <label class="etiqueta-formulario">Nombre</label>
-        <input
-          type="text"
-          class="campo-formulario"
-          placeholder="Nombre del negocio"
-          name="nombreNegocio"
-          id="nombre-negocio"
-        />
+        <input class="campo-formulario" id="nombre-negocio" name="nombreNegocio" placeholder="Nombre del negocio" type="text"/>
         <p class="formulario-input-error">
-          El nombre del negocio debe tener entre 6 a 32 caracteres.
-        </p>
+            El nombre del negocio debe tener entre 6 a 32 caracteres. </p>
         <p class="texto-secundario mt-1">
-          Emprendedor: Sebastian Ortiz Vargas
-          <i class="fa-solid fa-user icono-usuario"></i>
+            Emprendedor: Sebastian Ortiz Vargas
+            <i class="fa-solid fa-user icono-usuario"></i>
         </p>
-      </div>
+    </div>
 
-      <div class="grupo-formulario" id="grupo-telefono">
+    <div class="grupo-formulario" id="grupo-telefono">
         <label class="etiqueta-formulario">Teléfono</label>
-        <input
-          type="text"
-          class="campo-formulario"
-          placeholder="1234-5678"
-          name="telefono"
-          id="telefono"
-        />
+        <input class="campo-formulario" id="telefono" name="telefono" placeholder="1234-5678" type="text"/>
         <p class="formulario-input-error">
-          El telefono debe ser de 8 numeros, formato +506 Costa Rica
-        </p>
-      </div>
+            El telefono debe ser de 8 numeros, formato +506 Costa Rica </p>
+    </div>
 
-      <div class="grupo-formulario" id="grupo-ubicacion">
+    <div class="grupo-formulario" id="grupo-ubicacion">
         <label class="etiqueta-formulario">Ubicación</label>
-        <input
-          type="text"
-          class="campo-formulario"
-          placeholder="Distrito, Cantón, Provincia"
-          name="ubicacion"
-          id="ubicacion"
-        />
+        <input class="campo-formulario" id="ubicacion" name="ubicacion" placeholder="Distrito, Cantón, Provincia" type="text"/>
         <p class="formulario-input-error">
-          La ubicacion debe tener entre 6 a 32 caracteres
-        </p>
-      </div>
+            La ubicacion debe tener entre 6 a 32 caracteres </p>
+    </div>
 
-      <div class="grupo-formulario" id="grupo-categoria">
+    <div class="grupo-formulario" id="grupo-categoria">
         <label class="etiqueta-formulario">Categoría</label>
-        <select class="seleccion-formulario" name="categoria" id="categoria">
-          <option selected disabled>Categoría</option>
-          <option>Electrodomésticos</option>
-          <option>Comida</option>
-          <option>Ropa</option>
-          <option>Eventos</option>
-          <option>Artículos variados</option>
+        <select class="seleccion-formulario" id="categoria" name="categoria">
+            <option disabled selected>Categoría</option>
+            <option>Electrodomésticos</option>
+            <option>Comida</option>
+            <option>Ropa</option>
+            <option>Eventos</option>
+            <option>Artículos variados</option>
         </select>
         <p class="formulario-input-error">
-          Es necesario seleccionar el estado incial del ticket de emprendimiento
-        </p>
-      </div>
+            Es necesario seleccionar el estado incial del ticket de emprendimiento </p>
+    </div>
 
-      <div class="grupo-formulario" id="grupo-descripcion">
+    <div class="grupo-formulario" id="grupo-descripcion">
         <label class="etiqueta-formulario">Descripción</label>
-        <textarea
-          class="area-texto"
-          placeholder="Descripción del negocio"
-          name="descripcion"
-          id="descripcion"
-        ></textarea>
+        <textarea class="area-texto" id="descripcion" name="descripcion" placeholder="Descripción del negocio"></textarea>
         <p class="formulario-input-error">
-          La descripcion debe ser entre 6 a 32 caracteres de largo
-        </p>
-      </div>
+            La descripcion debe ser entre 6 a 32 caracteres de largo </p>
+    </div>
 
-      <div class="fila-formulario mb-2" id="grupo-fechaRegistro">
+    <div class="fila-formulario mb-2" id="grupo-fechaRegistro">
         <div class="columna-formulario">
-          <label class="etiqueta-formulario">Fecha de registro</label>
-          <input
-            class="campo-formulario"
-            disabled
-            type="text"
-            value="6/20/2025"
-            id="fechaRegistro"
-            name="fecha-registro"
-          />
+            <label class="etiqueta-formulario">Fecha de registro</label>
+            <input class="campo-formulario" disabled id="fechaRegistro" name="fecha-registro" type="text" value="6/20/2025"/>
         </div>
 
         <div class="columna-formulario" id="grupo-estado">
-          <label class="etiqueta-formulario">Estado</label>
-          <select class="seleccion-formulario" name="estado" id="estado">
-            <option selected disabled>Estado</option>
-            <option>Activo</option>
-            <option>Inactivo</option>
-            <option>En revisión</option>
-          </select>
-          <p class="formulario-input-error">
-            Es necesario seleccionar el estado incial del ticket de
-            emprendimiento
-          </p>
+            <label class="etiqueta-formulario">Estado</label>
+            <select class="seleccion-formulario" id="estado" name="estado">
+                <option disabled selected>Estado</option>
+                <option>Activo</option>
+                <option>Inactivo</option>
+                <option>En revisión</option>
+            </select>
+            <p class="formulario-input-error">
+                Es necesario seleccionar el estado incial del ticket de
+                emprendimiento </p>
         </div>
-      </div>
+    </div>
 
-      <div class="grupo-formulario" id="grupo-logo">
+    <div class="grupo-formulario" id="grupo-logo">
         <label class="etiqueta-formulario">Logo</label>
         <div class="fila-formulario mb-2 nogap">
-          <div class="columna-formulario">
-            <button class="boton-subir" id="boton-subir-logo">
-              Subir logo
-            </button>
-          </div>
-          <div class="columna-formulario">
-            <input
-              type="text"
-              class="campo-formulario"
-              disabled
-              value="fotoEmprendimiento.png"
-              id="input-detalles-logo"
-            />
-          </div>
+            <div class="columna-formulario">
+                <button class="boton-subir" id="boton-subir-logo">
+                    Subir logo
+                </button>
+            </div>
+            <div class="columna-formulario">
+                <input class="campo-formulario" disabled id="input-detalles-logo" type="text" value="fotoEmprendimiento.png"/>
+            </div>
         </div>
-      </div>
+    </div>
 
-      <div class="grupo-formulario" id="grupo-boton">
+    <div class="grupo-formulario" id="grupo-boton">
         <button class="boton-subir" id="boton-submit">Crear negocio</button>
         <p class="texto-secundario mb-1">
-          Al enviar este formulario de registro de emprendimiento, el usuario
-          declara que la información proporcionada es veraz y está actualizada.
-        </p>
-      </div>
-    </form>
-    <script src="validacion-emprendimiento.js"></script>
-  </body>
+            Al enviar este formulario de registro de emprendimiento, el usuario
+            declara que la información proporcionada es veraz y está actualizada. </p>
+    </div>
+</form>
+<script src="validacion-emprendimiento.js"></script>
+</body>
 </html>

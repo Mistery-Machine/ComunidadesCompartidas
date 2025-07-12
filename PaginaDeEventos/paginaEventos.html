@@ -1,230 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="ventana-grupo-eventos.css" />
-    <link rel="stylesheet" href="../templates/navbar/navbar.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="ventana-grupo-eventos.css"/>
+    <link rel="stylesheet" href="../templates/navbar/navbar.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <title>Pagina de eventos</title>
-  </head>
-  <header>
+</head>
+<header>
     <nav class="barra-navegacion">
-      <div class="contenedor-navegacion">
-        <a href="/" class="logo-navegacion">Comunidades Conectadas</a>
-
-        <ul class="navegacion-principal">
-          <li class="elemento-navegacion">
-            <a href="../index.html" class="enlace-navegacion">Inicio</a>
-          </li>
-
-          <li class="elemento-navegacion menu-desplegable">
-            <a href="#" class="enlace-navegacion desplegable-toggle"
-              >Comunidad</a
-            >
-            <div class="submenu-desplegable">
-              <a
-                href="../calendario/calendario.html"
-                class="elemento-desplegable"
-                >Calendario de Eventos</a
-              >
-              <a href="../eventos/eventos.html" class="elemento-desplegable"
-                >Crear Evento</a
-              >
-              <a href="../anuncios/anuncios.html" class="elemento-desplegable"
-                >Anuncios</a
-              >
-              <a href="../reportes/reportes.html" class="elemento-desplegable"
-                >Reportes y Sugerencias</a
-              >
-              <a href="../mapa/mapa.html" class="elemento-desplegable"
-                >Mapa Interactivo</a
-              >
+        <div class="contenedor-navegacion">
+            <a href="/" class="logo-navegacion">Comunidades Conectadas</a>
+            <ul class="navegacion-principal">
+                <li class="elemento-navegacion">
+                    <a href="../index.html" class="enlace-navegacion">Inicio</a>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Comunidad</a>
+                    <div class="submenu-desplegable">
+                        <a href="../calendario/calendario.html" class="elemento-desplegable">Calendario de Eventos</a>
+                        <a href="../mapa/mapa.html" class="elemento-desplegable">Mapa Interactivo</a>
+                        <a href="../reportes/reportes.html" class="elemento-desplegable">Reportes y Sugerencias</a>
+                    </div>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Explorar</a>
+                    <div class="submenu-desplegable">
+                        <a href="../anuncios/anuncios.html" class="elemento-desplegable">Anuncios</a>
+                        <a href="../PaginaDeEventos/paginaEventos.html" class="elemento-desplegable">Eventos</a>
+                        <a href="../emprendimientos/emprendimientos.html" class="elemento-desplegable">Emprendimientos</a>
+                    </div>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Transporte</a>
+                    <div class="submenu-desplegable">
+                        <a href="../ruta/ruta.html" class="elemento-desplegable">Rutas</a>
+                        <a href="../listadoRutas/listadoRutas.html" class="elemento-desplegable">Listado de Rutas</a>
+                    </div>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Creacion</a>
+                    <div class="submenu-desplegable">
+                        <a href="../eventos/eventos.html" class="elemento-desplegable">Crear Evento</a>
+                        <a href="../CreacionAnuncioForm/anuncio.html" class="elemento-desplegable">Crear Anuncio</a>
+                        <a href="../EmprendimientoFormulario/formularioEmprendimiento.html" class="elemento-desplegable">Crear Emprendimiento</a>
+                        <a href="../rutaFormulario/formularioRuta.html" class="elemento-desplegable">Crear Ruta</a>
+                    </div>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Panel</a>
+                    <div class="submenu-desplegable">
+                        <a href="../dashboard/dashboard.html" class="elemento-desplegable">Dashboard</a>
+                        <a href="/perfil" class="elemento-desplegable">Mi Perfil</a>
+                        <a href="/mis-reportes" class="elemento-desplegable">Mis Reportes</a>
+                        <a href="../login/login.html" class="elemento-desplegable">Cerrar sesion</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="seccion-usuario">
+                <div class="info-usuario">
+                    <div class="avatar-usuario">U</div>
+                    <span class="correo-usuario">usuario@correo.com</span>
+                </div>
             </div>
-          </li>
-
-          <li class="elemento-navegacion menu-desplegable">
-            <a href="#" class="enlace-navegacion desplegable-toggle"
-              >Emprendimientos</a
-            >
-            <div class="submenu-desplegable">
-              <a
-                href="../emprendimientos/emprendimientos.html"
-                class="elemento-desplegable"
-                >Ver Emprendimientos</a
-              >
-              <a
-                href="../EmprendimientoFormulario/formularioEmprendimiento.html"
-                class="elemento-desplegable"
-                >Registrar Emprendimiento</a
-              >
-              <a
-                href="../CreacionAnuncioForm/anuncio.html"
-                class="elemento-desplegable"
-                >Crear Anuncio</a
-              >
-            </div>
-          </li>
-
-          <li class="elemento-navegacion menu-desplegable">
-            <a href="#" class="enlace-navegacion desplegable-toggle"
-              >Transporte</a
-            >
-            <div class="submenu-desplegable">
-              <a href="../ruta/ruta.html" class="elemento-desplegable">Rutas</a>
-              <a
-                href="../listadoRutas/listadoRutas.html"
-                class="elemento-desplegable"
-                >Listado de Rutas</a
-              >
-            </div>
-          </li>
-
-          <li class="elemento-navegacion menu-desplegable">
-            <a href="#" class="enlace-navegacion desplegable-toggle">Panel</a>
-            <div class="submenu-desplegable">
-              <a href="/dashboard" class="elemento-desplegable">Dashboard</a>
-              <a href="/perfil" class="elemento-desplegable">Mi Perfil</a>
-              <a href="/mis-reportes" class="elemento-desplegable"
-                >Mis Reportes</a
-              >
-              <a href="../login/login.html" class="elemento-desplegable"
-                >Cerrar sesion</a
-              >
-            </div>
-          </li>
-        </ul>
-
-        <div class="seccion-usuario">
-          <div class="info-usuario">
-            <div class="avatar-usuario">U</div>
-            <span class="correo-usuario">usuario@correo.com</span>
-          </div>
         </div>
-      </div>
     </nav>
-  </header>
-
-  <body>
-    <div class="contenedor mb-2">
-      <div class="grid">
+</header>
+<body>
+<div class="contenedor mb-2">
+    <div class="grid">
         <div class="columna-grid">
-          <div class="tarjeta">
-            <div class="imagen">
-              <img
-                src="https://es.globalvoices.org/wp-content/uploads/2014/09/DesfileCostaRica.jpg"
-                alt="ImagenEvento"
-              />
+            <div class="tarjeta">
+                <div class="imagen">
+                    <img src="https://es.globalvoices.org/wp-content/uploads/2014/09/DesfileCostaRica.jpg" alt="ImagenEvento"/>
+                </div>
+                <div class="contenido">
+                    <h2 class="titulo">Desfile Conmemorativo</h2>
+                    <p class="descripcion">
+                        Ven y disfruta de un gran desfile en Calle, Distrito, Provincia </p>
+                    <div class="etiquetas">
+                        <span class="etiqueta">Escolar</span>
+                        <span class="etiqueta">Familia</span>
+                        <span class="etiqueta">Musica</span>
+                    </div>
+                    <div>
+                        <span class="texto-secundario">Domingo 23 de Junio, 2025</span>
+                    </div>
+                    <button class="boton">Participar</button>
+                    <div class="info-adicional">
+                        <div class="estado">Activo</div>
+                    </div>
+                </div>
             </div>
-            <div class="contenido">
-              <h2 class="titulo">Desfile Conmemorativo</h2>
-              <p class="descripcion">
-                Ven y disfruta de un gran desfile en Calle, Distrito, Provincia
-              </p>
-              <div class="etiquetas">
-                <span class="etiqueta">Escolar</span>
-                <span class="etiqueta">Familia</span>
-                <span class="etiqueta">Musica</span>
-              </div>
-              <div>
-                <span class="texto-secundario">Domingo 23 de Junio, 2025</span>
-              </div>
-              <button class="boton">Participar</button>
-              <div class="info-adicional">
-                <div class="estado">Activo</div>
-              </div>
-            </div>
-          </div>
         </div>
         <div class="columna-grid">
-          <div class="tarjeta">
-            <div class="imagen">
-              <img
-                src="https://es.globalvoices.org/wp-content/uploads/2014/09/DesfileCostaRica.jpg"
-                alt="ImagenEvento"
-              />
+            <div class="tarjeta">
+                <div class="imagen">
+                    <img src="https://es.globalvoices.org/wp-content/uploads/2014/09/DesfileCostaRica.jpg" alt="ImagenEvento"/>
+                </div>
+                <div class="contenido">
+                    <h2 class="titulo">Desfile Conmemorativo</h2>
+                    <p class="descripcion">
+                        Ven y disfruta de un gran desfile en Calle, Distrito, Provincia </p>
+                    <div class="etiquetas">
+                        <span class="etiqueta">Escolar</span>
+                        <span class="etiqueta">Familia</span>
+                        <span class="etiqueta">Musica</span>
+                    </div>
+                    <div>
+                        <span class="texto-secundario">Domingo 23 de Junio, 2025</span>
+                    </div>
+                    <button class="boton">Participar</button>
+                    <div class="info-adicional">
+                        <div class="estado">Activo</div>
+                    </div>
+                </div>
             </div>
-            <div class="contenido">
-              <h2 class="titulo">Desfile Conmemorativo</h2>
-              <p class="descripcion">
-                Ven y disfruta de un gran desfile en Calle, Distrito, Provincia
-              </p>
-              <div class="etiquetas">
-                <span class="etiqueta">Escolar</span>
-                <span class="etiqueta">Familia</span>
-                <span class="etiqueta">Musica</span>
-              </div>
-              <div>
-                <span class="texto-secundario">Domingo 23 de Junio, 2025</span>
-              </div>
-              <button class="boton">Participar</button>
-              <div class="info-adicional">
-                <div class="estado">Activo</div>
-              </div>
-            </div>
-          </div>
         </div>
         <div class="columna-grid">
-          <div class="tarjeta">
-            <div class="imagen">
-              <img
-                src="https://es.globalvoices.org/wp-content/uploads/2014/09/DesfileCostaRica.jpg"
-                alt="ImagenEvento"
-              />
+            <div class="tarjeta">
+                <div class="imagen">
+                    <img src="https://es.globalvoices.org/wp-content/uploads/2014/09/DesfileCostaRica.jpg" alt="ImagenEvento"/>
+                </div>
+                <div class="contenido">
+                    <h2 class="titulo">Desfile Conmemorativo</h2>
+                    <p class="descripcion">
+                        Ven y disfruta de un gran desfile en Calle, Distrito, Provincia </p>
+                    <div class="etiquetas">
+                        <span class="etiqueta">Escolar</span>
+                        <span class="etiqueta">Familia</span>
+                        <span class="etiqueta">Musica</span>
+                    </div>
+                    <div>
+                        <span class="texto-secundario">Domingo 23 de Junio, 2025</span>
+                    </div>
+                    <button class="boton">Participar</button>
+                    <div class="info-adicional">
+                        <div class="estado">Activo</div>
+                    </div>
+                </div>
             </div>
-            <div class="contenido">
-              <h2 class="titulo">Desfile Conmemorativo</h2>
-              <p class="descripcion">
-                Ven y disfruta de un gran desfile en Calle, Distrito, Provincia
-              </p>
-              <div class="etiquetas">
-                <span class="etiqueta">Escolar</span>
-                <span class="etiqueta">Familia</span>
-                <span class="etiqueta">Musica</span>
-              </div>
-              <div>
-                <span class="texto-secundario">Domingo 23 de Junio, 2025</span>
-              </div>
-              <button class="boton">Participar</button>
-              <div class="info-adicional">
-                <div class="estado">Activo</div>
-              </div>
-            </div>
-          </div>
         </div>
         <div class="columna-grid">
-          <div class="tarjeta">
-            <div class="imagen">
-              <img
-                src="https://es.globalvoices.org/wp-content/uploads/2014/09/DesfileCostaRica.jpg"
-                alt="ImagenEvento"
-              />
+            <div class="tarjeta">
+                <div class="imagen">
+                    <img src="https://es.globalvoices.org/wp-content/uploads/2014/09/DesfileCostaRica.jpg" alt="ImagenEvento"/>
+                </div>
+                <div class="contenido">
+                    <h2 class="titulo">Desfile Conmemorativo</h2>
+                    <p class="descripcion">
+                        Ven y disfruta de un gran desfile en Calle, Distrito, Provincia
+                        en la Escuela Nombre </p>
+                    <div class="etiquetas">
+                        <span class="etiqueta">Escolar</span>
+                        <span class="etiqueta">Familia</span>
+                        <span class="etiqueta">Musica</span>
+                    </div>
+                    <div>
+                        <span class="texto-secundario">Domingo 23 de Junio, 2025</span>
+                    </div>
+                    <button class="boton">Participar</button>
+                    <div class="info-adicional">
+                        <div class="estado">Activo</div>
+                    </div>
+                </div>
             </div>
-            <div class="contenido">
-              <h2 class="titulo">Desfile Conmemorativo</h2>
-              <p class="descripcion">
-                Ven y disfruta de un gran desfile en Calle, Distrito, Provincia
-                en la Escuela Nombre
-              </p>
-              <div class="etiquetas">
-                <span class="etiqueta">Escolar</span>
-                <span class="etiqueta">Familia</span>
-                <span class="etiqueta">Musica</span>
-              </div>
-              <div>
-                <span class="texto-secundario">Domingo 23 de Junio, 2025</span>
-              </div>
-              <button class="boton">Participar</button>
-              <div class="info-adicional">
-                <div class="estado">Activo</div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </body>
+</div>
+</body>
 </html>
