@@ -1,236 +1,225 @@
-/* Estilos CSS - Comunidades Conectadas */
-
-/* Reset y estilos base */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  line-height: 1.6;
-  color: #1f2937;
-  background: linear-gradient(135deg, #e3f2fd 0%, #f1f8ff 50%, #ffffff 100%);
-  min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    color: #1f2937;
+    background: linear-gradient(135deg, #e3f2fd 0%, #f1f8ff 50%, #ffffff 100%);
+    min-height: 100vh;
 }
 
-/* Contenedor principal */
 .contenedor {
-  max-width: 80%;
-  margin: 0 auto;
-  padding: 20px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Encabezado */
 .encabezado {
-  text-align: center;
-  background: #ffffff;
-  padding: 40px 30px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  margin-bottom: 40px;
-  border: 2px solid rgba(116, 192, 252, 0.2);
+    text-align: center;
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    margin-bottom: 40px;
+    border: 2px solid rgba(116, 192, 252, 0.2);
 }
 
 .titulo-principal {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #74c0fc;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 3rem;
+    font-weight: 700;
+    color: #74c0fc;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .subtitulo {
-  font-size: 1.2rem;
-  color: #6b7280;
-  font-weight: 400;
-  max-width: 600px;
-  margin: 0 auto;
+    font-size: 1.2rem;
+    color: #6b7280;
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-/* Contenido principal */
 .contenido-principal {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
-/* Sección de introducción */
 .seccion-intro {
-  background: #ffffff;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  border: 1px solid rgba(116, 192, 252, 0.15);
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 1px solid rgba(116, 192, 252, 0.15);
 }
 
 .introduccion {
-  max-width: 800px;
-  margin: 0 auto;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .titulo-bienvenida {
-  font-size: 2.5rem;
-  color: #74c0fc;
-  margin-bottom: 20px;
-  font-weight: 600;
+    font-size: 2.5rem;
+    color: #74c0fc;
+    margin-bottom: 20px;
+    font-weight: 600;
 }
 
 .descripcion {
-  font-size: 1.1rem;
-  color: #6b7280;
-  line-height: 1.8;
+    font-size: 1.1rem;
+    color: #6b7280;
+    line-height: 1.8;
 }
 
-/* Sección de tarjetas */
 .seccion-tarjetas {
-  flex: 1;
+    flex: 1;
 }
 
 .contenedor-tarjetas {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  align-items: start;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    align-items: start;
 }
 
-/* Tarjetas */
 .tarjeta {
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(116, 192, 252, 0.15);
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(116, 192, 252, 0.15);
 }
 
 .tarjeta::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
 }
 
 .tarjeta:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  border-color: #74c0fc;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-color: #74c0fc;
 }
 
 .icono-tarjeta {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  display: block;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
 }
 
 .titulo-tarjeta {
-  font-size: 1.5rem;
-  color: #74c0fc;
-  margin-bottom: 15px;
-  font-weight: 600;
+    font-size: 1.5rem;
+    color: #74c0fc;
+    margin-bottom: 15px;
+    font-weight: 600;
 }
 
 .texto-tarjeta {
-  color: #6b7280;
-  margin-bottom: 25px;
-  line-height: 1.7;
+    color: #6b7280;
+    margin-bottom: 25px;
+    line-height: 1.7;
 }
 
 .boton-tarjeta {
-  color: #ffffff;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 25px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.95rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  background: #74c0fc;
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background: #74c0fc;
 }
 
 .boton-tarjeta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Pie de página */
 .pie-pagina {
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  margin-top: 40px;
-  border: 1px solid rgba(116, 192, 252, 0.15);
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 40px;
+    border: 1px solid rgba(116, 192, 252, 0.15);
 }
 
 .texto-pie {
-  color: #6b7280;
-  font-size: 0.9rem;
+    color: #6b7280;
+    font-size: 0.9rem;
 }
 
-/* Responsividad */
 @media (max-width: 768px) {
-  .contenedor {
-    padding: 15px;
-  }
+    .contenedor {
+        padding: 15px;
+    }
 
-  .titulo-principal {
-    font-size: 2.2rem;
-  }
+    .titulo-principal {
+        font-size: 2.2rem;
+    }
 
-  .subtitulo {
-    font-size: 1rem;
-  }
+    .subtitulo {
+        font-size: 1rem;
+    }
 
-  .titulo-bienvenida {
-    font-size: 2rem;
-  }
+    .titulo-bienvenida {
+        font-size: 2rem;
+    }
 
-  .encabezado {
-    padding: 30px 20px;
-  }
+    .encabezado {
+        padding: 30px 20px;
+    }
 
-  .seccion-intro {
-    padding: 30px 20px;
-  }
+    .seccion-intro {
+        padding: 30px 20px;
+    }
 
-  .tarjeta {
-    padding: 25px 20px;
-  }
+    .tarjeta {
+        padding: 25px 20px;
+    }
 
-  .contenedor-tarjetas {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
+    .contenedor-tarjetas {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 }
 
 @media (max-width: 480px) {
-  .titulo-principal {
-    font-size: 1.8rem;
-  }
+    .titulo-principal {
+        font-size: 1.8rem;
+    }
 
-  .titulo-bienvenida {
-    font-size: 1.7rem;
-  }
+    .titulo-bienvenida {
+        font-size: 1.7rem;
+    }
 
-  .icono-tarjeta {
-    font-size: 2.5rem;
-  }
+    .icono-tarjeta {
+        font-size: 2.5rem;
+    }
 
-  .titulo-tarjeta {
-    font-size: 1.3rem;
-  }
+    .titulo-tarjeta {
+        font-size: 1.3rem;
+    }
 }

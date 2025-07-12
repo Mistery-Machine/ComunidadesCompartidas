@@ -1,4 +1,4 @@
- 
+
 * {
     margin: 0;
     padding: 0;
@@ -6,12 +6,11 @@
 }
 
 body {
-    font-family:  Arial, sans-serif;
+    font-family: Arial, sans-serif;
     background-color: #f8fafc;
     min-height: 100vh;
 }
 
-/* Barra de Navegación Principal */
 .barra-navegacion {
     background: #3f9bff;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
@@ -31,7 +30,6 @@ body {
     height: 70px;
 }
 
-/* Logo */
 .logo-navegacion {
     font-size: 1.25rem;
     font-weight: 800;
@@ -42,7 +40,6 @@ body {
     gap: 10px;
 }
 
-/* Navegación Principal */
 .navegacion-principal {
     display: flex;
     gap: 30px;
@@ -56,20 +53,21 @@ body {
 
 .enlace-navegacion {
     color: white;
+    font-size: 0.85rem;
     text-decoration: none;
     font-weight: 500;
     padding: 8px 16px;
     border-radius: 4px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 5px;
+    font-weight: bold;
 }
 
 .enlace-navegacion:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Menú Desplegable */
 .menu-desplegable {
     position: relative;
 }
@@ -103,6 +101,7 @@ body {
     color: #374151;
     text-decoration: none;
     border-bottom: 1px solid #f3f4f6;
+    font-size: 0.85rem;
 }
 
 .elemento-desplegable:last-child {
@@ -114,7 +113,6 @@ body {
     color: #3f9bff;
 }
 
-/* Usuario */
 .seccion-usuario {
     display: flex;
     align-items: center;
@@ -160,20 +158,19 @@ body {
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* Responsivo */
 @media (max-width: 768px) {
     .navegacion-principal {
         display: none;
     }
-    
+
     .contenedor-navegacion {
         justify-content: space-between;
     }
-    
+
     .correo-usuario {
         display: none;
     }
-    
+
     .titulo-hero {
         font-size: 2rem;
     }

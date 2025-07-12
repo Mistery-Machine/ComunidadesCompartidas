@@ -5,110 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="ventana-evento.css">
     <link rel="stylesheet" href="/templates/navbar/navbar.css">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <title>Pagina de eventos</title>
 </head>
 <header>
     <nav class="barra-navegacion">
-    <div class="contenedor-navegacion">
-        <a href="/" class="logo-navegacion">Comunidades Conectadas</a>
-        
-        <ul class="navegacion-principal">
-            <li class="elemento-navegacion">
-                <a href="../index.html" class="enlace-navegacion">Inicio</a>
-            </li>
-            
-            <li class="elemento-navegacion menu-desplegable">
-                <a href="#" class="enlace-navegacion desplegable-toggle">Comunidad</a>
-                <div class="submenu-desplegable">
-                    <a href="../calendario/calendario.html" class="elemento-desplegable">Calendario de Eventos</a>
-                    <a href="../eventos/eventos.html" class="elemento-desplegable">Crear Evento</a>
-                    <a href="../anuncios/anuncios.html" class="elemento-desplegable">Anuncios</a>
-                    <a href="../reportes/reportes.html" class="elemento-desplegable">Reportes y Sugerencias</a>
-                    <a href="../mapa/mapa.html" class="elemento-desplegable">Mapa Interactivo</a>
+        <div class="contenedor-navegacion">
+            <a href="/" class="logo-navegacion">Comunidades Conectadas</a>
+            <ul class="navegacion-principal">
+                <li class="elemento-navegacion">
+                    <a href="../index.html" class="enlace-navegacion">Inicio</a>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Comunidad</a>
+                    <div class="submenu-desplegable">
+                        <a href="../calendario/calendario.html" class="elemento-desplegable">Calendario de Eventos</a>
+                        <a href="../mapa/mapa.html" class="elemento-desplegable">Mapa Interactivo</a>
+                        <a href="../reportes/reportes.html" class="elemento-desplegable">Reportes y Sugerencias</a>
+                    </div>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Explorar</a>
+                    <div class="submenu-desplegable">
+                        <a href="../anuncios/anuncios.html" class="elemento-desplegable">Anuncios</a>
+                        <a href="../PaginaDeEventos/paginaEventos.html" class="elemento-desplegable">Eventos</a>
+                        <a href="../emprendimientos/emprendimientos.html" class="elemento-desplegable">Emprendimientos</a>
+                    </div>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Transporte</a>
+                    <div class="submenu-desplegable">
+                        <a href="../ruta/ruta.html" class="elemento-desplegable">Rutas</a>
+                        <a href="../listadoRutas/listadoRutas.html" class="elemento-desplegable">Listado de Rutas</a>
+                    </div>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Creacion</a>
+                    <div class="submenu-desplegable">
+                        <a href="../eventos/eventos.html" class="elemento-desplegable">Crear Evento</a>
+                        <a href="../CreacionAnuncioForm/anuncio.html" class="elemento-desplegable">Crear Anuncio</a>
+                        <a href="../EmprendimientoFormulario/formularioEmprendimiento.html" class="elemento-desplegable">Crear Emprendimiento</a>
+                        <a href="../rutaFormulario/formularioRuta.html" class="elemento-desplegable">Crear Ruta</a>
+                    </div>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Panel</a>
+                    <div class="submenu-desplegable">
+                        <a href="../dashboard/dashboard.html" class="elemento-desplegable">Dashboard</a>
+                        <a href="/perfil" class="elemento-desplegable">Mi Perfil</a>
+                        <a href="/mis-reportes" class="elemento-desplegable">Mis Reportes</a>
+                        <a href="../login/login.html" class="elemento-desplegable">Cerrar sesion</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="seccion-usuario">
+                <div class="info-usuario">
+                    <div class="avatar-usuario">U</div>
+                    <span class="correo-usuario">usuario@correo.com</span>
                 </div>
-            </li>
-            
-            <li class="elemento-navegacion menu-desplegable">
-                <a href="#" class="enlace-navegacion desplegable-toggle">Emprendimientos</a>
-                <div class="submenu-desplegable">
-                    <a href="../emprendimientos/emprendimientos.html" class="elemento-desplegable">Ver Emprendimientos</a>
-                    <a href="../EmprendimientoFormulario/formularioEmprendimiento.html" class="elemento-desplegable">Registrar Emprendimiento</a>
-                    <a href="../CreacionAnuncioForm/anuncio.html" class="elemento-desplegable">Crear Anuncio</a>
-                </div>
-            </li>
-            
-            <li class="elemento-navegacion menu-desplegable">
-                <a href="#" class="enlace-navegacion desplegable-toggle">Transporte</a>
-                <div class="submenu-desplegable">
-                    <a href="../ruta/ruta.html" class="elemento-desplegable">Rutas</a>
-                    <a href="../listadoRutas/listadoRutas.html" class="elemento-desplegable">Listado de Rutas</a>
-                </div>
-            </li>
-            
-            <li class="elemento-navegacion menu-desplegable">
-                <a href="#" class="enlace-navegacion desplegable-toggle">Panel</a>
-                <div class="submenu-desplegable">
-                    <a href="/dashboard" class="elemento-desplegable">Dashboard</a>
-                    <a href="/perfil" class="elemento-desplegable">Mi Perfil</a>
-                    <a href="/mis-reportes" class="elemento-desplegable">Mis Reportes</a>
-                    <a href="../login/login.html" class="elemento-desplegable">Cerrar sesion</a>
-                </div>
-            </li>
-        </ul>
-        
-        <div class="seccion-usuario">
-            <div class="info-usuario">
-                <div class="avatar-usuario">U</div>
-                <span class="correo-usuario">usuario@correo.com</span>
             </div>
         </div>
-    </div>
-  </nav>
-  </header>
-
+    </nav>
+</header>
 <body>
-  <div class="contenedor mb-2">
+<div class="contenedor mb-2">
     <div class="evento">
-        <a href="" class="boton boton-pequeno boton-secundario mb-2">Regresar</a>
         <div class="contenedor-imagen mb-1 mt-1">
             <img class="" src="https://www.museocostarica.go.cr/wp-content/uploads/exhibiciones/bicentenario/desfile-2019-scaled.jpg" alt="">
-        </div>  
+        </div>
         <div class="contenidos">
             <div class="fecha-evento mb-1">
                 <p class="texto-secundario">Fecha: Domingo 23 de junio, 2025</p>
             </div>
-                <div class="grupo-formulario">
-                    <h3 class="titulo">Bicentenario</h3>
-                    <div class="etiquetas">
-                        <span class="etiqueta">Escolar</span>
-                        <span class="etiqueta">Familia</span>
-                        <span class="etiqueta">Musica</span>
-                    </div>   
-                    <p class="descripcion text-justify">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus quam rem laboriosam non ut est aperiam ullam! Voluptate itaque porro, ullam, veritatis, deleniti eligendi expedita quis eveniet provident soluta deserunt eos esse labore vero consectetur iusto iste quasi laudantium.
-                    </p>
+            <div class="grupo-formulario">
+                <h3 class="titulo">Bicentenario</h3>
+                <div class="etiquetas">
+                    <span class="etiqueta">Escolar</span>
                 </div>
-                <div class="grupo-formulario">
-                    <div class="grid grid-col2">
-                        <div class="columna-grid mini-contenedor">
-                            <p class="titulo">Participar</p>
-                            <p class="texto-secundario">Confirme su participacion para el conteo de participantes. Aplican restricciones</p>
-                        </div>
-                        <div class="columna-grid mini-contenedor">
-                            <p class="titulo">Escuela Nombre Institucion</p>
-                            <p class="texto-secundario">Organizador principal del evento. Contacto: 8888-2234. Favor confirmar asistencia.</p>
-                        </div>
-                    </div>      
+                <p class="descripcion text-justify">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus quam rem laboriosam non ut est
+                    aperiam ullam! Voluptate itaque porro, ullam, veritatis, deleniti eligendi expedita quis eveniet
+                    provident soluta deserunt eos esse labore vero consectetur iusto iste quasi laudantium. </p>
+            </div>
+            <div class="grupo-formulario">
+                <div class="grid grid-col2">
+                    <div class="columna-grid mini-contenedor">
+                        <p class="titulo">Participar</p>
+                        <p class="texto-secundario">Es necesario llamar al numero de telefono para confirmar asistencia. Mas informacion con los organizadores del evento</p>
+                    </div>
+                    <div class="columna-grid mini-contenedor">
+                        <p class="titulo">Escuela Nombre Institucion</p>
+                        <p class="texto-secundario">Organizador principal del evento. Contacto: 8888-2234. Favor
+                            confirmar asistencia.</p>
+                    </div>
                 </div>
-                <button class="boton mb-2">Registrar</button>
-            </div>     
+            </div>
         </div>
     </div>
-  </div>
+</div>
+</div>
 </body>
 </html>
   
