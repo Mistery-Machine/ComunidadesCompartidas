@@ -1,115 +1,208 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Crear Evento</title>
-    <link rel="stylesheet" href="eventos.css"/>
-    <link rel="stylesheet" href="../templates/navbar/navbar.css"/>
-</head>
-<header>
+    <link rel="stylesheet" href="eventos.css" />
+    <link rel="stylesheet" href="../templates/navbar/navbar.css" />
+  </head>
+  <header>
     <nav class="barra-navegacion">
-        <div class="contenedor-navegacion">
-            <a href="/" class="logo-navegacion">Comunidades Conectadas</a>
-            <ul class="navegacion-principal">
-                <li class="elemento-navegacion">
-                    <a href="../index.html" class="enlace-navegacion">Inicio</a>
-                </li>
-                <li class="elemento-navegacion menu-desplegable">
-                    <a href="#" class="enlace-navegacion desplegable-toggle">Comunidad</a>
-                    <div class="submenu-desplegable">
-                        <a href="../calendario/calendario.html" class="elemento-desplegable">Calendario de Eventos</a>
-                        <a href="../mapa/mapa.html" class="elemento-desplegable">Mapa Interactivo</a>
-                        <a href="../reportes/reportes.html" class="elemento-desplegable">Reportes y Sugerencias</a>
-                    </div>
-                </li>
-                <li class="elemento-navegacion menu-desplegable">
-                    <a href="#" class="enlace-navegacion desplegable-toggle">Explorar</a>
-                    <div class="submenu-desplegable">
-                        <a href="../anuncios/anuncios.html" class="elemento-desplegable">Anuncios</a>
-                        <a href="../PaginaDeEventos/paginaEventos.html" class="elemento-desplegable">Eventos</a>
-                        <a href="../emprendimientos/emprendimientos.html" class="elemento-desplegable">Emprendimientos</a>
-                    </div>
-                </li>
-                <li class="elemento-navegacion menu-desplegable">
-                    <a href="#" class="enlace-navegacion desplegable-toggle">Transporte</a>
-                    <div class="submenu-desplegable">
-                        <a href="../ruta/ruta.html" class="elemento-desplegable">Rutas</a>
-                        <a href="../listadoRutas/listadoRutas.html" class="elemento-desplegable">Listado de Rutas</a>
-                    </div>
-                </li>
-                <li class="elemento-navegacion menu-desplegable">
-                    <a href="#" class="enlace-navegacion desplegable-toggle">Creacion</a>
-                    <div class="submenu-desplegable">
-                        <a href="../eventos/eventos.html" class="elemento-desplegable">Crear Evento</a>
-                        <a href="../CreacionAnuncioForm/anuncio.html" class="elemento-desplegable">Crear Anuncio</a>
-                        <a href="../EmprendimientoFormulario/formularioEmprendimiento.html" class="elemento-desplegable">Crear Emprendimiento</a>
-                        <a href="../rutaFormulario/formularioRuta.html" class="elemento-desplegable">Crear Ruta</a>
-                    </div>
-                </li>
-                <li class="elemento-navegacion menu-desplegable">
-                    <a href="#" class="enlace-navegacion desplegable-toggle">Panel</a>
-                    <div class="submenu-desplegable">
-                        <a href="../dashboard/dashboard.html" class="elemento-desplegable">Dashboard</a>
-                        <a href="/perfil" class="elemento-desplegable">Mi Perfil</a>
-                        <a href="/mis-reportes" class="elemento-desplegable">Mis Reportes</a>
-                        <a href="../login/login.html" class="elemento-desplegable">Cerrar sesion</a>
-                    </div>
-                </li>
-            </ul>
-            <div class="seccion-usuario">
-                <div class="info-usuario">
-                    <div class="avatar-usuario">U</div>
-                    <span class="correo-usuario">usuario@correo.com</span>
-                </div>
+      <div class="contenedor-navegacion">
+        <a href="/" class="logo-navegacion">Comunidades Conectadas</a>
+        <ul class="navegacion-principal">
+          <li class="elemento-navegacion">
+            <a href="../index.html" class="enlace-navegacion">Inicio</a>
+          </li>
+          <li class="elemento-navegacion menu-desplegable">
+            <a href="#" class="enlace-navegacion desplegable-toggle"
+              >Comunidad</a
+            >
+            <div class="submenu-desplegable">
+              <a
+                href="../calendario/calendario.html"
+                class="elemento-desplegable"
+                >Calendario de Eventos</a
+              >
+              <a href="../mapa/mapa.html" class="elemento-desplegable"
+                >Mapa Interactivo</a
+              >
+              <a href="../reportes/reportes.html" class="elemento-desplegable"
+                >Reportes y Sugerencias</a
+              >
             </div>
+          </li>
+          <li class="elemento-navegacion menu-desplegable">
+            <a href="#" class="enlace-navegacion desplegable-toggle"
+              >Explorar</a
+            >
+            <div class="submenu-desplegable">
+              <a href="../anuncios/anuncios.html" class="elemento-desplegable"
+                >Anuncios</a
+              >
+              <a
+                href="../PaginaDeEventos/paginaEventos.html"
+                class="elemento-desplegable"
+                >Eventos</a
+              >
+              <a
+                href="../emprendimientos/emprendimientos.html"
+                class="elemento-desplegable"
+                >Emprendimientos</a
+              >
+            </div>
+          </li>
+          <li class="elemento-navegacion menu-desplegable">
+            <a href="#" class="enlace-navegacion desplegable-toggle"
+              >Transporte</a
+            >
+            <div class="submenu-desplegable">
+              <a href="../ruta/ruta.html" class="elemento-desplegable">Rutas</a>
+              <a
+                href="../listadoRutas/listadoRutas.html"
+                class="elemento-desplegable"
+                >Listado de Rutas</a
+              >
+            </div>
+          </li>
+          <li class="elemento-navegacion menu-desplegable">
+            <a href="#" class="enlace-navegacion desplegable-toggle"
+              >Creacion</a
+            >
+            <div class="submenu-desplegable">
+              <a href="../eventos/eventos.html" class="elemento-desplegable"
+                >Crear Evento</a
+              >
+              <a
+                href="../CreacionAnuncioForm/anuncio.html"
+                class="elemento-desplegable"
+                >Crear Anuncio</a
+              >
+              <a
+                href="../EmprendimientoFormulario/formularioEmprendimiento.html"
+                class="elemento-desplegable"
+                >Crear Emprendimiento</a
+              >
+              <a
+                href="../rutaFormulario/formularioRuta.html"
+                class="elemento-desplegable"
+                >Crear Ruta</a
+              >
+            </div>
+          </li>
+          <li class="elemento-navegacion menu-desplegable">
+            <a href="#" class="enlace-navegacion desplegable-toggle">Panel</a>
+            <div class="submenu-desplegable">
+              <a href="../dashboard/dashboard.html" class="elemento-desplegable"
+                >Dashboard</a
+              >
+              <a href="/perfil" class="elemento-desplegable">Mi Perfil</a>
+              <a href="/mis-reportes" class="elemento-desplegable"
+                >Mis Reportes</a
+              >
+              <a href="../login/login.html" class="elemento-desplegable"
+                >Cerrar sesion</a
+              >
+            </div>
+          </li>
+        </ul>
+        <div class="seccion-usuario">
+          <div class="info-usuario">
+            <div class="avatar-usuario">U</div>
+            <span class="correo-usuario">usuario@correo.com</span>
+          </div>
         </div>
+      </div>
     </nav>
-</header>
-<body>
-<div class="evento-formulario-contenedor">
-    <h2 class="evento-titulo-formulario">Creación de Eventos</h2>
+  </header>
+  <body>
+    <div class="evento-formulario-contenedor">
+      <h2 class="evento-titulo-formulario">Creación de Eventos</h2>
 
-    <div class="evento-grupo-formulario">
-        <label class="evento-etiqueta-formulario">Título del Evento</label>
-        <textarea class="evento-area-texto" placeholder="Ej: Festival Cultural 2025"></textarea>
-    </div>
+      <!-- TÍTULO -->
+      <div class="evento-grupo-formulario">
+        <label class="evento-etiqueta-formulario" for="titulo"
+          >Título del Evento</label
+        >
+        <textarea
+          class="evento-area-texto"
+          id="titulo"
+          placeholder="Ej: Festival Cultural 2025"
+        ></textarea>
+        <p class="mensaje-error" id="error-titulo"></p>
+      </div>
 
-    <div class="evento-grupo-formulario">
-        <label class="evento-etiqueta-formulario">Categoría</label>
-        <select class="evento-select-formulario">
-            <option disabled selected>Seleccione una categoría</option>
-            <option>Concierto</option>
-            <option>Deportivo</option>
-            <option>Educativo</option>
-            <option>Familiar</option>
-            <option>Cultural</option>
+      <!-- CATEGORÍA -->
+      <div class="evento-grupo-formulario">
+        <label class="evento-etiqueta-formulario" for="categoria"
+          >Categoría</label
+        >
+        <select class="evento-select-formulario" id="categoria">
+          <option disabled selected>Seleccione una categoría</option>
+          <option>Concierto</option>
+          <option>Deportivo</option>
+          <option>Educativo</option>
+          <option>Familiar</option>
+          <option>Cultural</option>
         </select>
-    </div>
+      </div>
 
-    <div class="evento-fila-formulario">
+      <!-- FECHA Y UBICACIÓN -->
+      <div class="evento-fila-formulario">
         <div class="evento-columna-formulario">
-            <label class="evento-etiqueta-formulario">Fecha de Generación</label>
-            <input class="evento-campo-formulario" type="text" value="7/02/2025" disabled/>
+          <label class="evento-etiqueta-formulario">Fecha de Generación</label>
+          <input
+            class="evento-campo-formulario"
+            type="text"
+            value="7/02/2025"
+            disabled
+          />
         </div>
         <div class="evento-columna-formulario">
-            <label class="evento-etiqueta-formulario">Ubicación</label>
-            <input class="evento-campo-formulario" type="text" placeholder="Ciudad, provincia o lugar específico"/>
+          <label class="evento-etiqueta-formulario" for="ubicacion"
+            >Ubicación</label
+          >
+          <input
+            class="evento-campo-formulario"
+            type="text"
+            id="ubicacion"
+            placeholder="Ciudad, provincia o lugar específico"
+          />
+          <p class="mensaje-error" id="error-ubicacion"></p>
         </div>
-    </div>
+      </div>
 
-    <div class="evento-grupo-formulario">
-        <label class="evento-etiqueta-formulario">Organizador</label>
-        <input class="evento-campo-formulario" type="text" placeholder="Nombre del organizador"/>
-    </div>
+      <!-- ORGANIZADOR -->
+      <div class="evento-grupo-formulario">
+        <label class="evento-etiqueta-formulario" for="organizador"
+          >Organizador</label
+        >
+        <input
+          class="evento-campo-formulario"
+          type="text"
+          id="organizador"
+          placeholder="Nombre del organizador"
+        />
+        <p class="mensaje-error" id="error-organizador"></p>
+      </div>
 
-    <div class="evento-grupo-formulario">
-        <button class="evento-boton-enviar">Crear Evento</button>
+      <!-- BOTÓN -->
+      <div class="evento-grupo-formulario">
+        <button
+          class="evento-boton-enviar boton-deshabilitado"
+          id="crear-evento"
+          disabled
+        >
+          Crear Evento
+        </button>
         <p class="evento-texto-aviso">
-            Al registrar este evento, usted confirma que la información
-            proporcionada es precisa y actualizada. </p>
+          Al registrar este evento, usted confirma que la información
+          proporcionada es precisa y actualizada.
+        </p>
+      </div>
     </div>
-</div>
-<script src="validacion.js"></script>
-</body>
+
+    <script src="validacion.js"></script>
+  </body>
 </html>

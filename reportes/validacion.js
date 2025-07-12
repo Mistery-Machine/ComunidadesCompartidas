@@ -1,34 +1,65 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const boton = document.getElementById("crear-reporte");
+// Obtener elementos del DOM
+const titulo = document.getElementById("titulo");
+const descripcion = document.getElementById("descripcion");
+const boton = document.getElementById("crear-reporte");
 
-    boton.addEventListener("click", function (e) {
-        e.preventDefault();
+// Expresiones regulares
+const expresiones = {
+  titulo: /^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s.,!?]{6,100}$/,
+  descripcion: /^[\s\S]{20,500}$/,
+};
 
-        const campos = [
-            {id: "titulo", tipo: "textarea"},
-            {id: "descripcion", tipo: "textarea"},
-        ];
+// Estado de los campos
+const campos = {
+  titulo: false,
+  descripcion: false,
+};
 
-        let formularioValido = true;
+// Función de validación individual
+const validarCampo = (input, campo) => {
+  const grupo = input.closest(".formulario-grupo");
+  const mensajeError = grupo.querySelector(".formulario-input-error");
 
-        campos.forEach((campo) => {
-            const elemento = document.getElementById(campo.id);
-            const valor = elemento.value.trim();
+  if (expresiones[campo].test(input.value.trim())) {
+    input.classList.remove("campo-incorrecto");
+    input.classList.add("campo-correcto");
 
-            const invalido = valor === "";
+    if (mensajeError) mensajeError.classList.remove("input-error-activo");
 
-            if (invalido) {
-                elemento.style.border = "2px solid red";
-                formularioValido = false;
-            } else {
-                elemento.style.border = "";
-            }
-        });
+    campos[campo] = true;
+  } else {
+    input.classList.add("campo-incorrecto");
+    input.classList.remove("campo-correcto");
 
-        if (!formularioValido) {
-            alert("Por favor completa todos los campos obligatorios.");
-        } else {
-            alert("✅ Reporte creado con éxito.");
-        }
-    });
-});
+    if (mensajeError) mensajeError.classList.add("input-error-activo");
+
+    campos[campo] = false;
+  }
+
+  verificarCampos();
+};
+
+// Activar/desactivar botón según estado de validación
+const verificarCampos = () => {
+  if (campos.titulo && campos.descripcion) {
+    boton.disabled = false;
+    boton.classList.remove("boton-deshabilitado");
+  } else {
+    boton.disabled = true;
+    boton.classList.add("boton-deshabilitado");
+  }
+};
+
+// Eventos
+titulo.addEventListener("keyup", () => validarCampo(titulo, "titulo"));
+titulo.addEventListener("blur", () => validarCampo(titulo, "titulo"));
+
+descripcion.addEventListener("keyup", () =>
+  validarCampo(descripcion, "descripcion")
+);
+descripcion.addEventListener("blur", () =>
+  validarCampo(descripcion, "descripcion")
+);
+
+// Estado inicial
+verificarCampos();

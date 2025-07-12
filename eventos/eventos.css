@@ -106,3 +106,23 @@ body {
   margin-top: 0.5rem;
   color: #666;
 }
+.campo-correcto {
+  border-color: rgb(70, 228, 70);
+  background-color: rgb(228, 247, 228);
+}
+
+.campo-incorrecto {
+  border-color: rgb(252, 27, 27);
+  background-color: rgb(252, 218, 218);
+}
+
+.boton-deshabilitado {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.mensaje-error {
+  color: red;
+  font-size: 0.85em;
+  margin-top: 0.3em;
+}

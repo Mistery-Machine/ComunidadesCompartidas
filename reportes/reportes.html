@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styleReporte.css" />
     <link rel="stylesheet" href="../templates/navbar/navbar.css" />
   </head>
-  <script src="validacion.js"></script>
+
   <header>
     <nav class="barra-navegacion">
       <div class="contenedor-navegacion">
@@ -117,6 +117,9 @@
           id="titulo"
           name="titulo"
         ></textarea>
+        <p class="formulario-input-error">
+          El título debe tener entre 6 y 100 caracteres.
+        </p>
       </div>
 
       <div class="formulario-grupo">
@@ -127,6 +130,9 @@
           id="descripcion"
           name="descripcion"
         ></textarea>
+        <p class="formulario-input-error">
+          La descripción debe tener entre 20 y 500 caracteres.
+        </p>
       </div>
 
       <div class="formulario-fila">
@@ -156,7 +162,11 @@
       </div>
 
       <div class="formulario-grupo">
-        <button class="formulario-boton" id="crear-reporte">
+        <button
+          class="formulario-boton boton-deshabilitado"
+          id="crear-reporte"
+          disabled
+        >
           Crear Reporte
         </button>
         <p class="formulario-nota">
@@ -165,5 +175,6 @@
         </p>
       </div>
     </div>
+    <script src="validacion.js"></script>
   </body>
 </html>
