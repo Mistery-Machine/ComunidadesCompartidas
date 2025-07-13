@@ -1,128 +1,129 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  background-color: #f0f0f0;
-  color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    color: #333;
 }
 
 .evento-formulario-contenedor {
-  max-width: 600px;
-  margin: auto;
-  padding: 1.5em;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    margin: auto;
+    padding: 1.5em;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
 .evento-titulo-formulario {
-  font-size: 1.7rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-  color: #1b1b1b;
+    font-size: 1.7rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #1b1b1b;
 }
 
 .evento-grupo-formulario {
-  margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .evento-etiqueta-formulario {
-  display: block;
-  margin-bottom: 0.5em;
-  color: #3f9bff;
-  font-weight: bold;
+    display: block;
+    margin-bottom: 0.5em;
+    color: #3f9bff;
+    font-weight: bold;
 }
 
 .evento-campo-formulario,
 .evento-area-texto,
 .evento-select-formulario,
 .evento-boton-enviar {
-  width: 100%;
-  font-size: 1em;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #f9f9f9;
-  color: #333;
+    width: 100%;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
 .evento-campo-formulario,
 .evento-select-formulario {
-  height: 3.4em;
-  padding: 0 1em;
+    height: 3.4em;
+    padding: 0 1em;
 }
 
 .evento-select-formulario option:disabled {
-  color: #999;
+    color: #999;
 }
 
 .evento-select-formulario option {
-  color: #000;
+    color: #000;
 }
 
 .evento-area-texto {
-  height: 3.4em;
-  padding: 1em;
-  resize: none;
+    height: 3.4em;
+    padding: 1em;
+    resize: none;
 }
 
 .evento-campo-formulario:focus,
 .evento-select-formulario:focus,
 .evento-area-texto:focus {
-  border-color: #000;
-  outline: none;
+    border-color: #000;
+    outline: none;
 }
 
 .evento-fila-formulario {
-  display: flex;
-  gap: 2em;
-  margin-bottom: 1em;
+    display: flex;
+    gap: 2em;
+    margin-bottom: 1em;
 }
 
 .evento-columna-formulario {
-  width: 50%;
+    width: 50%;
 }
 
 .evento-boton-enviar {
-  height: 3.4em;
-  background-color: #3f9bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s;
+    height: 3.4em;
+    background-color: #3f9bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
 }
 
 .evento-boton-enviar:hover {
-  background-color: #237cdd;
+    background-color: #237cdd;
 }
 
 .evento-texto-aviso {
-  font-size: 0.9em;
-  margin-top: 0.5rem;
-  color: #666;
+    font-size: 0.9em;
+    margin-top: 0.5rem;
+    color: #666;
 }
+
 .campo-correcto {
-  border-color: rgb(70, 228, 70);
-  background-color: rgb(228, 247, 228);
+    border-color: rgb(70, 228, 70);
+    background-color: rgb(228, 247, 228);
 }
 
 .campo-incorrecto {
-  border-color: rgb(252, 27, 27);
-  background-color: rgb(252, 218, 218);
+    border-color: rgb(252, 27, 27);
+    background-color: rgb(252, 218, 218);
 }
 
 .boton-deshabilitado {
-  cursor: not-allowed;
-  opacity: 0.5;
+    cursor: not-allowed;
+    opacity: 0.5;
 }
 
 .mensaje-error {
-  color: red;
-  font-size: 0.85em;
-  margin-top: 0.3em;
+    color: red;
+    font-size: 0.85em;
+    margin-top: 0.3em;
 }
