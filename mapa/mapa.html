@@ -1,112 +1,168 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mapa</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-    <link rel="stylesheet" href="../templates/navbar/navbar.css"/>
-    <link rel="stylesheet" href="mapa.css"/>
-</head>
-<header>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../templates/navbar/navbar.css" />
+    <link rel="stylesheet" href="mapa.css" />
+  </head>
+  <header>
     <nav class="barra-navegacion">
-        <div class="contenedor-navegacion">
-            <a href="/" class="logo-navegacion">Comunidades Conectadas</a>
-            <ul class="navegacion-principal">
-                <li class="elemento-navegacion">
-                    <a href="../index.html" class="enlace-navegacion">Inicio</a>
-                </li>
-                <li class="elemento-navegacion menu-desplegable">
-                    <a href="#" class="enlace-navegacion desplegable-toggle">Comunidad</a>
-                    <div class="submenu-desplegable">
-                        <a href="../calendario/calendario.html" class="elemento-desplegable">Calendario de Eventos</a>
-                        <a href="../mapa/mapa.html" class="elemento-desplegable">Mapa Interactivo</a>
-                        <a href="../reportes/reportes.html" class="elemento-desplegable">Reportes y Sugerencias</a>
-                    </div>
-                </li>
-                <li class="elemento-navegacion menu-desplegable">
-                    <a href="#" class="enlace-navegacion desplegable-toggle">Explorar</a>
-                    <div class="submenu-desplegable">
-                        <a href="../anuncios/anuncios.html" class="elemento-desplegable">Anuncios</a>
-                        <a href="../PaginaDeEventos/paginaEventos.html" class="elemento-desplegable">Eventos</a>
-                        <a href="../emprendimientos/emprendimientos.html" class="elemento-desplegable">Emprendimientos</a>
-                    </div>
-                </li>
-                <li class="elemento-navegacion menu-desplegable">
-                    <a href="#" class="enlace-navegacion desplegable-toggle">Transporte</a>
-                    <div class="submenu-desplegable">
-                        <a href="../ruta/ruta.html" class="elemento-desplegable">Rutas</a>
-                        <a href="../listadoRutas/listadoRutas.html" class="elemento-desplegable">Listado de Rutas</a>
-                    </div>
-                </li>
-                <li class="elemento-navegacion menu-desplegable">
-                    <a href="#" class="enlace-navegacion desplegable-toggle">Creacion</a>
-                    <div class="submenu-desplegable">
-                        <a href="../eventos/eventos.html" class="elemento-desplegable">Crear Evento</a>
-                        <a href="../CreacionAnuncioForm/anuncio.html" class="elemento-desplegable">Crear Anuncio</a>
-                        <a href="../EmprendimientoFormulario/formularioEmprendimiento.html" class="elemento-desplegable">Crear Emprendimiento</a>
-                        <a href="../rutaFormulario/formularioRuta.html" class="elemento-desplegable">Crear Ruta</a>
-                    </div>
-                </li>
-                <li class="elemento-navegacion menu-desplegable">
-                    <a href="#" class="enlace-navegacion desplegable-toggle">Panel</a>
-                    <div class="submenu-desplegable">
-                        <a href="../dashboard/dashboard.html" class="elemento-desplegable">Dashboard</a>
-                        <a href="/perfil" class="elemento-desplegable">Mi Perfil</a>
-                        <a href="/mis-reportes" class="elemento-desplegable">Mis Reportes</a>
-                        <a href="../login/login.html" class="elemento-desplegable">Cerrar sesion</a>
-                    </div>
-                </li>
-            </ul>
-            <div class="seccion-usuario">
-                <div class="info-usuario">
-                    <div class="avatar-usuario">U</div>
-                    <span class="correo-usuario">usuario@correo.com</span>
-                </div>
+      <div class="contenedor-navegacion">
+        <a href="../index.html" class="logo-navegacion"
+          >Comunidades Conectadas</a
+        >
+        <ul class="navegacion-principal">
+          <li class="elemento-navegacion">
+            <a href="../index.html" class="enlace-navegacion">Inicio</a>
+          </li>
+          <li class="elemento-navegacion menu-desplegable">
+            <a href="#" class="enlace-navegacion desplegable-toggle"
+              >Comunidad</a
+            >
+            <div class="submenu-desplegable">
+              <a
+                href="../calendario/calendario.html"
+                class="elemento-desplegable"
+                >Calendario de Eventos</a
+              >
+              <a href="../mapa/mapa.html" class="elemento-desplegable"
+                >Mapa Interactivo</a
+              >
+              <a href="../reportes/reportes.html" class="elemento-desplegable"
+                >Reportes y Sugerencias</a
+              >
             </div>
+          </li>
+          <li class="elemento-navegacion menu-desplegable">
+            <a href="#" class="enlace-navegacion desplegable-toggle"
+              >Explorar</a
+            >
+            <div class="submenu-desplegable">
+              <a href="../anuncios/anuncios.html" class="elemento-desplegable"
+                >Anuncios</a
+              >
+              <a
+                href="../PaginaDeEventos/paginaEventos.html"
+                class="elemento-desplegable"
+                >Eventos</a
+              >
+              <a
+                href="../emprendimientos/emprendimientos.html"
+                class="elemento-desplegable"
+                >Emprendimientos</a
+              >
+            </div>
+          </li>
+          <li class="elemento-navegacion menu-desplegable">
+            <a href="#" class="enlace-navegacion desplegable-toggle"
+              >Transporte</a
+            >
+            <div class="submenu-desplegable">
+              <a href="../ruta/ruta.html" class="elemento-desplegable">Rutas</a>
+              <a
+                href="../listadoRutas/listadoRutas.html"
+                class="elemento-desplegable"
+                >Listado de Rutas</a
+              >
+            </div>
+          </li>
+          <li class="elemento-navegacion menu-desplegable">
+            <a href="#" class="enlace-navegacion desplegable-toggle"
+              >Creacion</a
+            >
+            <div class="submenu-desplegable">
+              <a href="../eventos/eventos.html" class="elemento-desplegable"
+                >Crear Evento</a
+              >
+              <a
+                href="../CreacionAnuncioForm/anuncio.html"
+                class="elemento-desplegable"
+                >Crear Anuncio</a
+              >
+              <a
+                href="../EmprendimientoFormulario/formularioEmprendimiento.html"
+                class="elemento-desplegable"
+                >Crear Emprendimiento</a
+              >
+              <a
+                href="../rutaFormulario/formularioRuta.html"
+                class="elemento-desplegable"
+                >Crear Ruta</a
+              >
+            </div>
+          </li>
+          <li class="elemento-navegacion menu-desplegable">
+            <a href="#" class="enlace-navegacion desplegable-toggle">Panel</a>
+            <div class="submenu-desplegable">
+              <a href="../dashboard/dashboard.html" class="elemento-desplegable"
+                >Dashboard</a
+              >
+              <a
+                href="../verReportes/verReportes.html"
+                class="elemento-desplegable"
+                >Mis Reportes</a
+              >
+              <a href="../login/login.html" class="elemento-desplegable"
+                >Cerrar sesion</a
+              >
+            </div>
+          </li>
+        </ul>
+        <div class="seccion-usuario">
+          <div class="info-usuario">
+            <div class="avatar-usuario">U</div>
+            <span class="correo-usuario">usuario@correo.com</span>
+          </div>
         </div>
+      </div>
     </nav>
-</header>
-<body>
-<div id="map"></div>
+  </header>
+  <body>
+    <div id="map"></div>
 
-<script>
-    ((g) => {
+    <script>
+      ((g) => {
         var h,
-            a,
-            k,
-            p = "The Google Maps JavaScript API",
-            c = "google",
-            l = "importLibrary",
-            q = "__ib__",
-            m = document,
-            b = window;
+          a,
+          k,
+          p = "The Google Maps JavaScript API",
+          c = "google",
+          l = "importLibrary",
+          q = "__ib__",
+          m = document,
+          b = window;
         b = b[c] || (b[c] = {});
         var d = b.maps || (b.maps = {}),
-            r = new Set(),
-            e = new URLSearchParams(),
-            u = () =>
-                h ||
-                (h = new Promise(async (f, n) => {
-                    await (a = m.createElement("script"));
-                    e.set("libraries", [...r] + "");
-                    for (k in g)
-                        e.set(
-                            k.replace(/[A-Z]/g, (t) => "_" + t[0].toLowerCase()),
-                            g[k]
-                        );
-                    e.set("callback", c + ".maps." + q);
-                    a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
-                    d[q] = f;
-                    a.onerror = () => (h = n(Error(p + " could not load.")));
-                    a.nonce = m.querySelector("script[nonce]")?.nonce || "";
-                    m.head.append(a);
-                }));
+          r = new Set(),
+          e = new URLSearchParams(),
+          u = () =>
+            h ||
+            (h = new Promise(async (f, n) => {
+              await (a = m.createElement("script"));
+              e.set("libraries", [...r] + "");
+              for (k in g)
+                e.set(
+                  k.replace(/[A-Z]/g, (t) => "_" + t[0].toLowerCase()),
+                  g[k]
+                );
+              e.set("callback", c + ".maps." + q);
+              a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+              d[q] = f;
+              a.onerror = () => (h = n(Error(p + " could not load.")));
+              a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+              m.head.append(a);
+            }));
         d[l]
-            ? console.warn(p + " only loads once. Ignoring:", g)
-            : (d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)));
-    })({key: "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg", v: "weekly"});
-</script>
-<script src="mapa.js"></script>
-</body>
+          ? console.warn(p + " only loads once. Ignoring:", g)
+          : (d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)));
+      })({ key: "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg", v: "weekly" });
+    </script>
+    <script src="mapa.js"></script>
+  </body>
 </html>
