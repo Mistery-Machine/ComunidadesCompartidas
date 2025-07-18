@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="../public/css/login.css">
+</head>
+<body>
+<div class="contenedor">
+    <h1>Comunidades Conectadas</h1>
+
+    <div class="entrada-grupo">
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo" name="correo" required>
+    </div>
+
+    <div class="entrada-grupo">
+        <label for="contrasena">Contraseña:</label>
+        <input type="contra" id="contrasena" name="contrasena" pattern="(?=.*[A-Z]).{8,}" required>
+    </div>
+    <input type="submit" value="Iniciar Sesion">
+    <a href="../registro/register.html">
+        <input type="submit" value="  Registrarse ">
+    </a>
+    </form>
+</div>
+</body>
+</html>
