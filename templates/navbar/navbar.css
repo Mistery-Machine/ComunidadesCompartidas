@@ -14,10 +14,10 @@ body {
 .barra-navegacion {
     background: #3f9bff;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 1000;
-    margin-bottom: 3rem;
+    width: 100%;
 }
 
 .contenedor-navegacion {

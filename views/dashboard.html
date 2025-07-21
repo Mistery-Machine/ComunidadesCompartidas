@@ -1,268 +1,214 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../public/css/dashboard.css" />
-    <link rel="stylesheet" href="../templates/navbar/navbar.css" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../public/css/dashboard.css"/>
+    <link rel="stylesheet" href="../templates/navbar/navbar.css"/>
     <title>Dashboard de Administración</title>
-  </head>
-  <header>
+</head>
+<header>
     <nav class="barra-navegacion">
-      <div class="contenedor-navegacion">
-        <a href="../index.html" class="logo-navegacion"
-          >Comunidades Conectadas</a
-        >
-        <ul class="navegacion-principal">
-          <li class="elemento-navegacion">
-            <a href="../index.html" class="enlace-navegacion">Inicio</a>
-          </li>
-          <li class="elemento-navegacion menu-desplegable">
-            <a href="#" class="enlace-navegacion desplegable-toggle"
-              >Comunidad</a
-            >
-            <div class="submenu-desplegable">
-              <a
-                href="../calendario/calendario.html"
-                class="elemento-desplegable"
-                >Calendario de Eventos</a
-              >
-              <a href="../mapa/mapa.html" class="elemento-desplegable"
-                >Mapa Interactivo</a
-              >
-              <a href="../reportes/reportes.html" class="elemento-desplegable"
-                >Reportes y Sugerencias</a
-              >
+        <div class="contenedor-navegacion">
+            <a href="../index.html" class="logo-navegacion">Comunidades Conectadas</a>
+            <ul class="navegacion-principal">
+                <li class="elemento-navegacion">
+                    <a href="../index.html" class="enlace-navegacion">Inicio</a>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Comunidad</a>
+                    <div class="submenu-desplegable">
+                        <a href="../calendario/calendario.html" class="elemento-desplegable">Calendario de Eventos</a>
+                        <a href="../mapa/mapa.html" class="elemento-desplegable">Mapa Interactivo</a>
+                        <a href="../reportes/reportes.html" class="elemento-desplegable">Reportes y Sugerencias</a>
+                    </div>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Explorar</a>
+                    <div class="submenu-desplegable">
+                        <a href="../anuncios/anuncios.html" class="elemento-desplegable">Anuncios</a>
+                        <a href="../PaginaDeEventos/paginaEventos.html" class="elemento-desplegable">Eventos</a>
+                        <a href="../emprendimientos/emprendimientos.html" class="elemento-desplegable">Emprendimientos</a>
+                    </div>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Transporte</a>
+                    <div class="submenu-desplegable">
+                        <a href="../ruta/ruta.html" class="elemento-desplegable">Rutas</a>
+                        <a href="../listadoRutas/listadoRutas.html" class="elemento-desplegable">Listado de Rutas</a>
+                    </div>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Creacion</a>
+                    <div class="submenu-desplegable">
+                        <a href="../eventos/eventos.html" class="elemento-desplegable">Crear Evento</a>
+                        <a href="../CreacionAnuncioForm/anuncio.html" class="elemento-desplegable">Crear Anuncio</a>
+                        <a href="../EmprendimientoFormulario/formularioEmprendimiento.html" class="elemento-desplegable">Crear Emprendimiento</a>
+                        <a href="../rutaFormulario/formularioRuta.html" class="elemento-desplegable">Crear Ruta</a>
+                    </div>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Panel</a>
+                    <div class="submenu-desplegable">
+                        <a href="../dashboard/dashboard.html" class="elemento-desplegable">Dashboard</a>
+                        <a href="../verReportes/verReportes.html" class="elemento-desplegable">Mis Reportes</a>
+                        <a href="../login/login.html" class="elemento-desplegable">Cerrar sesion</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="seccion-usuario">
+                <div class="info-usuario">
+                    <div class="avatar-usuario">U</div>
+                    <span class="correo-usuario">usuario@correo.com</span>
+                </div>
             </div>
-          </li>
-          <li class="elemento-navegacion menu-desplegable">
-            <a href="#" class="enlace-navegacion desplegable-toggle"
-              >Explorar</a
-            >
-            <div class="submenu-desplegable">
-              <a href="../anuncios/anuncios.html" class="elemento-desplegable"
-                >Anuncios</a
-              >
-              <a
-                href="../PaginaDeEventos/paginaEventos.html"
-                class="elemento-desplegable"
-                >Eventos</a
-              >
-              <a
-                href="../emprendimientos/emprendimientos.html"
-                class="elemento-desplegable"
-                >Emprendimientos</a
-              >
-            </div>
-          </li>
-          <li class="elemento-navegacion menu-desplegable">
-            <a href="#" class="enlace-navegacion desplegable-toggle"
-              >Transporte</a
-            >
-            <div class="submenu-desplegable">
-              <a href="../ruta/ruta.html" class="elemento-desplegable">Rutas</a>
-              <a
-                href="../listadoRutas/listadoRutas.html"
-                class="elemento-desplegable"
-                >Listado de Rutas</a
-              >
-            </div>
-          </li>
-          <li class="elemento-navegacion menu-desplegable">
-            <a href="#" class="enlace-navegacion desplegable-toggle"
-              >Creacion</a
-            >
-            <div class="submenu-desplegable">
-              <a href="../eventos/eventos.html" class="elemento-desplegable"
-                >Crear Evento</a
-              >
-              <a
-                href="../CreacionAnuncioForm/anuncio.html"
-                class="elemento-desplegable"
-                >Crear Anuncio</a
-              >
-              <a
-                href="../EmprendimientoFormulario/formularioEmprendimiento.html"
-                class="elemento-desplegable"
-                >Crear Emprendimiento</a
-              >
-              <a
-                href="../rutaFormulario/formularioRuta.html"
-                class="elemento-desplegable"
-                >Crear Ruta</a
-              >
-            </div>
-          </li>
-          <li class="elemento-navegacion menu-desplegable">
-            <a href="#" class="enlace-navegacion desplegable-toggle">Panel</a>
-            <div class="submenu-desplegable">
-              <a href="../dashboard/dashboard.html" class="elemento-desplegable"
-                >Dashboard</a
-              >
-              <a
-                href="../verReportes/verReportes.html"
-                class="elemento-desplegable"
-                >Mis Reportes</a
-              >
-              <a href="../login/login.html" class="elemento-desplegable"
-                >Cerrar sesion</a
-              >
-            </div>
-          </li>
-        </ul>
-        <div class="seccion-usuario">
-          <div class="info-usuario">
-            <div class="avatar-usuario">U</div>
-            <span class="correo-usuario">usuario@correo.com</span>
-          </div>
         </div>
-      </div>
     </nav>
-  </header>
-  <body>
-    <div class="contenedor-principal">
-      <div class="contenedor-estadisticas">
+</header>
+<body>
+<div class="contenedor-principal">
+    <div class="contenedor-estadisticas">
         <div class="tarjeta-estadistica">
-          <div class="titulo-estadistica">Usuarios Registrados</div>
-          <div class="numero-estadistica">245</div>
+            <div class="titulo-estadistica">Usuarios Registrados</div>
+            <div class="numero-estadistica">245</div>
         </div>
         <div class="tarjeta-estadistica">
-          <div class="titulo-estadistica">Tickets Totales</div>
-          <div class="numero-estadistica">89</div>
+            <div class="titulo-estadistica">Tickets Totales</div>
+            <div class="numero-estadistica">89</div>
         </div>
         <div class="tarjeta-estadistica">
-          <div class="titulo-estadistica">Tickets Pendientes</div>
-          <div class="numero-estadistica">12</div>
+            <div class="titulo-estadistica">Tickets Pendientes</div>
+            <div class="numero-estadistica">12</div>
         </div>
         <div class="tarjeta-estadistica">
-          <div class="titulo-estadistica">Tickets Aprobados</div>
-          <div class="numero-estadistica">3</div>
+            <div class="titulo-estadistica">Tickets Aprobados</div>
+            <div class="numero-estadistica">3</div>
         </div>
-      </div>
-      <div class="contenedor-tabla">
+    </div>
+    <div class="contenedor-tabla">
         <div class="encabezado-tabla">Usuarios Registrados</div>
         <table class="tabla">
-          <thead>
+            <thead>
             <tr>
-              <th class="encabezado-columna">Nombre</th>
-              <th class="encabezado-columna">Correo Electrónico</th>
-              <th class="encabezado-columna">Rol</th>
-              <th class="encabezado-columna">Estado</th>
-              <th class="encabezado-columna">Acciones</th>
+                <th class="encabezado-columna">Nombre</th>
+                <th class="encabezado-columna">Correo Electrónico</th>
+                <th class="encabezado-columna">Rol</th>
+                <th class="encabezado-columna">Estado</th>
+                <th class="encabezado-columna">Acciones</th>
             </tr>
-          </thead>
-          <tbody>
+            </thead>
+            <tbody>
             <tr class="fila-tabla">
-              <td class="celda-tabla">Juan Pérez</td>
-              <td class="celda-tabla">juan@correo.com</td>
-              <td class="celda-tabla">
-                <span class="etiqueta etiqueta-usuario">usuario</span>
-              </td>
-              <td class="celda-tabla">
-                <span class="estado-activo">Activo</span>
-              </td>
-              <td class="celda-tabla">
-                <select class="seleccion-formulario">
-                  <option value="usuario" selected>Usuario</option>
-                  <option value="moderador">Moderador</option>
-                  <option value="admin">Administrador</option>
-                </select>
-              </td>
-            </tr>
-            <tr class="fila-tabla">
-              <td class="celda-tabla">María García</td>
-              <td class="celda-tabla">maria@correo.com</td>
-              <td class="celda-tabla">
-                <span class="etiqueta etiqueta-admin">admin</span>
-              </td>
-              <td class="celda-tabla">
-                <span class="estado-activo">Activo</span>
-              </td>
-              <td class="celda-tabla">
-                <select class="seleccion-formulario">
-                  <option value="usuario">Usuario</option>
-                  <option value="moderador">Moderador</option>
-                  <option value="admin" selected>Administrador</option>
-                </select>
-              </td>
+                <td class="celda-tabla">Juan Pérez</td>
+                <td class="celda-tabla">juan@correo.com</td>
+                <td class="celda-tabla">
+                    <span class="etiqueta etiqueta-usuario">usuario</span>
+                </td>
+                <td class="celda-tabla">
+                    <span class="estado-activo">Activo</span>
+                </td>
+                <td class="celda-tabla">
+                    <select class="seleccion-formulario">
+                        <option value="usuario" selected>Usuario</option>
+                        <option value="moderador">Moderador</option>
+                        <option value="admin">Administrador</option>
+                    </select>
+                </td>
             </tr>
             <tr class="fila-tabla">
-              <td class="celda-tabla">Carlos López</td>
-              <td class="celda-tabla">carlos@correo.com</td>
-              <td class="celda-tabla">
-                <span class="etiqueta etiqueta-usuario">usuario</span>
-              </td>
-              <td class="celda-tabla">
-                <span class="estado-inactivo">Inactivo</span>
-              </td>
-              <td class="celda-tabla">
-                <select class="seleccion-formulario">
-                  <option value="usuario" selected>Usuario</option>
-                  <option value="moderador">Moderador</option>
-                  <option value="admin">Administrador</option>
-                </select>
-              </td>
+                <td class="celda-tabla">María García</td>
+                <td class="celda-tabla">maria@correo.com</td>
+                <td class="celda-tabla">
+                    <span class="etiqueta etiqueta-admin">admin</span>
+                </td>
+                <td class="celda-tabla">
+                    <span class="estado-activo">Activo</span>
+                </td>
+                <td class="celda-tabla">
+                    <select class="seleccion-formulario">
+                        <option value="usuario">Usuario</option>
+                        <option value="moderador">Moderador</option>
+                        <option value="admin" selected>Administrador</option>
+                    </select>
+                </td>
             </tr>
-          </tbody>
+            <tr class="fila-tabla">
+                <td class="celda-tabla">Carlos López</td>
+                <td class="celda-tabla">carlos@correo.com</td>
+                <td class="celda-tabla">
+                    <span class="etiqueta etiqueta-usuario">usuario</span>
+                </td>
+                <td class="celda-tabla">
+                    <span class="estado-inactivo">Inactivo</span>
+                </td>
+                <td class="celda-tabla">
+                    <select class="seleccion-formulario">
+                        <option value="usuario" selected>Usuario</option>
+                        <option value="moderador">Moderador</option>
+                        <option value="admin">Administrador</option>
+                    </select>
+                </td>
+            </tr>
+            </tbody>
         </table>
-      </div>
-      <div class="contenedor-tabla">
+    </div>
+    <div class="contenedor-tabla">
         <div class="encabezado-tabla">Aprobación de Formulaciones</div>
         <table class="tabla">
-          <thead>
+            <thead>
             <tr>
-              <th class="encabezado-columna">Título</th>
-              <th class="encabezado-columna">Tipo</th>
-              <th class="encabezado-columna">Estado</th>
-              <th class="encabezado-columna">Enlace</th>
-              <th class="encabezado-columna">Acciones</th>
+                <th class="encabezado-columna">Título</th>
+                <th class="encabezado-columna">Tipo</th>
+                <th class="encabezado-columna">Estado</th>
+                <th class="encabezado-columna">Enlace</th>
+                <th class="encabezado-columna">Acciones</th>
             </tr>
-          </thead>
-          <tbody>
+            </thead>
+            <tbody>
             <tr class="fila-tabla">
-              <td class="celda-tabla">Festival La Alegria</td>
-              <td class="celda-tabla">Evento</td>
-              <td class="celda-tabla">
-                <span class="etiqueta etiqueta-pendiente">Pendiente</span>
-              </td>
-              <td class="celda-tabla">
-                <a href="#" class="enlace">Ver ticket</a>
-              </td>
-              <td class="celda-tabla">
-                <button class="boton-subir">Aprobar</button>
-              </td>
-            </tr>
-            <tr class="fila-tabla">
-              <td class="celda-tabla">AyA: Rebajo de cuotas</td>
-              <td class="celda-tabla">Anuncio</td>
-              <td class="celda-tabla">
-                <span class="etiqueta etiqueta-pendiente">Pendiente</span>
-              </td>
-              <td class="celda-tabla">
-                <a href="#" class="enlace">Ver ticket</a>
-              </td>
-              <td class="celda-tabla">
-                <button class="boton-subir">Aprobar</button>
-              </td>
+                <td class="celda-tabla">Festival La Alegria</td>
+                <td class="celda-tabla">Evento</td>
+                <td class="celda-tabla">
+                    <span class="etiqueta etiqueta-pendiente">Pendiente</span>
+                </td>
+                <td class="celda-tabla">
+                    <a href="#" class="enlace">Ver ticket</a>
+                </td>
+                <td class="celda-tabla">
+                    <button class="boton-subir">Aprobar</button>
+                </td>
             </tr>
             <tr class="fila-tabla">
-              <td class="celda-tabla">Los Pollos Hermanos</td>
-              <td class="celda-tabla">Emprendimiento</td>
-              <td class="celda-tabla">
-                <span class="etiqueta etiqueta-aprobado">Aprobado</span>
-              </td>
-              <td class="celda-tabla">
-                <a href="#" class="enlace">Ver ticket</a>
-              </td>
-              <td class="celda-tabla">
-                <button class="boton-exito boton-deshabilitado" disabled>
-                  Aprobado
-                </button>
-              </td>
+                <td class="celda-tabla">AyA: Rebajo de cuotas</td>
+                <td class="celda-tabla">Anuncio</td>
+                <td class="celda-tabla">
+                    <span class="etiqueta etiqueta-pendiente">Pendiente</span>
+                </td>
+                <td class="celda-tabla">
+                    <a href="#" class="enlace">Ver ticket</a>
+                </td>
+                <td class="celda-tabla">
+                    <button class="boton-subir">Aprobar</button>
+                </td>
             </tr>
-          </tbody>
+            <tr class="fila-tabla">
+                <td class="celda-tabla">Los Pollos Hermanos</td>
+                <td class="celda-tabla">Emprendimiento</td>
+                <td class="celda-tabla">
+                    <span class="etiqueta etiqueta-aprobado">Aprobado</span>
+                </td>
+                <td class="celda-tabla">
+                    <a href="#" class="enlace">Ver ticket</a>
+                </td>
+                <td class="celda-tabla">
+                    <button class="boton-exito boton-deshabilitado" disabled>
+                        Aprobado
+                    </button>
+                </td>
+            </tr>
+            </tbody>
         </table>
-      </div>
     </div>
-  </body>
+</div>
+</body>
 </html>

@@ -12,7 +12,7 @@ body {
 
 .emprendimientos-contenedor {
     max-width: 1200px;
-    margin: auto;
+    margin: 10rem auto;
 }
 
 .emprendimientos-titulo {
@@ -20,7 +20,7 @@ body {
     font-weight: bold;
     margin-bottom: 2rem;
     text-align: center;
-    color: #1b1b1b;
+    color: #3f9bff;
 }
 
 .emprendimientos-grid {

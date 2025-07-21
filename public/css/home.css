@@ -13,8 +13,8 @@ body {
 }
 
 .contenedor {
-    max-width: 80%;
-    margin: 0 auto;
+    max-width: 1200px;
+    margin: 5rem auto;
     padding: 20px;
     min-height: 100vh;
     display: flex;
@@ -25,16 +25,16 @@ body {
     text-align: center;
     background: #ffffff;
     padding: 40px 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 40px;
-    border: 2px solid rgba(116, 192, 252, 0.2);
+    border: 1px solid rgba(116, 192, 252, 0.2);
 }
 
 .titulo-principal {
     font-size: 3rem;
     font-weight: 700;
-    color: #74c0fc;
+    color: #3f9bff;
     margin-bottom: 15px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -57,7 +57,7 @@ body {
 .seccion-intro {
     background: #ffffff;
     padding: 40px;
-    border-radius: 12px;
+    border-radius: 4px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     border: 1px solid rgba(116, 192, 252, 0.15);
@@ -70,7 +70,7 @@ body {
 
 .titulo-bienvenida {
     font-size: 2.5rem;
-    color: #74c0fc;
+    color: #3f9bff;
     margin-bottom: 20px;
     font-weight: 600;
 }
@@ -95,7 +95,7 @@ body {
 .tarjeta {
     background: #ffffff;
     padding: 30px;
-    border-radius: 12px;
+    border-radius: 4px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     text-align: center;
@@ -116,7 +116,7 @@ body {
 .tarjeta:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    border-color: #74c0fc;
+    border-color: #3f9bff;
 }
 
 .icono-tarjeta {
@@ -127,7 +127,7 @@ body {
 
 .titulo-tarjeta {
     font-size: 1.5rem;
-    color: #74c0fc;
+    color: #3f9bff;
     margin-bottom: 15px;
     font-weight: 600;
 }
@@ -142,13 +142,13 @@ body {
     color: #ffffff;
     border: none;
     padding: 12px 24px;
-    border-radius: 25px;
+    border-radius: 4px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 0.95rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    background: #74c0fc;
+    background: #3f9bff;
 }
 
 .boton-tarjeta:hover {
@@ -159,7 +159,7 @@ body {
 .pie-pagina {
     background: #ffffff;
     padding: 25px;
-    border-radius: 12px;
+    border-radius: 4px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     margin-top: 40px;

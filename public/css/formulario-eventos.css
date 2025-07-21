@@ -12,8 +12,8 @@ body {
 }
 
 .evento-formulario-contenedor {
-    max-width: 600px;
-    margin: auto;
+    max-width: 1200px;
+    margin: 10rem auto;
     padding: 1.5em;
     background-color: #ffffff;
     border-radius: 8px;

@@ -11,7 +11,7 @@ body {
 }
 
 .contenedor-eventos {
-    max-width: 1200px;
+    width: 1200px;
     margin: auto;
 }
 
@@ -25,6 +25,7 @@ body {
 
 .grid-eventos {
     display: grid;
+    margin-top: 10rem;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
 }
