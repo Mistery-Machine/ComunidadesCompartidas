@@ -19,3 +19,4 @@ Curso - Proyecto de Ingeniería de Software I - Cenfotec
 # Comandos para levantar el proyecto
 
 npm i
+npm run dev
