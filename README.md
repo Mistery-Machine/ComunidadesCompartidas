@@ -15,3 +15,7 @@ Curso - Proyecto de Ingeniería de Software I - Cenfotec
 - Sebastian Ortiz Vargas
 - Daniel Fonseca Salas
 - Joseph Murillo Rodríguez
+
+# Comandos para levantar el proyecto
+
+npm i
