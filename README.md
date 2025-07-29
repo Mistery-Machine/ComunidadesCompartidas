@@ -20,3 +20,7 @@ Curso - Proyecto de Ingeniería de Software I - Cenfotec
 
 npm i
 npm run dev
+
+# Dev Notes
+
+const mongoose = require("./db.js"); // Usar mongose para la conexión a la base de datos en los modelos

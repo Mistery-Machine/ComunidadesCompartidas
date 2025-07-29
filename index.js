@@ -1,6 +1,7 @@
 //Utilizar express
-//require("./db.js");
 const express = require("express");
+
+const mongoose = require("./db.js"); // Usar mongose para la conexión a la base de datos en los modelos
 
 const app = express();
 
@@ -96,24 +97,3 @@ app.get("/ruta", (req, res) => {
 app.get("/ver-reportes", (req, res) => {
   res.render("verReportes");
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
