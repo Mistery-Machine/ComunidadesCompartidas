@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Crear Evento</title>
+    <link rel="stylesheet" href="/css/formulario-eventos.css"/>
+</head>
+<%- include("templates/navbar") %>
+<body>
+<div class="evento-formulario-contenedor">
+    <h2 class="evento-titulo-formulario">Creación de Eventos</h2>
+
+    <!-- TÍTULO -->
+    <div class="evento-grupo-formulario">
+        <label class="evento-etiqueta-formulario" for="titulo">Título del Evento</label>
+        <textarea class="evento-area-texto" id="titulo" placeholder="Ej: Festival Cultural 2025"></textarea>
+        <p class="mensaje-error" id="error-titulo"></p>
+    </div>
+
+    <!-- CATEGORÍA -->
+    <div class="evento-grupo-formulario">
+        <label class="evento-etiqueta-formulario" for="categoria">Categoría</label>
+        <select class="evento-select-formulario" id="categoria">
+            <option disabled selected>Seleccione una categoría</option>
+            <option>Concierto</option>
+            <option>Deportivo</option>
+            <option>Educativo</option>
+            <option>Familiar</option>
+            <option>Cultural</option>
+        </select>
+    </div>
+
+    <!-- FECHA Y UBICACIÓN -->
+    <div class="evento-fila-formulario">
+        <div class="evento-columna-formulario">
+            <label class="evento-etiqueta-formulario">Fecha de Generación</label>
+            <input class="evento-campo-formulario" type="text" value="7/02/2025" disabled/>
+        </div>
+        <div class="evento-columna-formulario">
+            <label class="evento-etiqueta-formulario" for="ubicacion">Ubicación</label>
+            <input class="evento-campo-formulario" type="text" id="ubicacion" placeholder="Ciudad, provincia o lugar específico"/>
+            <p class="mensaje-error" id="error-ubicacion"></p>
+        </div>
+    </div>
+
+    <!-- ORGANIZADOR -->
+    <div class="evento-grupo-formulario">
+        <label class="evento-etiqueta-formulario" for="organizador">Organizador</label>
+        <input class="evento-campo-formulario" type="text" id="organizador" placeholder="Nombre del organizador"/>
+        <p class="mensaje-error" id="error-organizador"></p>
+    </div>
+
+    <!-- BOTÓN -->
+    <div class="evento-grupo-formulario">
+        <button class="evento-boton-enviar boton-deshabilitado" id="crear-evento" disabled>
+            Crear Evento
+        </button>
+        <p class="evento-texto-aviso">
+            Al registrar este evento, usted confirma que la información
+            proporcionada es precisa y actualizada. </p>
+    </div>
+</div>
+<%- include("templates/footer") %>
+<script src="/js/validacion-eventos.js"></script>
+</body>
+</html>

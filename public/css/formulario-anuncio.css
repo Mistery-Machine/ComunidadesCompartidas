@@ -9,10 +9,13 @@ body {
     font-size: 16px;
     background-color: #e3e3e3;
     color: #b9b9b9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .contenedor-formulario {
-    max-width: 1200px;
+    width: 1200px;
     margin: 10rem auto;
     padding: 1.5em;
     background-color: #fff;

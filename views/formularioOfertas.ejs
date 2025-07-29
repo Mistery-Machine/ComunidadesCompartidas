@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/css/formulario-ofertas.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <title>Registro de ofertas</title>
+</head>
+<%- include("templates/navbar") %>
+<body>
+<form class="contenedor-formulario" id="formularioOfertas">
+    <h2 class="titulo-formulario texto-oscuro">Nueva Oferta</h2>
+    <p class="texto-secundario mt-1 mb-1">
+        Emprendimiento: Nombre de la Tienda
+        <i class="fa-solid fa-user icono-usuario"></i>
+    </p>
+
+    <div class="grupo-formulario" id="grupo-articulo">
+        <label class="etiqueta-formulario">Articulo</label>
+        <select class="seleccion-formulario" name="articulo" id="articulo">
+            <option selected disabled>Articulo</option>
+            <option>Microondas</option>
+            <option>Refrigerador</option>
+            <option>Plancha</option>
+        </select>
+        <p class="formulario-input-error">Por favor seleccione un articulo de la lista.</p>
+
+    </div>
+
+    <div class="grupo-formulario" id="grupo-nombre">
+        <label class="etiqueta-formulario">Oferta</label>
+        <input type="text" class="campo-formulario" placeholder="Nombre de la oferta" name="nombre" id="nombre"/>
+        <p class="formulario-input-error">El nombre de la oferta debe de tener de 10 a 50 caracteres de longitud. </p>
+    </div>
+
+    <div class="grupo-formulario" id="grupo-descripcion">
+        <label class="etiqueta-formulario">Descripción</label>
+        <textarea class="area-texto" placeholder="Descripción de la oferta" name="descripcion" id="descripcion"></textarea>
+        <p class="formulario-input-error">La descripcion de la oferta debe de tener de 10 a 100 caracteres de
+            longitud. </p>
+    </div>
+
+    <div class="fila-formulario" id="grupo-fechaInicio">
+        <div class="columna-formulario">
+            <label class="etiqueta-formulario">Fecha de Inicio</label>
+            <input class="campo-formulario" type="date" value="DD/MM/YYYY" name="fechaInicio" id="fechaInicio"/>
+            <p class="formulario-input-error">Especifique la fecha de inicio de la oferta.</p>
+        </div>
+        <div class="columna-formulario" id="grupo-fechaFin">
+            <label class="etiqueta-formulario">Fecha de Finalizacion</label>
+            <input class="campo-formulario" type="date" value="DD/MM/YYYY" name="fechaFin" id="fechaFin"/>
+            <p class="formulario-input-error">Especifique la fecha de finalizacion de la oferta.</p>
+        </div>
+    </div>
+
+    <div class="grupo-formulario" id="grupo-imgPromo">
+        <label class="etiqueta-formulario">Imagen de Promocion</label>
+        <div class="fila-formulario mb-2 nogap">
+            <div class="columna-formulario">
+                <button class="boton-subir" id="boton-subir-imagen" name="boton-subir-imagen">
+                    Subir
+                </button>
+            </div>
+            <div class="columna-formulario">
+                <input type="text" class="campo-formulario" disabled value="fotoPromocion.png" id="input-detalle-imagen"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="grupo-formulario">
+        <button class="boton-subir" id="boton-submit">
+            Crear oferta
+        </button>
+        <p class="texto-secundario mb-1">
+            Al enviar este formulario de registro de oferta, el usuario declara
+            que la información proporcionada es veraz y está actualizada. </p>
+    </div>
+    </div>
+</form>
+<%- include("templates/footer") %>
+<script src="/js/validacion-ofertas.js"></script>
+</body>
+</html>

@@ -9,11 +9,15 @@ body {
     font-size: 16px;
     background-color: #e3e3e3;
     color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .formulario-container {
-    max-width: 1200px;
-    margin: 10rem auto;
+    width: 1200px;
+    height: auto;
+    margin: 10rem auto auto auto; /* Change this */
     padding: 1.5em;
     background-color: #fff;
     border-radius: 8px;

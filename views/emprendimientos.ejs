@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Emprendimientos</title>
+    <link rel="stylesheet" href="/css/emprendimientos.css"/>
+</head>
+<%- include("templates/navbar") %>
+<body>
+<main class="emprendimientos-contenedor">
+    <div class="emprendimientos-grid">
+        <!-- Tarjeta de emprendimiento -->
+        <div class="tarjeta-emprendimiento">
+            <h2 class="nombre-emprendimiento">Delicias Caseras</h2>
+            <p class="descripcion-emprendimiento">
+                Productos artesanales hechos en casa: repostería, panadería y más. </p>
+
+            <div class="categorias-emprendimiento">
+                <span class="categoria">Gastronomía</span>
+                <span class="categoria">Artesanal</span>
+            </div>
+
+            <p class="ubicacion-emprendimiento">
+                Ubicación: San José, Costa Rica </p>
+            <p class="contacto-emprendimiento">Contacto: 8888-8888</p>
+        </div>
+
+        <div class="tarjeta-emprendimiento">
+            <h2 class="nombre-emprendimiento">Arte Natural</h2>
+            <p class="descripcion-emprendimiento">
+                Decoraciones ecológicas para el hogar hechas con materiales
+                reciclados. </p>
+
+            <div class="categorias-emprendimiento">
+                <span class="categoria">Decoración</span>
+                <span class="categoria">Eco Friendly</span>
+            </div>
+
+            <p class="ubicacion-emprendimiento">Ubicación: Cartago, Costa Rica</p>
+            <p class="contacto-emprendimiento">Contacto: artenatural@gmail.com</p>
+        </div>
+    </div>
+</main>
+<%- include("templates/footer") %>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Crear Reporte Ciudadano</title>
+    <link rel="stylesheet" href="/css/styleReporte.css"/>
+</head>
+<%- include("templates/navbar") %>
+<body>
+<div class="formulario-container">
+    <h2 class="formulario-titulo texto-principal">
+        Creación de Reportes Ciudadanos </h2>
+
+    <div class="formulario-grupo">
+        <label class="formulario-etiqueta">Título</label>
+        <input type="text" class="formulario-textarea-titulo" id="titulo" name="titulo" placeholder="Título del reporte"/>
+        <p class="formulario-input-error">
+            El título debe tener entre 6 y 100 caracteres. </p>
+    </div>
+
+    <div class="formulario-grupo">
+        <label class="formulario-etiqueta">Descripción</label>
+        <textarea class="formulario-textarea" placeholder="Descripción del reporte" id="descripcion" name="descripcion"></textarea>
+        <p class="formulario-input-error">
+            La descripción debe tener entre 20 y 500 caracteres. </p>
+    </div>
+    <!-- 
+    <div class="formulario-fila">
+        <div class="formulario-columna">
+            <label class="formulario-etiqueta">Fecha de Inicio</label>
+            <input class="formulario-campo" type="text" value="6/20/2025" disabled/>
+        </div>
+        <div class="formulario-columna">
+            <label class="formulario-etiqueta">Fecha de Finalización</label>
+            <input class="formulario-campo" type="text" value="6/20/2025" disabled/>
+        </div>
+    </div>
+    -->
+    <!-- 
+    <div class="formulario-grupo">
+        <label class="formulario-etiqueta">Imagen de Promoción</label>
+        <div class="formulario-fila sin-espacio"></div>
+    </div>
+    -->
+
+    <div class="formulario-grupo">
+        <button class="formulario-boton boton-deshabilitado" id="crear-reporte" disabled>
+            Crear Reporte
+        </button>
+        <p class="formulario-nota">
+            Al enviar este formulario, el usuario declara que la información
+            proporcionada es veraz y está actualizada. </p>
+    </div>
+</div>
+
+<script src="../public/js/validacion-reportes.js"></script>
+</body>
+<%- include("templates/footer") %>
+</html>

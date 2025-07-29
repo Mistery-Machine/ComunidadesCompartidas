@@ -10,10 +10,13 @@ body {
     font-size: 0.7em;
     background-color: #e3e3e3;
     color: #b9b9b9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .contenedor-principal {
-    max-width: 1200px;
+    width: 1200px;
     margin: 10rem auto;
 }
 

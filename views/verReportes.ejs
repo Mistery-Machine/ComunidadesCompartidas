@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Reportes Públicos</title>
+    <link rel="stylesheet" href="/css/verReportes.css"/>
+</head>
+<%- include("templates/navbar") %>
+<body>
+<main class="contenedor-eventos">
+    <div class="grid-eventos">
+        <div class="tarjeta-evento">
+            <h2 class="titulo-tarjeta">Problemas Calles</h2>
+            <p class="descripcion-evento">
+                Baches, alumbrado público defectuoso, basura acumulada, actos de
+                vandalismo, problemas de seguridad, etc. </p>
+
+            <p class="fecha-evento">Domingo 23 de Junio, 2025</p>
+
+            <button class="boton-participar">Ver Reporte</button>
+            <p class="estado-evento">Activo</p>
+        </div>
+
+        <div class="tarjeta-evento">
+            <h2 class="titulo-tarjeta">Sugerencias mejoras</h2>
+            <p class="descripcion-evento">
+                Ideas para espacios verdes, actividades comunitarias, mejoras en
+                servicios públicos, </p>
+            <p class="fecha-evento">Domingo 23 de Junio, 2025</p>
+            <button class="boton-participar">Ver Reporte</button>
+            <p class="estado-evento">Activo</p>
+        </div>
+    </div>
+</main>
+<%- include("templates/footer") %>
+</body>
+</html>
