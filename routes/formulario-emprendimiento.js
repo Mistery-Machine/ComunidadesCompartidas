@@ -1,6 +1,8 @@
+
 const emprendimiento = (app) => {
     app.post('/crear-emprendimiento', (req, res) => {
-        emprendimiento = {
+        console.log('req.body:', req.body); // Para debuggear
+        const datosEmprendimiento = {
             nombre: req.body.nombre,
             telefono: req.body.telefono,
             ubicacion: req.body.ubicacion,
@@ -9,17 +11,16 @@ const emprendimiento = (app) => {
             registro: req.body.fecha, 
             estado: req.body.estado,       
         }
+        // código para reenviar 
 
-        // codigo para guardar en database
+        res.render('formulario-exito', { 
+            headline: "Emprendimiento creado con éxito",
+            message: "Tu emprendimiento ha sido registrado correctamente y está en proceso de aprobación.",
+            message_secundario: "El emprendimiento será visible en la pestaña de emprendimientos una vez sea aprobado."
+
+        });
     });
 
-
-    // código para reenviar 
-
-    res.redirect('/formulario-exito', { 
-        header: "Emprendimiento creado con éxito",
-        message: "Tu emprendimiento ha sido registrado correctamente y está en proceso de aprobación.",
-        message_secundario: "El emprendimiento será visible en la pestaña de emprendimientos una vez sea aprobado."
-
-    });
 }
+
+module.exports = emprendimiento;

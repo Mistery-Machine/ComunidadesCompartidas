@@ -8,7 +8,7 @@ const boton = document.querySelector("#boton-submit");
 
 // Expresiones regulares
 const expresiones = {
-    nombreNegocio: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{5,50}$/,
+    nombre: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{5,50}$/,
     telefono: /^\d{4}-\d{4}$/,
     ubicacion: /^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s\.,#\-]{10,100}$/,
     descripcion: /^[\s\S]{20,500}$/,
@@ -18,7 +18,7 @@ const expresiones = {
 
 // Estado de los campos
 const campos = {
-    nombreNegocio: false,
+    nombre: false,
     telefono: false,
     ubicacion: false,
     descripcion: false,
@@ -31,7 +31,7 @@ const validarFormulario = (e) => {
     const nombreCampo = e.target.name;
 
     switch (nombreCampo) {
-        case "nombreNegocio":
+        case "nombre":
         case "telefono":
         case "ubicacion":
         case "descripcion":
@@ -80,8 +80,8 @@ const validarCampo = (expresion, input, campo) => {
         }
 
         if (selectArea) {
-            selectArea.classList.remove("campo-incorrecto");
-            selectArea.classList.add('campo-correcto');
+            selectArea.classList.add("campo-incorrecto");
+            selectArea.classList.remove('campo-correcto');
         }
 
         campos[campo] = false;
@@ -91,7 +91,7 @@ const validarCampo = (expresion, input, campo) => {
 }
 
 const verificarCampos = () => {
-    if (campos.nombreNegocio && campos.categoria && campos.descripcion && campos.telefono && campos.ubicacion && campos.estado) {
+    if (campos.nombre && campos.categoria && campos.descripcion && campos.telefono && campos.ubicacion && campos.estado) {
         boton.disabled = false;
         boton.classList.remove('boton-deshabilitado')
     } else {
@@ -115,6 +115,6 @@ textarea.forEach((textarea) => {
 })
 
 selectArea.forEach((selectArea) => {
-    selectArea.addEventListener("keyup", validarFormulario);
+    selectArea.addEventListener("change", validarFormulario);
     selectArea.addEventListener("blur", validarFormulario);
 })
