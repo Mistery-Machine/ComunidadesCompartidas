@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="/css/formulario-emprendimiento.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <title>Emprendimiento Registrado</title>
+</head>
+<%- include("templates/navbar") %>
+<body>
+<div class="contenedor-formulario">
+    <div style="text-align: center;">
+        <i class="fa-solid fa-check-circle" style="font-size: 4rem; color: rgb(70, 228, 70); margin-bottom: 2rem;"></i>
+        
+        <h2 class="titulo-formulario texto-oscuro mb-2"><%= headline %></h2>
+        
+        <p class="texto-secundario mb-2" style="color: #333; font-size: 1.1em;">
+            <%= message %>
+        </p>
+        
+        <p class="texto-secundario mb-2" style="color: #b9b9b9;">
+            <%= message_secundario %>
+        </p>
+        
+        <div class="grupo-formulario" style="max-width: 300px; margin: 0 auto;">
+            <a href="/" style="text-decoration: none;">
+                <button class="boton-subir">
+                    <i class="fa-solid fa-home" style="margin-right: 0.5rem;"></i>
+                    Volver al Inicio
+                </button>
+            </a>
+        </div>
+        
+        <p class="texto-secundario mt-1">
+            <i class="fa-solid fa-info-circle" style="color: #74C0FC; margin-right: 0.5rem;"></i>
+            Si tienes alguna pregunta, no dudes en contactarnos.
+        </p>
+    </div>
+</div>
+<%- include("templates/footer") %>
+</body>
+</html>

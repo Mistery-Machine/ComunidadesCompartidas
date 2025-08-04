@@ -9,12 +9,12 @@
 </head>
 <%- include("templates/navbar") %>
 <body>
-<form class="contenedor-formulario" id="formularioEmprendimiento">
+<form action="/crear-emprendimiento" method="POST" class="contenedor-formulario" id="formularioEmprendimiento">
     <h2 class="titulo-formulario texto-oscuro mb-2">Nuevo Emprendimiento</h2>
 
     <div class="grupo-formulario" id="grupo-nombreNegocio">
         <label class="etiqueta-formulario">Nombre</label>
-        <input class="campo-formulario" id="nombre-negocio" name="nombreNegocio" placeholder="Nombre del negocio" type="text"/>
+        <input class="campo-formulario" id="nombre-negocio" name="nombre" placeholder="Nombre del negocio" type="text"/>
         <p class="formulario-input-error">
             El nombre del negocio debe tener entre 6 a 32 caracteres. </p>
         <p class="texto-secundario mt-1">
@@ -61,7 +61,7 @@
     <div class="fila-formulario mb-2" id="grupo-fechaRegistro">
         <div class="columna-formulario">
             <label class="etiqueta-formulario">Fecha de registro</label>
-            <input class="campo-formulario" disabled id="fechaRegistro" name="fecha-registro" type="text" value="6/20/2025"/>
+            <input class="campo-formulario" disabled id="fechaRegistro" name="fecha" type="text" value="6/20/2025"/>
         </div>
 
         <div class="columna-formulario" id="grupo-estado">

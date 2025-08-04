@@ -97,6 +97,9 @@ app.get("/ver-reportes", (req, res) => {
   res.render("verReportes");
 });
 
+app.get("/formulario-exito", (req, res) => {
+  res.render("formulario-exito");
+});
 
 
 
