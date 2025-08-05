@@ -1,7 +1,7 @@
 //Utilizar mongoose
 const mongoose = require("mongoose");
 
-const mongoURI = "mongodb://localhost:27017/ComunidadesCompartidas"; // Cambia esto por tu URI de MongoDB
+const mongoURI = "mongodb+srv://sysadmin:cenfotec@comunidadescompartidas.ecw98qk.mongodb.net/?retryWrites=true&w=majority&appName=ComunidadesCompartidas";
 
 //Conectar a la base de datos
 mongoose
