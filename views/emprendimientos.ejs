@@ -9,38 +9,50 @@
 <%- include("templates/navbar") %>
 <body>
 <main class="emprendimientos-contenedor">
-    <div class="emprendimientos-grid">
-        <!-- Tarjeta de emprendimiento -->
-        <div class="tarjeta-emprendimiento">
-            <h2 class="nombre-emprendimiento">Delicias Caseras</h2>
-            <p class="descripcion-emprendimiento">
-                Productos artesanales hechos en casa: repostería, panadería y más. </p>
-
-            <div class="categorias-emprendimiento">
-                <span class="categoria">Gastronomía</span>
-                <span class="categoria">Artesanal</span>
+    <h1 class="emprendimientos-titulo">Emprendimientos Disponibles</h1>
+    <div class="filtros-container">
+        <button class="filtro-categoria activo" data-categoria="todos">Todos</button>
+        <button class="filtro-categoria" data-categoria="Electrodomésticos">Electrodomésticos</button>
+        <button class="filtro-categoria" data-categoria="Comida">Comida</button>
+        <button class="filtro-categoria" data-categoria="Ropa">Ropa</button>
+        <button class="filtro-categoria" data-categoria="Eventos">Eventos</button>
+        <button class="filtro-categoria" data-categoria="Artículos variados">Artículos variados</button>
+    </div>
+    <div class="items-por-pagina mb-2">
+        <span>Mostrar:</span>
+        <select id="itemsPorPagina">
+            <option value="10">10 por página</option>
+            <option value="25" selected>25 por página</option>
+            <option value="50">50 por página</option>                                                           
+        </select>
+    </div>
+    <div class="emprendimientos-grid" id="emprendimientosGrid">
+        <% for (let emprendimiento of emprendimientos) { %>
+            <div class="tarjeta-emprendimiento" data-categoria="<%= emprendimiento.categoria %>">
+                <h2 class="nombre-emprendimiento"><%= emprendimiento.nombre %></h2>
+                <p class="descripcion-emprendimiento">
+                    <%= emprendimiento.descripcion %>
+                </p>
+                <div class="categorias-emprendimiento">              
+                    <span class="categoria"><%= emprendimiento.categoria %></span>                  
+                </div>
+                <p class="ubicacion-emprendimiento"><b>Ubicación:</b> <%= emprendimiento.ubicacion %></p>
+                <p class="contacto-emprendimiento"><b>Contacto:</b> <%= emprendimiento.telefono %></p>
             </div>
+        <% } %>
+    </div>
 
-            <p class="ubicacion-emprendimiento">
-                Ubicación: San José, Costa Rica </p>
-            <p class="contacto-emprendimiento">Contacto: 8888-8888</p>
-        </div>
-
-        <div class="tarjeta-emprendimiento">
-            <h2 class="nombre-emprendimiento">Arte Natural</h2>
-            <p class="descripcion-emprendimiento">
-                Decoraciones ecológicas para el hogar hechas con materiales
-                reciclados. </p>
-
-            <div class="categorias-emprendimiento">
-                <span class="categoria">Decoración</span>
-                <span class="categoria">Eco Friendly</span>
-            </div>
-
-            <p class="ubicacion-emprendimiento">Ubicación: Cartago, Costa Rica</p>
-            <p class="contacto-emprendimiento">Contacto: artenatural@gmail.com</p>
+    <div class="paginador-container">
+        <div class="paginador-info">
+            Mostrando <span id="inicioRango">1</span>-<span id="finRango">9</span> de <span id="totalItems">0</span> emprendimientos
+        </div>   
+        <div class="paginador-botones">
+            <button class="btn-paginador" id="btnAnterior" disabled>Anterior</button>
+            <div id="numerosPagina"></div>
+            <button class="btn-paginador" id="btnSiguiente">Siguiente</button>
         </div>
     </div>
+    <script src="/js/paginador-emprendimientos.js"></script>
 </main>
 <%- include("templates/footer") %>
 </body>

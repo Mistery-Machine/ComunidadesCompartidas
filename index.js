@@ -17,6 +17,8 @@ app.listen(3000, () => {
 });
 
 const emprendimiento = require("./routes/formulario-emprendimiento");
+const emprendimientoLista = require("./routes/emprendimientos");
+
 
 // RUTAS
 app.get("/", (req, res) => {
@@ -35,11 +37,8 @@ app.get("/dashboard", (req, res) => {
   res.render("dashboard");
 });
 
-app.get("/emprendimientos", (req, res) => {
-  res.render("emprendimientos");
-});
-
 emprendimiento(app);
+emprendimientoLista(app);
 
 app.get("/eventos", (req, res) => {
   res.render("eventos");

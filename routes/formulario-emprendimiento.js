@@ -1,4 +1,4 @@
-const servicioEmprendimiento = require('../services/formulario-emprendimiento');
+const servicioEmprendimiento = require('../services/servicioEmprendimiento');
 
 const emprendimiento = (app) => {
     app.post('/crear-emprendimiento', async (req, res) => {
@@ -9,8 +9,8 @@ const emprendimiento = (app) => {
             ubicacion: req.body.ubicacion,
             categoria: req.body.categoria, 
             descripcion: req.body.descripcion,
-            registro: req.body.fecha, 
-            estado: req.body.estado,       
+            registro: new Date().toLocaleDateString(), // obtiene fecha del dia de hoy 
+            estado: false,  // no es visible todavia     
         }
 
         const resultado = await servicioEmprendimiento.crear(datosEmprendimiento);

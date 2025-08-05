@@ -12,7 +12,6 @@ const expresiones = {
     telefono: /^\d{4}-\d{4}$/,
     ubicacion: /^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s\.,#\-]{10,100}$/,
     descripcion: /^[\s\S]{20,500}$/,
-    estado: /^(?!Estado$).+$/,
     categoria: /^(?!Categoría$).+$/
 }
 
@@ -22,7 +21,6 @@ const campos = {
     telefono: false,
     ubicacion: false,
     descripcion: false,
-    estado: false,
     categoria: false
 }
 
@@ -35,7 +33,6 @@ const validarFormulario = (e) => {
         case "telefono":
         case "ubicacion":
         case "descripcion":
-        case "estado":
         case "categoria":
             validarCampo(expresiones[nombreCampo], e.target, nombreCampo);
             break;
@@ -91,7 +88,7 @@ const validarCampo = (expresion, input, campo) => {
 }
 
 const verificarCampos = () => {
-    if (campos.nombre && campos.categoria && campos.descripcion && campos.telefono && campos.ubicacion && campos.estado) {
+    if (campos.nombre && campos.categoria && campos.descripcion && campos.telefono && campos.ubicacion) {
         boton.disabled = false;
         boton.classList.remove('boton-deshabilitado')
     } else {

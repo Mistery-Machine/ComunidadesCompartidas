@@ -1,4 +1,4 @@
-const emprendimientoModel = require('../models/formulario-emprendimiento');
+const emprendimientoModel = require('../models/modeloEmprendimiento');
 
 const crear = async (datosEmprendimiento) => {
     try {
@@ -12,7 +12,7 @@ const crear = async (datosEmprendimiento) => {
 
 const obtenerTodos = async () => {
     try {
-        const listaEmprendimientos = await Emprendimiento.find();
+        const listaEmprendimientos = await emprendimientoModel.find();
         return { exito: true, data: listaEmprendimientos } 
     } catch (error) {
         return { exito: false, data: error.message }
