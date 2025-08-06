@@ -1,90 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="/css/formularioRuta.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/formularioRuta.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <title>Registro de Rutas</title>
-</head>
-<%- include("templates/navbar") %>
-<body>
-<form class="contenedor-formulario" id="formularioRuta">
-    <h2 class="titulo-formulario texto-oscuro mb-2">Nueva Ruta</h2>
+  </head>
+  <%- include("templates/navbar") %>
+  <body>
+    <form
+      class="contenedor-formulario"
+      id="formularioRuta"
+      method="POST"
+      action="<%= typeof ruta !== 'undefined' && esEdicion ? '/actualizar-ruta/' + ruta._id : '/crear-ruta' %>"
+    >
+      <h2 class="titulo-formulario texto-oscuro mb-2">
+        <%= typeof ruta !== 'undefined' && esEdicion ? 'Editar Ruta' : 'Nueva Ruta' %>
+      </h2>
 
-    <div class="grupo-formulario" id="grupo-numeroRuta">
+      <div class="grupo-formulario" id="grupo-numeroRuta">
         <label class="etiqueta-formulario">Número de Ruta</label>
-        <input type="text" class="campo-formulario" placeholder="Ej: 101" name="numeroRuta" id="numero-ruta"/>
+        <input
+          type="text"
+          class="campo-formulario"
+          placeholder="Ej: 101"
+          name="numeroRuta"
+          id="numero-ruta"
+          value="<%= typeof ruta !== 'undefined' ? ruta.numeroRuta : '' %>"
+        />
         <p class="formulario-input-error">
-            El número de ruta debe tener entre 1 a 10 caracteres. </p>
-    </div>
+          El número de ruta debe tener entre 1 a 10 caracteres.
+        </p>
+      </div>
 
-    <div class="grupo-formulario" id="grupo-recorrido">
+      <div class="grupo-formulario" id="grupo-recorrido">
         <label class="etiqueta-formulario">Recorrido</label>
-        <input type="text" class="campo-formulario" placeholder="Ej: San Rafael Arriba Centro → San José" name="recorrido" id="recorrido"/>
+        <input
+          type="text"
+          class="campo-formulario"
+          placeholder="Ej: San Rafael Arriba Centro → San José"
+          name="recorrido"
+          id="recorrido"
+          value="<%= typeof ruta !== 'undefined' ? ruta.recorrido : '' %>"
+        />
         <p class="formulario-input-error">
-            El recorrido debe tener entre 10 a 100 caracteres. </p>
-    </div>
+          El recorrido debe tener entre 3 a 100 caracteres.
+        </p>
+      </div>
 
-    <div class="grupo-formulario">
+      <div class="grupo-formulario">
         <h3 class="subtitulo-formulario">Horarios</h3>
 
         <div class="grupo-formulario" id="grupo-horarioLunVie">
-            <label class="etiqueta-formulario">Lunes a Viernes</label>
-            <input type="text" class="campo-formulario" placeholder="Ej: 05:30-22:00" name="horarioLunVie" id="horario-lun-vie"/>
-            <p class="formulario-input-error">
-                El horario debe tener formato HH:MM-HH:MM. </p>
+          <label class="etiqueta-formulario">Lunes a Viernes</label>
+          <input
+            type="text"
+            class="campo-formulario"
+            placeholder="Ej: 05:30-22:00"
+            name="horarioLunVie"
+            id="horario-lun-vie"
+            value="<%= typeof ruta !== 'undefined' ? ruta.horarioLunVie : '' %>"
+          />
+          <p class="formulario-input-error">
+            El horario debe tener formato HH:MM-HH:MM.
+          </p>
         </div>
 
         <div class="grupo-formulario" id="grupo-horarioSabado">
-            <label class="etiqueta-formulario">Sábado</label>
-            <input type="text" class="campo-formulario" placeholder="Ej: 06:00-21:00" name="horarioSabado" id="horario-sabado"/>
-            <p class="formulario-input-error">
-                El horario debe tener formato HH:MM-HH:MM. </p>
+          <label class="etiqueta-formulario">Sábado</label>
+          <input
+            type="text"
+            class="campo-formulario"
+            placeholder="Ej: 06:00-21:00"
+            name="horarioSabado"
+            id="horario-sabado"
+            value="<%= typeof ruta !== 'undefined' ? ruta.horarioSabado : '' %>"
+          />
+          <p class="formulario-input-error">
+            El horario debe tener formato HH:MM-HH:MM.
+          </p>
         </div>
 
         <div class="grupo-formulario" id="grupo-horarioDomingo">
-            <label class="etiqueta-formulario">Domingo</label>
-            <input type="text" class="campo-formulario" placeholder="Ej: 07:00-20:00" name="horarioDomingo" id="horario-domingo"/>
-            <p class="formulario-input-error">
-                El horario debe tener formato HH:MM-HH:MM. </p>
+          <label class="etiqueta-formulario">Domingo</label>
+          <input
+            type="text"
+            class="campo-formulario"
+            placeholder="Ej: 07:00-20:00"
+            name="horarioDomingo"
+            id="horario-domingo"
+            value="<%= typeof ruta !== 'undefined' ? ruta.horarioDomingo : '' %>"
+          />
+          <p class="formulario-input-error">
+            El horario debe tener formato HH:MM-HH:MM.
+          </p>
         </div>
-    </div>
+      </div>
 
-    <div class="fila-formulario mb-2">
+      <div class="fila-formulario mb-2">
         <div class="columna-formulario" id="grupo-frecuencia">
-            <label class="etiqueta-formulario">Frecuencia</label>
-            <select class="seleccion-formulario" name="frecuencia" id="frecuencia">
-                <option selected disabled>Frecuencia</option>
-                <option>Cada 15 min</option>
-                <option>Cada 30 min</option>
-                <option>Cada 45 min</option>
-                <option>Cada hora</option>
-            </select>
-            <p class="formulario-input-error">
-                Es necesario seleccionar la frecuencia de la ruta. </p>
+          <label class="etiqueta-formulario">Frecuencia</label>
+          <select
+            class="seleccion-formulario"
+            name="frecuencia"
+            id="frecuencia"
+          >
+            <option <%= typeof ruta === 'undefined' ? 'selected' : '' %> disabled>Frecuencia</option>
+            <option <%= typeof ruta !== 'undefined' && ruta.frecuencia === 'Cada 15 min' ? 'selected' : '' %>>Cada 15 min</option>
+            <option <%= typeof ruta !== 'undefined' && ruta.frecuencia === 'Cada 30 min' ? 'selected' : '' %>>Cada 30 min</option>
+            <option <%= typeof ruta !== 'undefined' && ruta.frecuencia === 'Cada 45 min' ? 'selected' : '' %>>Cada 45 min</option>
+            <option <%= typeof ruta !== 'undefined' && ruta.frecuencia === 'Cada hora' ? 'selected' : '' %>>Cada hora</option>
+          </select>
+          <p class="formulario-input-error">
+            Es necesario seleccionar la frecuencia de la ruta.
+          </p>
         </div>
 
         <div class="columna-formulario" id="grupo-estado">
-            <label class="etiqueta-formulario">Estado</label>
-            <select class="seleccion-formulario" name="estado" id="estado">
-                <option selected disabled>Estado</option>
-                <option>Activo</option>
-                <option>Inactivo</option>
-                <option>En mantenimiento</option>
-            </select>
-            <p class="formulario-input-error">
-                Es necesario seleccionar el estado de la ruta. </p>
+          <label class="etiqueta-formulario">Estado</label>
+          <select class="seleccion-formulario" name="estado" id="estado">
+            <option <%= typeof ruta === 'undefined' ? 'selected' : '' %> disabled>Estado</option>
+            <option <%= typeof ruta !== 'undefined' && ruta.estado === 'Activo' ? 'selected' : '' %>>Activo</option>
+            <option <%= typeof ruta !== 'undefined' && ruta.estado === 'Inactivo' ? 'selected' : '' %>>Inactivo</option>
+            <option <%= typeof ruta !== 'undefined' && ruta.estado === 'En mantenimiento' ? 'selected' : '' %>>En mantenimiento</option>
+          </select>
+          <p class="formulario-input-error">
+            Es necesario seleccionar el estado de la ruta.
+          </p>
         </div>
-    </div>
+      </div>
 
-    <div class="grupo-formulario" id="grupo-boton">
-        <button class="boton-subir boton-deshabilitado" type="submit" id="boton-submit" disabled>
-            Crear Ruta
+      <div class="grupo-formulario" id="grupo-boton">
+        <button
+          class="boton-subir boton-deshabilitado"
+          type="submit"
+          id="boton-submit"
+          disabled
+        >
+          <%= typeof ruta !== 'undefined' && esEdicion ? 'Actualizar Ruta' : 'Crear Ruta' %>
         </button>
-    </div>
-</form>
-<script src="/js/validacion-ruta.js"></script>
-<%- include("templates/footer") %>
-</body>
+      </div>
+    </form>
+    <script src="/js/validacion-ruta.js"></script>
+    <%- include("templates/footer") %>
+  </body>
 </html>

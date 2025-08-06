@@ -1,141 +1,150 @@
-// Obtener elementos del DOM
-const inputs = document.querySelectorAll("#formularioRuta input");
-const selectArea = document.querySelectorAll("#formularioRuta select");
 const formulario = document.getElementById("formularioRuta");
-const boton = document.querySelector("#boton-submit");
+const inputs = document.querySelectorAll("#formularioRuta input");
+const selects = document.querySelectorAll("#formularioRuta select");
 
-// Expresiones regulares para validación de rutas
 const expresiones = {
-    numeroRuta: /^[a-zA-Z0-9]{1,10}$/,
-    recorrido: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s\→\-\,\.]{10,100}$/,
-    horarioLunVie:
-        /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]-([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/,
-    horarioSabado:
-        /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]-([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/,
-    horarioDomingo:
-        /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]-([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/,
-    frecuencia: /^(?!Frecuencia$).+$/,
-    estado: /^(?!Estado$).+$/,
+  numeroRuta: /^.{1,10}$/,
+  recorrido: /^.{3,100}$/,
+  horario: /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]-([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/,
 };
 
-// Estado de los campos
 const campos = {
-    numeroRuta: false,
-    recorrido: false,
-    horarioLunVie: false,
-    horarioSabado: false,
-    horarioDomingo: false,
-    frecuencia: false,
-    estado: false,
+  numeroRuta: false,
+  recorrido: false,
+  horarioLunVie: false,
+  horarioSabado: false,
+  horarioDomingo: false,
+  frecuencia: false,
+  estado: false,
 };
 
-// Función principal de validación
 const validarFormulario = (e) => {
-    const nombreCampo = e.target.name;
-    switch (nombreCampo) {
-        case "numeroRuta":
-        case "recorrido":
-        case "horarioLunVie":
-        case "horarioSabado":
-        case "horarioDomingo":
-        case "frecuencia":
-        case "estado":
-            validarCampo(expresiones[nombreCampo], e.target, nombreCampo);
-            break;
-    }
+  switch (e.target.name) {
+    case "numeroRuta":
+      validarCampo(expresiones.numeroRuta, e.target, "numeroRuta");
+      break;
+    case "recorrido":
+      validarCampo(expresiones.recorrido, e.target, "recorrido");
+      break;
+    case "horarioLunVie":
+      validarCampo(expresiones.horario, e.target, "horarioLunVie");
+      break;
+    case "horarioSabado":
+      validarCampo(expresiones.horario, e.target, "horarioSabado");
+      break;
+    case "horarioDomingo":
+      validarCampo(expresiones.horario, e.target, "horarioDomingo");
+      break;
+    case "frecuencia":
+      validarSelect(e.target, "frecuencia");
+      break;
+    case "estado":
+      validarSelect(e.target, "estado");
+      break;
+  }
+  habilitarBoton(); // Llamar habilitarBoton después de cada validación
 };
 
-// Función para validar campo individual
 const validarCampo = (expresion, input, campo) => {
-    const grupo = document.querySelector(`#grupo-${campo}`);
-    const mensajeError = grupo.querySelector(".formulario-input-error");
-    const selectArea = grupo.querySelector(".seleccion-formulario");
-
-    if (expresion.test(input.value)) {
-        // Validación correcta
-        input.classList.remove("campo-incorrecto");
-        input.classList.add("campo-correcto");
-        mensajeError.classList.remove("input-error-activo");
-
-        if (selectArea) {
-            selectArea.classList.remove("campo-incorrecto");
-            selectArea.classList.add("campo-correcto");
-        }
-
-        campos[campo] = true;
-    } else {
-        // Validación incorrecta
-        input.classList.add("campo-incorrecto");
-        input.classList.remove("campo-correcto");
-        mensajeError.classList.add("input-error-activo");
-
-        if (selectArea) {
-            selectArea.classList.add("campo-incorrecto");
-            selectArea.classList.remove("campo-correcto");
-        }
-
-        campos[campo] = false;
-    }
-    verificarCampos();
+  if (expresion.test(input.value)) {
+    document
+      .getElementById(`grupo-${campo}`)
+      .classList.remove("formulario-grupo-incorrecto");
+    document
+      .getElementById(`grupo-${campo}`)
+      .classList.add("formulario-grupo-correcto");
+    campos[campo] = true;
+  } else {
+    document
+      .getElementById(`grupo-${campo}`)
+      .classList.add("formulario-grupo-incorrecto");
+    document
+      .getElementById(`grupo-${campo}`)
+      .classList.remove("formulario-grupo-correcto");
+    campos[campo] = false;
+  }
 };
 
-// Función para verificar si todos los campos están válidos
-const verificarCampos = () => {
-    if (
-        campos.numeroRuta &&
-        campos.recorrido &&
-        campos.horarioLunVie &&
-        campos.horarioSabado &&
-        campos.horarioDomingo &&
-        campos.frecuencia &&
-        campos.estado
-    ) {
-        boton.disabled = false;
-        boton.classList.remove("boton-deshabilitado");
-    } else {
-        boton.disabled = true;
-        boton.classList.add("boton-deshabilitado");
-    }
+const validarSelect = (select, campo) => {
+  if (select.value !== "" && select.selectedIndex > 0) {
+    document
+      .getElementById(`grupo-${campo}`)
+      .classList.remove("formulario-grupo-incorrecto");
+    document
+      .getElementById(`grupo-${campo}`)
+      .classList.add("formulario-grupo-correcto");
+    campos[campo] = true;
+  } else {
+    document
+      .getElementById(`grupo-${campo}`)
+      .classList.add("formulario-grupo-incorrecto");
+    document
+      .getElementById(`grupo-${campo}`)
+      .classList.remove("formulario-grupo-correcto");
+    campos[campo] = false;
+  }
 };
 
-// Llamar la función ayuda a que el botón salga como deshabilitado al cargar la página
-verificarCampos();
+const habilitarBoton = () => {
+  const boton = document.getElementById("boton-submit");
 
-// Event listeners para inputs
+  if (
+    campos.numeroRuta &&
+    campos.recorrido &&
+    campos.horarioLunVie &&
+    campos.horarioSabado &&
+    campos.horarioDomingo &&
+    campos.frecuencia &&
+    campos.estado
+  ) {
+    boton.classList.remove("boton-deshabilitado");
+    boton.disabled = false;
+  } else {
+    boton.classList.add("boton-deshabilitado");
+    boton.disabled = true;
+  }
+};
+
 inputs.forEach((input) => {
-    input.addEventListener("keyup", validarFormulario);
-    input.addEventListener("blur", validarFormulario);
+  input.addEventListener("keyup", validarFormulario);
+  input.addEventListener("blur", validarFormulario);
+  input.addEventListener("input", validarFormulario);
 });
 
-// Event listeners para selects
-selectArea.forEach((selectArea) => {
-    selectArea.addEventListener("change", validarFormulario);
-    selectArea.addEventListener("blur", validarFormulario);
+selects.forEach((select) => {
+  select.addEventListener("change", validarFormulario);
 });
 
-// Función para manejar el envío del formulario
-formulario.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    // Verificar que todos los campos estén válidos
-    if (Object.values(campos).every((campo) => campo === true)) {
-        // Obtener los datos del formulario
-        const datosRuta = {
-            numeroRuta: document.getElementById("numero-ruta").value,
-            recorrido: document.getElementById("recorrido").value,
-            horarios: {
-                lunVie: document.getElementById("horario-lun-vie").value,
-                sabado: document.getElementById("horario-sabado").value,
-                domingo: document.getElementById("horario-domingo").value,
-            },
-            frecuencia: document.getElementById("frecuencia").value,
-            estado: document.getElementById("estado").value,
-        };
-
-        console.log("Datos de la ruta:", datosRuta);
-
-        alert("Ruta registrada exitosamente!");
-    } else {
-        alert("Por favor completa todos los campos correctamente.");
+// Validar campos pre-llenados en modo edición
+document.addEventListener("DOMContentLoaded", () => {
+  inputs.forEach((input) => {
+    if (input.value) {
+      const event = { target: input };
+      validarFormulario(event);
     }
+  });
+
+  selects.forEach((select) => {
+    if (select.value && !select.options[select.selectedIndex].disabled) {
+      const event = { target: select };
+      validarFormulario(event);
+    }
+  });
+
+  habilitarBoton();
+});
+
+formulario.addEventListener("submit", (e) => {
+  if (
+    !campos.numeroRuta ||
+    !campos.recorrido ||
+    !campos.horarioLunVie ||
+    !campos.horarioSabado ||
+    !campos.horarioDomingo ||
+    !campos.frecuencia ||
+    !campos.estado
+  ) {
+    e.preventDefault();
+    alert("Por favor, completa todos los campos correctamente.");
+  }
 });

@@ -4,11 +4,11 @@ const mongoose = require("./db.js");
 const app = express();
 const path = require("path");
 
-app.set("views", path.join(__dirname, "views")); 
-app.engine("html", require("ejs").renderFile); 
-app.set("view engine", "ejs"); 
+app.set("views", path.join(__dirname, "views"));
+app.engine("html", require("ejs").renderFile);
+app.set("view engine", "ejs");
 app.use(express.json());
-app.use(express.urlencoded({ extended: true })); 
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 //Encender el servidor
@@ -18,7 +18,8 @@ app.listen(3000, () => {
 
 const emprendimiento = require("./routes/formulario-emprendimiento");
 const emprendimientoLista = require("./routes/emprendimientos");
-
+const rutaFormulario = require("./routes/formulario-ruta");
+const rutasLista = require("./routes/rutas");
 
 // RUTAS
 app.get("/", (req, res) => {
@@ -39,6 +40,8 @@ app.get("/dashboard", (req, res) => {
 
 emprendimiento(app);
 emprendimientoLista(app);
+rutaFormulario(app);
+rutasLista(app);
 
 app.get("/eventos", (req, res) => {
   res.render("eventos");
@@ -64,9 +67,7 @@ app.get("/formulario-ruta", (req, res) => {
   res.render("formularioRuta");
 });
 
-app.get("/listado-rutas", (req, res) => {
-  res.render("listadoRutas");
-});
+// Ruta manejada por rutasLista
 
 app.get("/login", (req, res) => {
   res.render("login");
@@ -99,23 +100,3 @@ app.get("/ver-reportes", (req, res) => {
 app.get("/formulario-exito", (req, res) => {
   res.render("formulario-exito");
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
