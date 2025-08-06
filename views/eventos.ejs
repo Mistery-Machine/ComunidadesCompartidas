@@ -3,48 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/ventana-evento.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    <title>Pagina de eventos</title>
+    <link rel="stylesheet" href="/css/ventana-evento.css">
+    <title>Bicentenario - Evento Escolar</title>
 </head>
 <%- include("templates/navbar") %>
 <body>
-<div class="contenedor mb-2">
-    <div class="">
-        <div class="contenedor-imagen mb-1 mt-1">
-            <img class="" src="https://www.museocostarica.go.cr/wp-content/uploads/exhibiciones/bicentenario/desfile-2019-scaled.jpg" alt="">
-        </div>
-        <div class="contenidos">
-            <div class="fecha-evento mb-1">
-                <p class="texto-secundario">Fecha: Domingo 23 de junio, 2025</p>
+    <div class="contenedor">
+        <div class="evento-header">
+            <div class="contenedor-imagen">
+                <img src="https://www.museocostarica.go.cr/wp-content/uploads/exhibiciones/bicentenario/desfile-2019-scaled.jpg" alt="Desfile del Bicentenario">
             </div>
-            <div class="grupo-formulario">
-                <h3 class="titulo">Bicentenario</h3>
-                <div class="etiquetas">
-                    <span class="etiqueta">Escolar</span>
+            
+            <div class="contenido-evento">
+                <div class="fecha-badge">
+                    <i class="fas fa-calendar-alt"></i>
+                    Domingo 23 de junio, 2025
                 </div>
-                <p class="descripcion text-justify">
+                
+                <h1 class="titulo-evento">Bicentenario</h1>
+                
+                <span class="categoria-tag">
+                    Escolar
+                </span>
+                
+                <p class="descripcion">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus quam rem laboriosam non ut est
                     aperiam ullam! Voluptate itaque porro, ullam, veritatis, deleniti eligendi expedita quis eveniet
-                    provident soluta deserunt eos esse labore vero consectetur iusto iste quasi laudantium. </p>
+                    provident soluta deserunt eos esse labore vero consectetur iusto iste quasi laudantium.
+                </p>
             </div>
-            <div class="grupo-formulario">
-                <div class="grid grid-col2">
-                    <div class="columna-grid mini-contenedor">
-                        <p class="titulo">Participar</p>
-                        <p class="texto-secundario">Es necesario llamar al numero de telefono para confirmar asistencia. Mas informacion con los organizadores del evento</p>
-                    </div>
-                    <div class="columna-grid mini-contenedor">
-                        <p class="titulo">Escuela Nombre Institucion</p>
-                        <p class="texto-secundario">Organizador principal del evento. Contacto: 8888-2234. Favor
-                            confirmar asistencia.</p>
-                    </div>
+        </div>
+
+        <div class="info-cards">
+            <div class="info-card">
+                <div class="card-header">
+                    <h3 class="card-titulo">¿Cómo Participar?</h3>
+                </div>
+                <p class="card-descripcion">
+                    Es necesario llamar al número de teléfono para confirmar asistencia. 
+                    Más información con los organizadores del evento.
+                </p>
+                <a href="" class="boton-principal" disabled>
+                    <i class="fas fa-phone"></i>
+                    Llamar para Participar
+                </a>
+            </div>
+
+            <div class="info-card">
+                <div class="card-header">
+                    <h3 class="card-titulo">Organizador</h3>
+                </div>
+                <p class="card-descripcion">
+                    <strong>Escuela Nombre Institución</strong><br>
+                    Organizador principal del evento.
+                </p>
+                <div class="contacto-info">
+                    <strong>Contacto:</strong> 8888-2234<br>
+                    <em>Favor confirmar asistencia</em>
                 </div>
             </div>
         </div>
     </div>
-</div>
 <%- include("templates/footer") %>
 </body>
 </html>
-  
