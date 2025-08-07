@@ -256,6 +256,7 @@ body {
   align-items: center;
 }
 
+.btn-view,
 .btn-edit,
 .btn-delete {
   padding: 8px 12px;
@@ -271,6 +272,19 @@ body {
   min-width: 36px;
   min-height: 36px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-view {
+  background-color: #28a745;
+  color: white !important;
+}
+
+.btn-view:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+  color: white !important;
 }
 
 .btn-edit {
@@ -298,6 +312,7 @@ body {
   color: white !important;
 }
 
+.btn-view i,
 .btn-edit i,
 .btn-delete i {
   font-size: 14px;

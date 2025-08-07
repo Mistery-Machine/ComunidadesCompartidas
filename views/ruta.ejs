@@ -1,113 +1,113 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="/css/ruta.css"/>
-    <title>Ruta de Transporte - Línea 101</title>
-</head>
-<%- include("templates/navbar") %>
-<body>
-<div class="container">
-    <div class="header">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/ruta.css" />
+    <title>Ruta de Transporte - Línea <%= ruta.numeroRuta %></title>
+  </head>
+  <%- include("templates/navbar") %>
+  <body>
+    <div class="container">
+      <div class="header">
         <div class="route-info">
-            <div class="route-number">101</div>
-            <div class="route-name">Centro - Universidad</div>
+          <div class="route-number"><%= ruta.numeroRuta %></div>
+          <div class="route-name"><%= ruta.recorrido %></div>
         </div>
-    </div>
+      </div>
 
-    <div class="content">
+      <div class="content">
         <h1 class="section-title">Información de la Ruta</h1>
 
         <p class="description">
-            La ruta 101 conecta el centro de la ciudad con la zona universitaria,
-            pasando por los principales puntos comerciales y residenciales. Este
-            servicio opera durante todo el día con frecuencias regulares y cuenta
-            con unidades modernas equipadas con aire acondicionado y acceso para
-            personas con discapacidad. </p>
+          La ruta <%= ruta.numeroRuta %> opera el recorrido <%= ruta.recorrido
+          %>. Este servicio cuenta con horarios regulares y está actualmente en
+          estado:
+          <strong><%= ruta.estado %></strong>.
+        </p>
 
         <div class="info-cards">
-            <div class="info-card">
-                <h3>Horarios de Servicio</h3>
-                <div class="schedule-grid">
-                    <div class="schedule-item">
-                        <div class="schedule-day">Lun - Vie</div>
-                        <div class="schedule-time">05:30 - 22:00</div>
-                    </div>
-                    <div class="schedule-item">
-                        <div class="schedule-day">Sábados</div>
-                        <div class="schedule-time">06:00 - 21:00</div>
-                    </div>
-                    <div class="schedule-item">
-                        <div class="schedule-day">Domingos</div>
-                        <div class="schedule-time">07:00 - 20:00</div>
-                    </div>
-                    <div class="schedule-item">
-                        <div class="schedule-day">Frecuencia</div>
-                        <div class="schedule-time">Cada 15 min</div>
-                    </div>
-                </div>
+          <div class="info-card">
+            <h3>Horarios de Servicio</h3>
+            <div class="schedule-grid">
+              <div class="schedule-item">
+                <div class="schedule-day">Lun - Vie</div>
+                <div class="schedule-time"><%= ruta.horarioLunVie %></div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-day">Sábados</div>
+                <div class="schedule-time"><%= ruta.horarioSabado %></div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-day">Domingos</div>
+                <div class="schedule-time"><%= ruta.horarioDomingo %></div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-day">Frecuencia</div>
+                <div class="schedule-time"><%= ruta.frecuencia %></div>
+              </div>
             </div>
+          </div>
 
-            <div class="info-card">
-                <h3>Tarifas Vigentes</h3>
-                <table class="tariff-table">
-                    <thead>
-                    <tr>
-                        <th>Tipo de Usuario</th>
-                        <th>Tarifa</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Adulto General</td>
-                        <td>₡540</td>
-                    </tr>
-                    <tr>
-                        <td>Adulto Mayor</td>
-                        <td>₡270</td>
-                    </tr>
-                    <tr>
-                        <td>Persona con Discapacidad</td>
-                        <td>Gratuito</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+          <div class="info-card">
+            <h3>Tarifas Vigentes</h3>
+            <table class="tariff-table">
+              <thead>
+                <tr>
+                  <th>Tipo de Usuario</th>
+                  <th>Tarifa</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Adulto General</td>
+                  <td>₡540</td>
+                </tr>
+                <tr>
+                  <td>Adulto Mayor</td>
+                  <td>₡270</td>
+                </tr>
+                <tr>
+                  <td>Persona con Discapacidad</td>
+                  <td>Gratuito</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <div class="info-card">
-            <h3>Contacto de la Empresa</h3>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <span class="contact-label">Empresa:</span>
-                    <span class="contact-value">Transportes Lared</span>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-label">Teléfono:</span>
-                    <span class="contact-value">2234-5678</span>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-label">WhatsApp:</span>
-                    <span class="contact-value">8888-9999</span>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-label">Email:</span>
-                    <span class="contact-value">info@transmetro.cr</span>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-label">Sitio Web:</span>
-                    <span class="contact-value">www.transmetro.cr</span>
-                </div>
+          <h3>Contacto de la Empresa</h3>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="contact-label">Empresa:</span>
+              <span class="contact-value">Transportes Lared</span>
             </div>
+            <div class="contact-item">
+              <span class="contact-label">Teléfono:</span>
+              <span class="contact-value">2234-5678</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">WhatsApp:</span>
+              <span class="contact-value">8888-9999</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Email:</span>
+              <span class="contact-value">info@transmetro.cr</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Sitio Web:</span>
+              <span class="contact-value">www.transmetro.cr</span>
+            </div>
+          </div>
         </div>
 
         <div class="update-info">
-            <strong>Última Actualización:</strong> 20 de junio, 2025 - Los
-            horarios y tarifas están sujetos a cambios.
+          <strong>Última Actualización:</strong> 20 de junio, 2025 - Los
+          horarios y tarifas están sujetos a cambios.
         </div>
+      </div>
     </div>
-</div>
-<%- include("templates/footer") %>
-</body>
+    <%- include("templates/footer") %>
+  </body>
 </html>

@@ -81,6 +81,21 @@ const rutasLista = (app) => {
     }
   });
 
+  // READ - Ver una ruta específica
+  app.get("/ruta/:id", async (req, res) => {
+    const resultado = await servicioRuta.obtenerPorId(req.params.id);
+    if (resultado.exito) {
+      res.render("ruta", { ruta: resultado.data });
+    } else {
+      res.render("formulario-error", {
+        headline: "Ruta no encontrada",
+        message: resultado.data,
+        message_secundario: "La ruta que intentas ver no existe",
+      });
+    }
+  });
+
+  // API endpoints para operaciones AJAX
   app.get("/api/rutas", async (req, res) => {
     const rutas = await servicioRuta.obtenerTodas();
     res.json(rutas);

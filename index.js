@@ -89,9 +89,7 @@ app.get("/reportes", (req, res) => {
   res.render("reportes");
 });
 
-app.get("/ruta", (req, res) => {
-  res.render("ruta");
-});
+// Esta ruta ahora se maneja en routes/rutas.js
 
 app.get("/ver-reportes", (req, res) => {
   res.render("verReportes");
