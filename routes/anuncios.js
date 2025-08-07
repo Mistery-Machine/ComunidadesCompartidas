@@ -1,25 +1,46 @@
 const express = require("express");
 const router = express.Router();
-const Anuncio = require("../models/Anuncio");
+const Anuncio = require("../models/modeloAnuncio");
 
-// Obtener todos los anuncios
+// Obtener todos los anuncios (vista)
 router.get("/", async (req, res) => {
   try {
-    const anuncios = await Anuncio.find();
-    res.json(anuncios);
+    const anuncios = await Anuncio.find().sort({ fecha: -1 });
+    res.render("anuncios", { anuncios });
   } catch (err) {
-    res.status(500).json({ mensaje: "Error al obtener anuncios" });
+    console.error("Error al obtener anuncios:", err);
+    res.render("anuncios", { anuncios: [] });
   }
 });
 
 // Crear un nuevo anuncio
 router.post("/", async (req, res) => {
   try {
-    const nuevo = new Anuncio(req.body);
-    await nuevo.save();
-    res.json(nuevo);
+    const { titulo, descripcion, fecha } = req.body;
+
+    const nuevoAnuncio = new Anuncio({
+      titulo,
+      descripcion,
+      fecha: fecha || new Date(),
+    });
+
+    await nuevoAnuncio.save();
+    res.redirect("/anuncios");
   } catch (err) {
-    res.status(400).json({ mensaje: "Error al crear anuncio" });
+    console.error("Error al crear anuncio:", err);
+    res.render("formulario-error", {
+      mensaje: "Error al crear el anuncio. Por favor, intenta de nuevo.",
+    });
+  }
+});
+
+// API endpoints para obtener anuncios en JSON
+router.get("/api", async (req, res) => {
+  try {
+    const anuncios = await Anuncio.find().sort({ fecha: -1 });
+    res.json(anuncios);
+  } catch (err) {
+    res.status(500).json({ mensaje: "Error al obtener anuncios" });
   }
 });
 

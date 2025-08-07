@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Reporte = require("../models/Reporte");
+const Reporte = require("../models/modeloReporte");
 
 // Obtener todos los reportes y sugerencias
 router.get("/api/reportes", async (req, res) => {

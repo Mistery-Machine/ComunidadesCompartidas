@@ -28,10 +28,6 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/anuncios", (req, res) => {
-  res.render("anuncios");
-});
-
 app.get("/calendario", (req, res) => {
   res.render("calendario");
 });
@@ -46,10 +42,6 @@ rutaFormulario(app);
 rutasLista(app);
 eventoFormulario(app);
 eventosLista(app);
-
-app.get("/formulario-anuncio", (req, res) => {
-  res.render("formulario-anuncio");
-});
 
 app.get("/formulario-eventos", (req, res) => {
   res.render("formularioEvento", { esEdicion: false });
@@ -103,7 +95,13 @@ app.get("/formulario-exito", (req, res) => {
   res.render("formulario-exito");
 });
 
-app.use("/api/anuncios", require("./routes/anuncios"));
+// Rutas de anuncios
+app.use("/anuncios", require("./routes/anuncios"));
+
+// Ruta específica para el formulario de anuncio
+app.get("/formulario-anuncio", (req, res) => {
+  res.render("formulario-anuncio");
+});
 
 const rutasReportes = require("./routes/reportes");
 app.use(rutasReportes);
