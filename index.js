@@ -102,3 +102,8 @@ app.get("/ver-reportes", (req, res) => {
 app.get("/formulario-exito", (req, res) => {
   res.render("formulario-exito");
 });
+
+app.use("/api/anuncios", require("./routes/anuncios"));
+
+const rutasReportes = require("./routes/reportes");
+app.use(rutasReportes);
