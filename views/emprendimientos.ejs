@@ -30,14 +30,13 @@
         <% for (let emprendimiento of emprendimientos) { %>
             <div class="tarjeta-emprendimiento" data-categoria="<%= emprendimiento.categoria %>">
                 <h2 class="nombre-emprendimiento"><%= emprendimiento.nombre %></h2>
-                <p class="descripcion-emprendimiento">
-                    <%= emprendimiento.descripcion %>
-                </p>
                 <div class="categorias-emprendimiento">              
                     <span class="categoria"><%= emprendimiento.categoria %></span>                  
                 </div>
                 <p class="ubicacion-emprendimiento"><b>Ubicación:</b> <%= emprendimiento.ubicacion %></p>
                 <p class="contacto-emprendimiento"><b>Contacto:</b> <%= emprendimiento.telefono %></p>
+                <a href="/emprendimiento-ver/<%= emprendimiento.id %>" class="boton-subir">Ver mas</a>
+
             </div>
         <% } %>
     </div>

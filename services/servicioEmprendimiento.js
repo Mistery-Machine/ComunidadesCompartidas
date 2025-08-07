@@ -19,4 +19,13 @@ const obtenerTodos = async () => {
     }
 }
 
-module.exports = { crear, obtenerTodos }
+const obtenerPorId = async (id) => {
+    try {
+        const unicoEmprendimiento = await emprendimientoModel.findById(id);
+        return { exito: true, data: unicoEmprendimiento } 
+    } catch (error) {
+        return { exito: false, data: error.message }
+    }
+}
+
+module.exports = { crear, obtenerTodos, obtenerPorId }
