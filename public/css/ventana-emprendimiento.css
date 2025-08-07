@@ -1,0 +1,230 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedor {
+  max-width: 1200px;
+  margin: 8rem auto 2rem;
+  padding: 0 1rem;
+}
+
+/* Header del emprendimiento */
+.emprendimiento-header {
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.contenedor-imagen {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.contenedor-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contenido-emprendimiento {
+  padding: 2rem;
+}
+
+.fecha-badge {
+    display: inline-block;
+    background-color: #3f9bff;
+    color: #ffffff;
+    font-size: 0.75rem;
+    padding: 0.3em 0.6em;
+    margin-right: 0.4em;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.titulo-emprendimiento {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2c3e50;
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+}
+
+.categoria-tag {
+ 
+    display: inline-block;
+    background-color: #e8e8e8;
+    color: #555;
+    font-size: 0.75rem;
+    padding: 0.3em 0.6em;
+    border-radius: 4px;
+}
+
+/* Colores para categorías */
+.categoria-concierto {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+.categoria-deportivo {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+.categoria-educativo {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+.categoria-familiar {
+  background-color: #fce4ec;
+  color: #c2185b;
+}
+.categoria-cultural {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+}
+.categoria-escolar {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+
+.descripcion {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555;
+  text-align: justify;
+  margin-top: 0.8rem;
+}
+
+/* Cards de información */
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.info-card {
+  background: white;
+  border-radius: 4px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+.card-header {
+  margin-bottom: 1rem;
+}
+
+.card-titulo {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  font-weight: bold;
+  border-bottom: 2px solid #3f9bff;
+}
+
+.card-descripcion {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.contacto-info {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 4px;
+  border-left: 4px solid #3f9bff;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.info-item i {
+  color: #3f9bff;
+  width: 16px;
+  text-align: center;
+}
+
+/* Botones */
+.boton-principal,
+.boton-secundario,
+.boton-peligro {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.boton-principal {
+  background: linear-gradient(135deg, #3f9bff, #2980b9);
+  color: white;
+}
+
+.boton-principal:hover {
+  background: linear-gradient(135deg, #2980b9, #1f5f8b);
+  box-shadow: 0 4px 15px rgba(63, 155, 255, 0.3);
+}
+
+.boton-secundario {
+  background: #6c757d;
+  color: white;
+}
+
+.boton-peligro {
+  background: #dc3545;
+  color: white;
+}
+
+.boton-peligro:hover {
+  background: #c82333;
+}
+
+.boton-principal[disabled] {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.boton-principal[disabled]:hover {
+  background: #ccc;
+  box-shadow: none;
+}
+
+/* Sección de acciones */
+.acciones-emprendimiento {
+  background: white;
+  padding: 2rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}

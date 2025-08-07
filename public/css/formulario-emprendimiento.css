@@ -16,7 +16,7 @@ body {
 }
 
 .contenedor-formulario {
-    max-width: 1200px;
+    width: 1200px;
     margin: 10rem auto;
     padding: 1.5em;
     background-color: #fff;

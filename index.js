@@ -17,7 +17,7 @@ app.listen(3000, () => {
 });
 
 const emprendimiento = require("./routes/formulario-emprendimiento");
-const emprendimientoLista = require("./routes/emprendimientos");
+const servicioEmprendimiento = require("./routes/emprendimientos");
 const rutaFormulario = require("./routes/formulario-ruta");
 const rutasLista = require("./routes/rutas");
 const eventoFormulario = require("./routes/formulario-evento");
@@ -37,7 +37,8 @@ app.get("/dashboard", (req, res) => {
 });
 
 emprendimiento(app);
-emprendimientoLista(app);
+servicioEmprendimiento.emprendimientoLista(app);
+servicioEmprendimiento.emprendimientoId(app);
 rutaFormulario(app);
 rutasLista(app);
 eventoFormulario(app);
