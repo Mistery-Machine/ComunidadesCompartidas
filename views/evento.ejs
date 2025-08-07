@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/ventana-evento.css" />
+    <title><%= evento.titulo %> - Evento <%= evento.categoria %></title>
+  </head>
+  <%- include("templates/navbar") %>
+  <body>
+    <div class="contenedor">
+      <div class="evento-header">
+        <div class="contenedor-imagen">
+          <% let imagenCategoria = ''; switch(evento.categoria.toLowerCase()) {
+          case 'concierto': imagenCategoria =
+          'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=400&fit=crop';
+          break; case 'deportivo': imagenCategoria =
+          'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=400&fit=crop';
+          break; case 'educativo': imagenCategoria =
+          'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&h=400&fit=crop';
+          break; case 'familiar': imagenCategoria =
+          'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=400&fit=crop';
+          break; case 'cultural': imagenCategoria =
+          'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=400&fit=crop';
+          break; default: imagenCategoria =
+          'https://via.placeholder.com/800x400/3f9bff/ffffff?text=' +
+          evento.categoria; } %>
+          <img src="<%= imagenCategoria %>" alt="<%= evento.titulo %>" />
+        </div>
+        <div class="contenido-evento">
+          <div class="fecha-badge">
+            <i class="fas fa-calendar-alt"></i>
+            <%= new Date(evento.fechaEvento +
+            'T00:00:00').toLocaleDateString('es-ES', { weekday: 'long', year:
+            'numeric', month: 'long', day: 'numeric' }) %>
+          </div>
+          <h1 class="titulo-evento"><%= evento.titulo %></h1>
+          <span
+            class="categoria-tag categoria-<%= evento.categoria.toLowerCase() %>"
+            ><%= evento.categoria %></span
+          >
+          <p class="descripcion">
+            Este evento de categoría <%= evento.categoria.toLowerCase() %> se
+            realizará en <%= evento.ubicacion %>. Organizado por <%=
+            evento.organizador %>, promete ser una experiencia única para toda
+            la comunidad. ¡No te pierdas esta oportunidad de participar y
+            conectar con tu comunidad!
+          </p>
+        </div>
+      </div>
+
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="card-header">
+            <h3 class="card-titulo">¿Cómo Participar?</h3>
+          </div>
+          <p class="card-descripcion">
+            Para participar en este evento, puedes contactar directamente al
+            organizador. Se recomienda confirmar asistencia con anticipación
+            para garantizar tu lugar.
+          </p>
+          <a href="tel:<%= evento.telefono %>" class="boton-principal">
+            <i class="fas fa-phone"></i>
+            Contactar Organizador
+          </a>
+        </div>
+
+        <div class="info-card">
+          <div class="card-header">
+            <h3 class="card-titulo">Información del Evento</h3>
+          </div>
+          <p class="card-descripcion">
+            <strong><%= evento.organizador %></strong><br />
+            Organizador principal del evento.
+          </p>
+          <div class="contacto-info">
+            <div class="info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <strong>Ubicación:</strong> <%= evento.ubicacion %>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-user"></i>
+              <strong>Organizador:</strong> <%= evento.organizador %>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-phone"></i>
+              <strong>Teléfono:</strong> <%= evento.telefono %>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-calendar-plus"></i>
+              <strong>Registrado:</strong> <%= evento.fechaGeneracion %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acciones-evento">
+        <a href="/editar-evento/<%= evento._id %>" class="boton-secundario">
+          <i class="fas fa-edit"></i>
+          Editar Evento
+        </a>
+        <a href="/listado-eventos" class="boton-secundario">
+          <i class="fas fa-arrow-left"></i>
+          Volver al Listado
+        </a>
+        <form
+          method="POST"
+          action="/eliminar-evento/<%= evento._id %>"
+          style="display: inline"
+        >
+          <button
+            type="submit"
+            class="boton-peligro"
+            onclick="return confirm('¿Está seguro de que desea eliminar este evento?')"
+          >
+            <i class="fas fa-trash"></i>
+            Eliminar Evento
+          </button>
+        </form>
+      </div>
+    </div>
+    <%- include("templates/footer") %>
+  </body>
+</html>

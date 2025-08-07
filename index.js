@@ -17,17 +17,15 @@ app.listen(3000, () => {
 });
 
 const emprendimiento = require("./routes/formulario-emprendimiento");
-const emprendimientoService = require("./routes/emprendimientos");
+const emprendimientoLista = require("./routes/emprendimientos");
 const rutaFormulario = require("./routes/formulario-ruta");
 const rutasLista = require("./routes/rutas");
+const eventoFormulario = require("./routes/formulario-evento");
+const eventosLista = require("./routes/eventos");
 
 // RUTAS
 app.get("/", (req, res) => {
   res.render("index");
-});
-
-app.get("/anuncios", (req, res) => {
-  res.render("anuncios");
 });
 
 app.get("/calendario", (req, res) => {
@@ -39,21 +37,14 @@ app.get("/dashboard", (req, res) => {
 });
 
 emprendimiento(app);
+emprendimientoLista(app);
+rutaFormulario(app);
 rutasLista(app);
-emprendimientoService.emprendimientoId(app);
-emprendimientoService.emprendimientoLista(app);
-
-
-app.get("/eventos", (req, res) => {
-  res.render("eventos");
-});
-
-app.get("/formulario-anuncio", (req, res) => {
-  res.render("formulario-anuncio");
-});
+eventoFormulario(app);
+eventosLista(app);
 
 app.get("/formulario-eventos", (req, res) => {
-  res.render("formulario-eventos");
+  res.render("formularioEvento", { esEdicion: false });
 });
 
 app.get("/formulario-emprendimiento", (req, res) => {
@@ -78,8 +69,14 @@ app.get("/mapa", (req, res) => {
   res.render("mapa");
 });
 
-app.get("/pagina-eventos", (req, res) => {
-  res.render("paginaEventos");
+app.get("/pagina-eventos", async (req, res) => {
+  const servicioEvento = require("./services/servicioEvento");
+  const eventos = await servicioEvento.obtenerTodos();
+  if (eventos.exito) {
+    res.render("paginaEventos", { eventos: eventos.data });
+  } else {
+    res.render("paginaEventos", { eventos: [] });
+  }
 });
 
 app.get("/register", (req, res) => {
@@ -90,10 +87,6 @@ app.get("/reportes", (req, res) => {
   res.render("reportes");
 });
 
-app.get("/ruta", (req, res) => {
-  res.render("ruta");
-});
-
 app.get("/ver-reportes", (req, res) => {
   res.render("verReportes");
 });
@@ -101,3 +94,14 @@ app.get("/ver-reportes", (req, res) => {
 app.get("/formulario-exito", (req, res) => {
   res.render("formulario-exito");
 });
+
+// Rutas de anuncios
+app.use("/anuncios", require("./routes/anuncios"));
+
+// Ruta específica para el formulario de anuncio
+app.get("/formulario-anuncio", (req, res) => {
+  res.render("formulario-anuncio");
+});
+
+const rutasReportes = require("./routes/reportes");
+app.use(rutasReportes);

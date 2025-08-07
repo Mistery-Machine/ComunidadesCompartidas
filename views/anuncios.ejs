@@ -1,46 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Eventos Públicos</title>
-    <link rel="stylesheet" href="/css/anuncios.css"/>
-</head>
-<%- include("templates/navbar") %>
-<body>
-<main class="contenedor-eventos">
-    <div class="grid-eventos">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Anuncios</title>
+    <link rel="stylesheet" href="/css/anuncios.css" />
+  </head>
+  <%- include("templates/navbar") %>
+  <body>
+    <main class="contenedor-eventos">
+      <div class="header-anuncios">
+        <h1>Anuncios</h1>
+        <a href="/formulario-anuncio" class="boton-nuevo-anuncio"
+          >Nuevo Anuncio</a
+        >
+      </div>
+
+      <div class="grid-eventos">
+        <% if (anuncios && anuncios.length > 0) { %> <%
+        anuncios.forEach(function(anuncio) { %>
         <div class="tarjeta-evento">
-            <h2 class="titulo-tarjeta">Desfile Conmemorativo</h2>
-            <p class="descripcion-evento">
-                Ven y disfruta de un gran desfile en Calle, Distrito, Provincia </p>
-
-            <div class="categorias-evento">
-                <span class="categoria">Escolar</span>
-                <span class="categoria">Familiar</span>
-                <span class="categoria">Música</span>
-            </div>
-
-            <p class="fecha-evento">Domingo 23 de Junio, 2025</p>
-
-            <button class="boton-participar">Participar</button>
-            <p class="estado-evento">Activo</p>
+          <h2 class="titulo-tarjeta"><%= anuncio.titulo %></h2>
+          <p class="descripcion-evento"><%= anuncio.descripcion %></p>
+          <p class="fecha-evento">
+            <% var fecha = new Date(anuncio.fecha); var opciones = { weekday:
+            'long', year: 'numeric', month: 'long', day: 'numeric' }; var
+            fechaFormateada = fecha.toLocaleDateString('es-ES', opciones); %>
+            <%= fechaFormateada %>
+          </p>
         </div>
-        <div class="tarjeta-evento">
-            <h2 class="titulo-tarjeta">Desfile Conmemorativo</h2>
-            <p class="descripcion-evento">
-                Ven y disfruta de un gran desfile en Calle, Distrito, Provincia </p>
-            <div class="categorias-evento">
-                <span class="categoria">Escolar</span>
-                <span class="categoria">Familiar</span>
-                <span class="categoria">Música</span>
-            </div>
-            <p class="fecha-evento">Domingo 23 de Junio, 2025</p>
-            <button class="boton-participar">Participar</button>
-            <p class="estado-evento">Activo</p>
+        <% }); %> <% } else { %>
+        <div class="mensaje-vacio">
+          <p>No hay anuncios disponibles.</p>
+          <a href="/formulario-anuncio" class="boton-participar"
+            >Crear primer anuncio</a
+          >
         </div>
-    </div>
-</main>
-<%- include("templates/footer") %>
-</body>
+        <% } %>
+      </div>
+    </main>
+    <%- include("templates/footer") %>
+  </body>
 </html>
