@@ -1,70 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    <link rel="stylesheet" href="/css/ventana-evento.css">
-    <title>Bicentenario - Evento Escolar</title>
-</head>
-<%- include("templates/navbar") %>
-<body>
-    <div class="contenedor">
-        <div class="evento-header">
-            <div class="contenedor-imagen">
-                <img src="https://www.museocostarica.go.cr/wp-content/uploads/exhibiciones/bicentenario/desfile-2019-scaled.jpg" alt="Desfile del Bicentenario">
-            </div>
-            
-            <div class="contenido-evento">
-                <div class="fecha-badge">
-                    <i class="fas fa-calendar-alt"></i>
-                    Domingo 23 de junio, 2025
-                </div>
-                
-                <h1 class="titulo-evento">Bicentenario</h1>
-                
-                <span class="categoria-tag">
-                    Escolar
-                </span>
-                
-                <p class="descripcion">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus quam rem laboriosam non ut est
-                    aperiam ullam! Voluptate itaque porro, ullam, veritatis, deleniti eligendi expedita quis eveniet
-                    provident soluta deserunt eos esse labore vero consectetur iusto iste quasi laudantium.
-                </p>
-            </div>
-        </div>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Eventos</title>
+    <link rel="stylesheet" href="/css/emprendimientos.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <%- include("templates/navbar") %>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Gestión de Eventos</h1>
+        <a href="/formulario-eventos" class="btn-primary">
+          <i class="fas fa-plus"></i> Crear Nuevo Evento
+        </a>
+      </div>
 
-        <div class="info-cards">
-            <div class="info-card">
-                <div class="card-header">
-                    <h3 class="card-titulo">¿Cómo Participar?</h3>
-                </div>
-                <p class="card-descripcion">
-                    Es necesario llamar al número de teléfono para confirmar asistencia. 
-                    Más información con los organizadores del evento.
-                </p>
-                <a href="" class="boton-principal" disabled>
-                    <i class="fas fa-phone"></i>
-                    Llamar para Participar
-                </a>
-            </div>
+      <div class="filters">
+        <select id="filtroCategoria" class="filter-select">
+          <option value="">Todas las categorías</option>
+          <option value="Concierto">Concierto</option>
+          <option value="Deportivo">Deportivo</option>
+          <option value="Educativo">Educativo</option>
+          <option value="Familiar">Familiar</option>
+          <option value="Cultural">Cultural</option>
+        </select>
+        <input
+          type="text"
+          id="busqueda"
+          placeholder="Buscar eventos..."
+          class="search-input"
+        />
+      </div>
 
-            <div class="info-card">
-                <div class="card-header">
-                    <h3 class="card-titulo">Organizador</h3>
-                </div>
-                <p class="card-descripcion">
-                    <strong>Escuela Nombre Institución</strong><br>
-                    Organizador principal del evento.
-                </p>
-                <div class="contacto-info">
-                    <strong>Contacto:</strong> 8888-2234<br>
-                    <em>Favor confirmar asistencia</em>
-                </div>
+      <div class="eventos-grid" id="eventosGrid">
+        <% if (eventos && eventos.length > 0) { %> <% eventos.forEach(evento =>
+        { %>
+        <div class="evento-card" data-categoria="<%= evento.categoria %>">
+          <div class="evento-header">
+            <h3>
+              <a
+                href="/evento/<%= evento._id %>"
+                style="color: inherit; text-decoration: none; hover: color: #2980b9;"
+              >
+                <%= evento.titulo %>
+              </a>
+            </h3>
+            <div class="evento-actions">
+              <a href="/editar-evento/<%= evento._id %>" class="btn-edit">
+                <i class="fas fa-edit"></i>
+              </a>
+              <form
+                method="POST"
+                action="/eliminar-evento/<%= evento._id %>"
+                style="display: inline"
+              >
+                <button
+                  type="submit"
+                  class="btn-delete"
+                  onclick="return confirmarEliminacion('<%= evento.titulo %>')"
+                >
+                  <i class="fas fa-trash"></i>
+                </button>
+              </form>
             </div>
+          </div>
+          <div class="evento-info">
+            <p>
+              <strong>Categoría:</strong>
+              <span
+                class="categoria-badge categoria-<%= evento.categoria.toLowerCase() %>"
+                ><%= evento.categoria %></span
+              >
+            </p>
+            <p>
+              <strong>Fecha:</strong> <%= new Date(evento.fechaEvento +
+              'T00:00:00').toLocaleDateString('es-ES', { year: 'numeric', month:
+              'long', day: 'numeric' }) %>
+            </p>
+            <p>
+              <strong>Ubicación:</strong>
+              <span class="evento-ubicacion"><%= evento.ubicacion %></span>
+            </p>
+            <p>
+              <strong>Organizador:</strong>
+              <span class="evento-organizador"><%= evento.organizador %></span>
+            </p>
+            <p><strong>Registrado:</strong> <%= evento.fechaGeneracion %></p>
+            <div
+              class="evento-acciones"
+              style="margin-top: 1rem; text-align: center"
+            >
+              <a href="/evento/<%= evento._id %>" class="btn-ver-detalles">
+                <i class="fas fa-eye"></i> Ver Detalles
+              </a>
+            </div>
+          </div>
         </div>
+        <% }) %> <% } else { %>
+        <div class="no-results" id="noResults">
+          <i class="fas fa-calendar-times"></i>
+          <p>No se encontraron eventos</p>
+        </div>
+        <% } %>
+      </div>
     </div>
-<%- include("templates/footer") %>
-</body>
+
+    <%- include("templates/footer") %>
+    <script src="/js/gestion-eventos.js"></script>
+  </body>
 </html>

@@ -1,162 +1,309 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 16px;
-    background-color: #f8f9fa;
-    color: #6c757d;
-    line-height: 1.6;
+  font-family: "Arial", sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .contenedor {
-    width: 1200px;
-    margin: 8rem auto;
-    padding: 0 1rem;
+  max-width: 1200px;
+  margin: 8rem auto 2rem;
+  padding: 0 1rem;
 }
 
+/* Header del evento */
 .evento-header {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    margin-bottom: 2rem;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
 }
 
 .contenedor-imagen {
-    height: 300px;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
 }
 
 .contenedor-imagen img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.contenedor-imagen:hover img {
+  transform: scale(1.05);
 }
 
 .contenido-evento {
-    padding: 2rem;
+  padding: 2rem;
 }
 
 .fecha-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: #e3f2fd;
-    color: #1976d2;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #3f9bff, #2980b9);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
 }
 
 .titulo-evento {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #212529;
-    margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 .categoria-tag {
-    display: inline-block;
-    background-color: #e8e8e8;
-    color: #555;
-    padding: 0.4rem 1rem;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.5rem;
+}
+
+/* Colores para categorías */
+.categoria-concierto {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+.categoria-deportivo {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+.categoria-educativo {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+.categoria-familiar {
+  background-color: #fce4ec;
+  color: #c2185b;
+}
+.categoria-cultural {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+}
+.categoria-escolar {
+  background-color: #e8f5e9;
+  color: #388e3c;
 }
 
 .descripcion {
-    font-size: 1.05rem;
-    color: #495057;
-    line-height: 1.7;
-    margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555;
+  text-align: justify;
 }
 
+/* Cards de información */
 .info-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 .info-card {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 4px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .card-header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-}
-
-.card-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    color: white;
-}
-
-.card-icon.participar {
-    background: linear-gradient(135deg, #28a745, #20c997);
-}
-
-.card-icon.organizador {
-    background: linear-gradient(135deg, #6f42c1, #e83e8c);
+  margin-bottom: 1rem;
 }
 
 .card-titulo {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #212529;
+  font-size: 1.3rem;
+  color: #2c3e50;
+  font-weight: bold;
+  border-bottom: 2px solid #3f9bff;
+  padding-bottom: 0.5rem;
 }
 
 .card-descripcion {
-    color: #6c757d;
-    line-height: 1.5;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.contacto-info {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #3f9bff;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.info-item i {
+  color: #3f9bff;
+  width: 16px;
+  text-align: center;
+}
+
+/* Botones */
+.boton-principal,
+.boton-secundario,
+.boton-peligro {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .boton-principal {
-    background-color: #3f9bff;
-    color: white;
-    border: none;
-    padding: 0.75rem 2rem;
-    border-radius: 4px;
-    font-weight: 600;
+  background: linear-gradient(135deg, #3f9bff, #2980b9);
+  color: white;
+}
+
+.boton-principal:hover {
+  background: linear-gradient(135deg, #2980b9, #1f5f8b);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(63, 155, 255, 0.3);
+}
+
+.boton-secundario {
+  background: #6c757d;
+  color: white;
+}
+
+.boton-secundario:hover {
+  background: #545b62;
+  transform: translateY(-2px);
+}
+
+.boton-peligro {
+  background: #dc3545;
+  color: white;
+}
+
+.boton-peligro:hover {
+  background: #c82333;
+  transform: translateY(-2px);
+}
+
+.boton-principal[disabled] {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.boton-principal[disabled]:hover {
+  background: #ccc;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Sección de acciones */
+.acciones-evento {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contenedor {
+    margin: 6rem auto 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .titulo-evento {
+    font-size: 2rem;
+  }
+
+  .contenido-evento {
+    padding: 1.5rem;
+  }
+
+  .info-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .info-card {
+    padding: 1.5rem;
+  }
+
+  .acciones-evento {
+    padding: 1.5rem;
+  }
+
+  .boton-principal,
+  .boton-secundario,
+  .boton-peligro {
+    width: 100%;
+    justify-content: center;
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .contenedor-imagen {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo-evento {
+    font-size: 1.5rem;
+  }
+
+  .fecha-badge {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .descripcion {
     font-size: 1rem;
-    cursor: pointer;
-    margin-top: 1rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-}
-
-
-.contacto-info {
-    background: #f8f9fa;
-    padding: 1rem;
-    border-radius: 4px;
-    margin-top: 1rem;
-    border-left: 4px solid #3f9bff;
-}
-
-.contacto-info strong {
-    color: #212529;
+  }
 }

@@ -1,86 +1,136 @@
-const titulo = document.getElementById("titulo");
-const ubicacion = document.getElementById("ubicacion");
-const organizador = document.getElementById("organizador");
-const categoria = document.getElementById("categoria");
-const boton = document.getElementById("crear-evento");
-const errorTitulo = document.getElementById("error-titulo");
-const errorUbicacion = document.getElementById("error-ubicacion");
-const errorOrganizador = document.getElementById("error-organizador");
+document.addEventListener("DOMContentLoaded", function () {
+  const titulo = document.getElementById("titulo");
+  const categoria = document.getElementById("categoria");
+  const fechaEvento = document.getElementById("fechaEvento");
+  const ubicacion = document.getElementById("ubicacion");
+  const organizador = document.getElementById("organizador");
+  const telefono = document.getElementById("telefono");
+  const botonCrear = document.getElementById("crear-evento");
+  const formulario = document.querySelector("form");
 
-const expresiones = {
-    titulo: /^.{6,60}$/,
-    ubicacion: /^.{6,100}$/,
-    organizador: /^.{6,50}$/,
-};
+  // Elementos de error
+  const errorTitulo = document.getElementById("error-titulo");
+  const errorFechaEvento = document.getElementById("error-fechaEvento");
+  const errorUbicacion = document.getElementById("error-ubicacion");
+  const errorOrganizador = document.getElementById("error-organizador");
+  const errorTelefono = document.getElementById("error-telefono");
 
-const campos = {
-    titulo: false,
-    ubicacion: false,
-    organizador: false,
-    categoria: false,
-};
+  // Establecer fecha mínima como hoy
+  const hoy = new Date().toISOString().split("T")[0];
+  fechaEvento.min = hoy;
 
-function validarCampo(input, campo, errorElemento, mensajeError) {
-    if (expresiones[campo].test(input.value.trim())) {
-        input.classList.remove("campo-incorrecto");
-        input.classList.add("campo-correcto");
-        errorElemento.textContent = "";
-        campos[campo] = true;
+  // Función para validar campos
+  function validarCampo(campo, mensajeError, elemento) {
+    if (campo.value.trim() === "") {
+      elemento.textContent = mensajeError;
+      elemento.style.display = "block";
+      return false;
     } else {
-        input.classList.add("campo-incorrecto");
-        input.classList.remove("campo-correcto");
-        errorElemento.textContent = mensajeError;
-        campos[campo] = false;
+      elemento.textContent = "";
+      elemento.style.display = "none";
+      return true;
+    }
+  }
+
+  // Función para validar fecha
+  function validarFecha() {
+    if (fechaEvento.value === "") {
+      errorFechaEvento.textContent = "La fecha del evento es obligatoria";
+      errorFechaEvento.style.display = "block";
+      return false;
+    } else if (fechaEvento.value < hoy) {
+      errorFechaEvento.textContent =
+        "La fecha del evento no puede ser anterior a hoy";
+      errorFechaEvento.style.display = "block";
+      return false;
+    } else {
+      errorFechaEvento.textContent = "";
+      errorFechaEvento.style.display = "none";
+      return true;
+    }
+  }
+
+  // Función para validar teléfono
+  function validarTelefono() {
+    const telefonoRegex = /^[\+]?[0-9\s\-\(\)]{8,15}$/;
+    if (telefono.value.trim() === "") {
+      errorTelefono.textContent = "El teléfono es obligatorio";
+      errorTelefono.style.display = "block";
+      return false;
+    } else if (!telefonoRegex.test(telefono.value.trim())) {
+      errorTelefono.textContent = "Formato de teléfono inválido";
+      errorTelefono.style.display = "block";
+      return false;
+    } else {
+      errorTelefono.textContent = "";
+      errorTelefono.style.display = "none";
+      return true;
+    }
+  }
+
+  // Función para validar formulario completo
+  function validarFormulario() {
+    const tituloValido = validarCampo(
+      titulo,
+      "El título es obligatorio",
+      errorTitulo
+    );
+    const fechaValida = validarFecha();
+    const ubicacionValida = validarCampo(
+      ubicacion,
+      "La ubicación es obligatoria",
+      errorUbicacion
+    );
+    const organizadorValido = validarCampo(
+      organizador,
+      "El organizador es obligatorio",
+      errorOrganizador
+    );
+    const telefonoValido = validarTelefono();
+    const categoriaValida = categoria.value !== "Seleccione una categoría";
+
+    const formularioValido =
+      tituloValido &&
+      fechaValida &&
+      ubicacionValida &&
+      organizadorValido &&
+      telefonoValido &&
+      categoriaValida;
+
+    if (formularioValido) {
+      botonCrear.disabled = false;
+      botonCrear.classList.remove("boton-deshabilitado");
+    } else {
+      botonCrear.disabled = true;
+      botonCrear.classList.add("boton-deshabilitado");
     }
 
-    verificarFormulario();
-}
+    return formularioValido;
+  }
 
-function verificarFormulario() {
-    if (
-        campos.titulo &&
-        campos.ubicacion &&
-        campos.organizador &&
-        categoria.value !== "Seleccione una categoría"
-    ) {
-        campos.categoria = true;
-        boton.disabled = false;
-        boton.classList.remove("boton-deshabilitado");
-    } else {
-        campos.categoria = false;
-        boton.disabled = true;
-        boton.classList.add("boton-deshabilitado");
+  // Event listeners para validación en tiempo real
+  titulo.addEventListener("input", validarFormulario);
+  categoria.addEventListener("change", validarFormulario);
+  fechaEvento.addEventListener("change", validarFormulario);
+  ubicacion.addEventListener("input", validarFormulario);
+  organizador.addEventListener("input", validarFormulario);
+  telefono.addEventListener("input", validarFormulario);
+
+  // Validación inicial
+  validarFormulario();
+
+  // Envío del formulario
+  formulario.addEventListener("submit", function (e) {
+    if (!validarFormulario()) {
+      e.preventDefault();
+      return false;
     }
-}
 
-titulo.addEventListener("input", () =>
-    validarCampo(
-        titulo,
-        "titulo",
-        errorTitulo,
-        "El título debe tener entre 6 y 60 caracteres."
-    )
-);
+    // Cambiar texto del botón mientras se procesa
+    botonCrear.textContent = "Creando...";
+    botonCrear.disabled = true;
 
-ubicacion.addEventListener("input", () =>
-    validarCampo(
-        ubicacion,
-        "ubicacion",
-        errorUbicacion,
-        "La ubicación debe tener entre 6 y 100 caracteres."
-    )
-);
-
-organizador.addEventListener("input", () =>
-    validarCampo(
-        organizador,
-        "organizador",
-        errorOrganizador,
-        "El nombre del organizador debe tener entre 6 y 50 caracteres."
-    )
-);
-
-categoria.addEventListener("change", verificarFormulario);
-
-// Validación inicial
-verificarFormulario();
+    // Permitir que el formulario se envíe normalmente
+    return true;
+  });
+});
