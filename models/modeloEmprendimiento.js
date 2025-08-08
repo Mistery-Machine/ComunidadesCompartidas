@@ -4,12 +4,12 @@ const emprendimientoSchema = mongoose.Schema({
     nombre: String,
     telefono: String,
     ubicacion: String,
-    categoria: String, 
+    categoria: String,
     descripcion: String,
-    registro: String, 
-    estado: String,   
-},{versionKey:false})
-                    //             nombre, esquema
+    registro: String,
+    estado: String,
+}, {versionKey: false})
+//             nombre, esquema
 const emprendimientoModel = mongoose.model('emprendimientos', emprendimientoSchema);
 
 module.exports = emprendimientoModel; 

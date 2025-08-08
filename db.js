@@ -5,13 +5,13 @@ const mongoURI = "mongodb+srv://sysadmin:cenfotec@comunidadescompartidas.ecw98qk
 
 //Conectar a la base de datos
 mongoose
-  .connect(mongoURI, {})
-  .then(() => console.log("Conectado a la base de datos"))
-  .catch((err) => console.error("Error al conectar a la base de datos:", err));
+    .connect(mongoURI, {})
+    .then(() => console.log("Conectado a la base de datos"))
+    .catch((err) => console.error("Error al conectar a la base de datos:", err));
 
 //Verificar la conexión
 mongoose.connection.on("connected", () => {
-  console.log("Conectado a la base de datos");
+    console.log("Conectado a la base de datos");
 });
 
 module.exports = mongoose;

@@ -21,15 +21,15 @@
         <select id="itemsPorPagina">
             <option value="10">10 por página</option>
             <option value="25" selected>25 por página</option>
-            <option value="50">50 por página</option>                                                           
+            <option value="50">50 por página</option>
         </select>
     </div>
     <div class="emprendimientos-grid" id="emprendimientosGrid">
         <% for (let emprendimiento of emprendimientos) { %>
             <div class="tarjeta-emprendimiento" data-categoria="<%= emprendimiento.categoria %>">
                 <h2 class="nombre-emprendimiento"><%= emprendimiento.nombre %></h2>
-                <div class="categorias-emprendimiento">              
-                    <span class="categoria"><%= emprendimiento.categoria %></span>                  
+                <div class="categorias-emprendimiento">
+                    <span class="categoria"><%= emprendimiento.categoria %></span>
                 </div>
                 <p class="ubicacion-emprendimiento"><b>Ubicación:</b> <%= emprendimiento.ubicacion %></p>
                 <p class="contacto-emprendimiento"><b>Contacto:</b> <%= emprendimiento.telefono %></p>
@@ -41,8 +41,9 @@
 
     <div class="paginador-container">
         <div class="paginador-info">
-            Mostrando <span id="inicioRango">1</span>-<span id="finRango">9</span> de <span id="totalItems">0</span> emprendimientos
-        </div>   
+            Mostrando <span id="inicioRango">1</span>-<span id="finRango">9</span> de
+            <span id="totalItems">0</span> emprendimientos
+        </div>
         <div class="paginador-botones">
             <button class="btn-paginador" id="btnAnterior" disabled>Anterior</button>
             <div id="numerosPagina"></div>

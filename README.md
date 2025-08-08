@@ -25,4 +25,5 @@ npm run dev
 
 const mongoose = require("./db.js"); // Usar mongose para la conexión a la base de datos en los modelos
 
-res.render('formulario-exito', { headline: "msg", message: "msg", message_secundario: "msg" }); // Codigo para redireccionar a la página de éxito con mensajes customizados para cada caso
+res.render('formulario-exito', { headline: "msg", message: "msg", message_secundario: "msg" }); // Codigo para
+redireccionar a la página de éxito con mensajes customizados para cada caso

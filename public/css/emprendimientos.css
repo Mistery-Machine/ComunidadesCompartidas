@@ -98,6 +98,7 @@ body {
     gap: 1rem;
     flex-wrap: wrap;
 }
+
 .filtro-categoria {
     padding: 0.5rem 1rem;
     border: 2px solid #e8e8e8;
@@ -107,14 +108,17 @@ body {
     cursor: pointer;
     font-size: 0.9rem;
 }
+
 .filtro-categoria:hover {
     border-color: #3f9bff;
 }
+
 .filtro-categoria.activo {
     background-color: #3f9bff;
     color: #fff;
     border-color: #3f9bff;
 }
+
 .paginador-container {
     display: flex;
     justify-content: space-between;
@@ -122,14 +126,17 @@ body {
     margin-top: 3rem;
     padding: 1rem 0;
 }
+
 .paginador-info {
     font-size: 0.9rem;
     color: #555;
 }
+
 .paginador-botones {
     display: flex;
     gap: 0.5rem;
 }
+
 .btn-paginador {
     padding: 0.5rem 1rem;
     border: 1px solid #e8e8e8;
@@ -139,18 +146,22 @@ body {
     cursor: pointer;
     font-size: 0.9rem;
 }
+
 .btn-paginador:hover {
     background-color: #f0f0f0;
 }
+
 .btn-paginador:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
+
 .btn-paginador.activo {
     background-color: #3f9bff;
     color: #fff;
     border-color: #3f9bff;
 }
+
 .items-por-pagina {
     display: flex;
     align-items: center;
@@ -158,6 +169,7 @@ body {
     font-size: 0.9rem;
     color: #555;
 }
+
 .items-por-pagina select {
     padding: 0.3rem;
     border: 1px solid #e8e8e8;
@@ -169,20 +181,19 @@ body {
 }
 
 
-
 .acciones-emprendimiento {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  text-align: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
 }
 
 .boton-principal,
 .boton-secundario,
 .boton-peligro {
-width: 100%;
-justify-content: center;
-margin-right: 0;
-margin-bottom: 1rem;
+    width: 100%;
+    justify-content: center;
+    margin-right: 0;
+    margin-bottom: 1rem;
 }

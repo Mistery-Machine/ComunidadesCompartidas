@@ -3,10 +3,10 @@ const servicioCategorias = require('../services/servicioCategorias');
 
 const emprendimientoLista = (app) => {
     app.get('/emprendimientos', async (req, res) => {
-        const emprendimientos = await servicioEmprendimiento.obtenerTodos();    
-        const categorias = await servicioCategorias.obtenerCategoriaEmprendimientos();  
-        if (emprendimientos.exito && categorias.exito ) {
-            res.render('emprendimientos', { emprendimientos: emprendimientos.data, categorias: categorias.data }); 
+        const emprendimientos = await servicioEmprendimiento.obtenerTodos();
+        const categorias = await servicioCategorias.obtenerCategoriaEmprendimientos();
+        if (emprendimientos.exito && categorias.exito) {
+            res.render('emprendimientos', {emprendimientos: emprendimientos.data, categorias: categorias.data});
         } else {
             res.render('formulario-error', {
                 headline: "Ha ocurrido un error",
@@ -23,7 +23,7 @@ const emprendimientoId = (app) => {
         const emprendimiento = await servicioEmprendimiento.obtenerPorId(id);
 
         if (emprendimiento.exito) {
-            res.render('emprendimiento-ver', { emprendimientos: emprendimiento.data });
+            res.render('emprendimiento-ver', {emprendimientos: emprendimiento.data});
         } else {
             res.render('formulario-error', {
                 headline: "Ha ocurrido un error",

@@ -8,12 +8,12 @@ app.set("views", path.join(__dirname, "views"));
 app.engine("html", require("ejs").renderFile);
 app.set("view engine", "ejs");
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, "public")));
 
 //Encender el servidor
 app.listen(3000, () => {
-  console.log("Se conecto el puerto");
+    console.log("Se conecto el puerto");
 });
 
 const rutaFormularioEmprendimiento = require("./routes/formulario-emprendimiento");
@@ -25,15 +25,15 @@ const rutaEventos = require("./routes/eventos");
 
 // RUTAS
 app.get("/", (req, res) => {
-  res.render("index");
+    res.render("index");
 });
 
 app.get("/calendario", (req, res) => {
-  res.render("calendario");
+    res.render("calendario");
 });
 
 app.get("/dashboard", (req, res) => {
-  res.render("dashboard");
+    res.render("dashboard");
 });
 
 rutaFormularioEmprendimiento.emprendimiento(app);
@@ -51,37 +51,37 @@ rutasLista(app);
 eventoFormulario(app);
 
 app.get("/formulario-ofertas", (req, res) => {
-  res.render("formularioOfertas");
+    res.render("formularioOfertas");
 });
 
 app.get("/formulario-ruta", (req, res) => {
-  res.render("formularioRuta");
+    res.render("formularioRuta");
 });
 
 // Ruta manejada por rutasLista
 
 app.get("/login", (req, res) => {
-  res.render("login");
+    res.render("login");
 });
 
 app.get("/mapa", (req, res) => {
-  res.render("mapa");
+    res.render("mapa");
 });
 
 app.get("/register", (req, res) => {
-  res.render("register");
+    res.render("register");
 });
 
 app.get("/reportes", (req, res) => {
-  res.render("reportes");
+    res.render("reportes");
 });
 
 app.get("/ver-reportes", (req, res) => {
-  res.render("verReportes");
+    res.render("verReportes");
 });
 
 app.get("/formulario-exito", (req, res) => {
-  res.render("formulario-exito");
+    res.render("formulario-exito");
 });
 
 // Rutas de anuncios

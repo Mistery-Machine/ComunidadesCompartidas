@@ -1,44 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/formulario-anuncio.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/css/formulario-anuncio.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <title>Registro de Anuncios</title>
-  </head>
-  <%- include("templates/navbar") %>
-  <body>
-    <form class="contenedor-formulario" action="/anuncios" method="POST">
-      <h2 class="titulo-formulario texto-oscuro mb-2">Nuevo Anuncio</h2>
+</head>
+<%- include("templates/navbar") %>
+<body>
+<form class="contenedor-formulario" action="/anuncios" method="POST">
+    <h2 class="titulo-formulario texto-oscuro mb-2">Nuevo Anuncio</h2>
 
-      <div class="grupo-formulario">
+    <div class="grupo-formulario">
         <label class="etiqueta-formulario">Título</label>
-        <input
-          type="text"
-          class="campo-formulario"
-          placeholder="Título del anuncio"
-          name="titulo"
-          id="titulo"
-          required
-        />
-      </div>
+        <input type="text" class="campo-formulario" placeholder="Título del anuncio" name="titulo" id="titulo" required/>
+    </div>
 
-      <div class="grupo-formulario">
+    <div class="grupo-formulario">
         <label class="etiqueta-formulario">Descripción</label>
-        <textarea
-          class="area-texto"
-          placeholder="Descripción del anuncio"
-          name="descripcion"
-          id="descripcion"
-          required
-        ></textarea>
-      </div>
+        <textarea class="area-texto" placeholder="Descripción del anuncio" name="descripcion" id="descripcion" required></textarea>
+    </div>
 
-      <div class="grupo-formulario" id="grupo-categoria">
+    <div class="grupo-formulario" id="grupo-categoria">
         <label class="etiqueta-formulario">Categoría</label>
         <select class="seleccion-formulario" id="categoria" name="categoria">
             <option disabled selected>Categoría</option>
@@ -46,27 +30,24 @@
                 <option><%= categoria %></option>
             <% } %>
         </select>
-      </div>
+    </div>
 
-      <div class="grupo-formulario">
+    <div class="grupo-formulario">
         <label class="etiqueta-formulario">Fecha</label>
-        <input type="date" class="campo-formulario" name="fecha" id="fecha" />
-        <small class="texto-secundario"
-          >Si no seleccionas una fecha, se usará la fecha actual</small
-        >
-      </div>
+        <input type="date" class="campo-formulario" name="fecha" id="fecha"/>
+        <small class="texto-secundario">Si no seleccionas una fecha, se usará la fecha actual</small>
+    </div>
 
-      <div class="grupo-formulario">
+    <div class="grupo-formulario">
         <button type="submit" class="boton-subir" id="crear-anuncio">
-          Crear Anuncio
+            Crear Anuncio
         </button>
         <p class="texto-secundario mb-1">
-          Al enviar este formulario de registro de anuncio, el usuario declara
-          que la información proporcionada es veraz y está actualizada.
-        </p>
-      </div>
-    </form>
-    <%- include("templates/footer") %>
-    <script src="/js/validacion-anuncio.js"></script>
-  </body>
+            Al enviar este formulario de registro de anuncio, el usuario declara
+            que la información proporcionada es veraz y está actualizada. </p>
+    </div>
+</form>
+<%- include("templates/footer") %>
+<script src="/js/validacion-anuncio.js"></script>
+</body>
 </html>
