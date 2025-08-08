@@ -28,4 +28,26 @@ const obtenerPorId = async (id) => {
     }
 }
 
-module.exports = {crear, obtenerTodos, obtenerPorId}
+const actualizarPorId = async (id, datosActualizados) => {
+    try {
+        const emprendimientoActualizado = await emprendimientoModel.findByIdAndUpdate(
+            id, 
+            datosActualizados, 
+            { new: true }
+        );
+        return { exito: true, data: emprendimientoActualizado }
+    } catch (error) {
+        return { exito: false, data: error.message }
+    }
+}
+
+const eliminarPorId = async (id) => {
+    try {
+        const emprendimientoEliminado = await emprendimientoModel.findByIdAndDelete(id);
+        return { exito: true, data: emprendimientoEliminado }
+    } catch (error) {
+        return { exito: false, data: error.message }
+    }
+}
+
+module.exports = {crear, obtenerTodos, obtenerPorId, actualizarPorId, eliminarPorId } 

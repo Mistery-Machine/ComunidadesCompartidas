@@ -9,12 +9,15 @@
 </head>
 <%- include("templates/navbar") %>
 <body>
-<form action="/crear-emprendimiento" method="POST" class="contenedor-formulario" id="formularioEmprendimiento">
-    <h2 class="titulo-formulario texto-oscuro mb-2">Nuevo Emprendimiento</h2>
-
+<form action="<%= emprendimientos ? '/editar-emprendimiento/' + emprendimientos._id : '/crear-emprendimiento' %>" method="POST" class="contenedor-formulario" id="formularioEmprendimiento">
+    <h2 class="titulo-formulario texto-oscuro mb-2">
+        <%= emprendimientos ? 'Editar Emprendimiento' : 'Nuevo Emprendimiento' %>
+    </h2>
     <div class="grupo-formulario" id="grupo-nombre">
         <label class="etiqueta-formulario">Nombre</label>
-        <input class="campo-formulario" id="nombre-negocio" name="nombre" placeholder="Nombre del negocio" type="text"/>
+        <input class="campo-formulario" id="nombre-negocio" name="nombre" 
+               value="<%= emprendimientos ? emprendimientos.nombre : '' %>" 
+               placeholder="Nombre del negocio" type="text"/>
         <p class="formulario-input-error">
             El nombre del negocio debe tener entre 6 a 32 caracteres. </p>
         <p class="texto-secundario mt-1">
@@ -22,36 +25,36 @@
             <i class="fa-solid fa-user icono-usuario"></i>
         </p>
     </div>
-
     <div class="grupo-formulario" id="grupo-telefono">
         <label class="etiqueta-formulario">Teléfono</label>
-        <input class="campo-formulario" id="telefono" name="telefono" placeholder="1234-5678" type="text"/>
+        <input class="campo-formulario" id="telefono" name="telefono" 
+               value="<%= emprendimientos ? emprendimientos.telefono : '' %>" 
+               placeholder="1234-5678" type="text"/>
         <p class="formulario-input-error">
             El telefono debe ser de 8 numeros, formato +506 Costa Rica </p>
     </div>
-
     <div class="grupo-formulario" id="grupo-ubicacion">
         <label class="etiqueta-formulario">Ubicación</label>
-        <input class="campo-formulario" id="ubicacion" name="ubicacion" placeholder="Distrito, Cantón, Provincia" type="text"/>
+        <input class="campo-formulario" id="ubicacion" name="ubicacion" 
+               value="<%= emprendimientos ? emprendimientos.ubicacion : '' %>" 
+               placeholder="Distrito, Cantón, Provincia" type="text"/>
         <p class="formulario-input-error">
             La ubicacion debe tener entre 6 a 32 caracteres </p>
     </div>
-
     <div class="grupo-formulario" id="grupo-categoria">
         <label class="etiqueta-formulario">Categoría</label>
         <select class="seleccion-formulario" id="categoria" name="categoria">
-            <option disabled selected>Categoría</option>
+            <option disabled <%= !emprendimientos ? 'selected' : '' %>>Categoría</option>
             <% for (let categoria of categorias) { %>
-                <option><%= categoria %></option>
+                <option <%= emprendimientos && emprendimientos.categoria === categoria ? 'selected' : '' %>><%= categoria %></option>
             <% } %>
         </select>
         <p class="formulario-input-error">
             Es necesario seleccionar una categoria para el emprendimiento </p>
     </div>
-
     <div class="grupo-formulario" id="grupo-descripcion">
         <label class="etiqueta-formulario">Descripción</label>
-        <textarea class="area-texto" id="descripcion" name="descripcion" placeholder="Descripción del negocio"></textarea>
+        <textarea class="area-texto" id="descripcion" name="descripcion" placeholder="Descripción del negocio"><%= emprendimientos ? emprendimientos.descripcion : '' %></textarea>
         <p class="formulario-input-error">
             La descripcion debe ser entre 6 a 32 caracteres de largo </p>
     </div>
@@ -69,7 +72,9 @@
         </div>
     </div>
     <div class="grupo-formulario" id="grupo-boton">
-        <button class="boton-subir" id="boton-submit">Crear negocio</button>
+        <button class="boton-subir" id="boton-submit">
+            <%= emprendimientos ? 'Actualizar negocio' : 'Crear negocio' %>
+        </button>
         <p class="texto-secundario mb-1">
             Al enviar este formulario de registro de emprendimiento, el usuario
             declara que la información proporcionada es veraz y está actualizada. </p>

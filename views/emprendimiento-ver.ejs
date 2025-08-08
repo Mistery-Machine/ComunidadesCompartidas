@@ -56,15 +56,15 @@
         </div>
     </div>
     <div class="acciones-emprendimiento">
-        <a href="" class="boton-secundario">
+        <a href="/editar-emprendimiento/<%= emprendimientos._id %>" class="boton-secundario">
             <i class="fas fa-edit"></i>
             Editar Emprendimiento
         </a>
-        <form method="POST" action="" style="display: inline">
-            <a type="submit" class="boton-peligro" onclick="return confirm('¿Está seguro de que desea eliminar este evento?')">
+        <form method="POST" action="/eliminar-emprendimiento/<%= emprendimientos._id %>" style="display: inline">
+            <button type="submit" class="boton-peligro" onclick="return confirm('¿Está seguro de que desea eliminar este evento?')">
                 <i class="fas fa-trash"></i>
                 Eliminar Emprendimiento
-            </a>
+            </button>
         </form>
     </div>
 </div>

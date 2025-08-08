@@ -37,9 +37,12 @@ const formularioEmprendimiento = (app) => {
 
     app.get('/formulario-emprendimiento', async (req, res) => {
         const resultado = await servicioCategorias.obtenerCategoriaEmprendimientos();
-        res.render('formulario-emprendimiento', {categorias: resultado.data});
+        res.render('formulario-emprendimiento', {
+            categorias: resultado.data,
+            emprendimientos: null  // Nuevo emprendimiento
+        });
     });
 
 }
 
-module.exports = {formularioEmprendimiento, emprendimiento};
+module.exports = { formularioEmprendimiento, emprendimiento };
