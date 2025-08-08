@@ -1,11 +1,12 @@
 const servicioEvento = require("../services/servicioEvento");
+const servicioCategorias = require("../services/servicioCategorias");
 
 const eventosLista = (app) => {
   // READ - Obtener todos los eventos
   app.get("/listado-eventos", async (req, res) => {
     const eventos = await servicioEvento.obtenerTodos();
     if (eventos.exito) {
-      res.render("eventos", { eventos: eventos.data });
+      res.render("eventos", { eventos: eventos.data});
     } else {
       res.render("formulario-error", {
         headline: "Ha ocurrido un error",
@@ -118,4 +119,23 @@ const eventosLista = (app) => {
   });
 };
 
-module.exports = eventosLista;
+const paginaEventos = (app) => {
+  app.get("/pagina-eventos", async (req, res) => {
+      const categorias = await servicioCategorias.obtenerCategoriaEventos();
+      const eventos = await servicioEvento.obtenerTodos();
+      if (eventos.exito) {
+        res.render("paginaEventos", { eventos: eventos.data, categorias: categorias.data });
+      } else {
+        res.render("paginaEventos", { eventos: [] });
+      }
+  });
+}
+
+const formularioEventos = (app) => {
+    app.get("/formulario-eventos", async (req, res) => {
+        const categorias = await servicioCategorias.obtenerCategoriaEventos();
+        res.render("formularioEvento", { esEdicion: false, categorias: categorias.data });
+    });
+}
+
+module.exports = { eventosLista, paginaEventos, formularioEventos };

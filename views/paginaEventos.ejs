@@ -17,11 +17,9 @@
         <h1 class="evento-titulo">Eventos Disponibles</h1>
         <div class="filtros-container">
           <button class="filtro-categoria activo" data-categoria="todos">Todos</button>
-          <button class="filtro-categoria" data-categoria="Concierto">Concierto</button>
-          <button class="filtro-categoria" data-categoria="Deportivo">Deportivo</button>
-          <button class="filtro-categoria" data-categoria="Educativo">Educativo</button>
-          <button class="filtro-categoria" data-categoria="Familiar">Familiar</button>
-          <button class="filtro-categoria" data-categoria="Cultural">Cultural</button>
+          <% for (categoria of categorias) { %>
+              <button class="filtro-categoria" data-categoria="<%= categoria %>"><%= categoria %></button>
+          <% } %>
         </div>
 
         <!-- Selector de items por página -->

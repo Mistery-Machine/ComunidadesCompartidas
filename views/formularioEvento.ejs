@@ -31,15 +31,13 @@
 
         <!-- CATEGORÍA -->
         <div class="evento-grupo-formulario">
-          <label class="evento-etiqueta-formulario" for="categoria">Categoría</label>
-          <select class="evento-select-formulario" id="categoria" name="categoria" required>
-            <option disabled <%= !esEdicion ? 'selected' : '' %>>Seleccione una categoría</option>
-            <option <%= esEdicion && evento.categoria === 'Concierto' ? 'selected' : '' %>>Concierto</option>
-            <option <%= esEdicion && evento.categoria === 'Deportivo' ? 'selected' : '' %>>Deportivo</option>
-            <option <%= esEdicion && evento.categoria === 'Educativo' ? 'selected' : '' %>>Educativo</option>
-            <option <%= esEdicion && evento.categoria === 'Familiar' ? 'selected' : '' %>>Familiar</option>
-            <option <%= esEdicion && evento.categoria === 'Cultural' ? 'selected' : '' %>>Cultural</option>
-          </select>
+        <label class="evento-etiqueta-formulario" for="categoria">Categoría</label>
+        <select class="evento-select-formulario" id="categoria" name="categoria" required>
+          <option disabled <%= !esEdicion ? 'selected' : '' %>>Seleccione una categoría</option>
+          <% for (let categoria of categorias) { %>
+            <option value="<%= categoria %>" <%= esEdicion && evento.categoria === categoria ? 'selected' : '' %>><%= categoria %></option>
+          <% } %>
+        </select>
         </div>
 
         <!-- FECHA Y UBICACIÓN -->

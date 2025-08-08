@@ -21,7 +21,7 @@ const rutaEmprendimientos = require("./routes/emprendimientos");
 const rutaFormulario = require("./routes/formulario-ruta");
 const rutasLista = require("./routes/rutas");
 const eventoFormulario = require("./routes/formulario-evento");
-const eventosLista = require("./routes/eventos");
+const rutaEventos = require("./routes/eventos");
 
 // RUTAS
 app.get("/", (req, res) => {
@@ -42,14 +42,13 @@ rutaFormularioEmprendimiento.formularioEmprendimiento(app);
 rutaEmprendimientos.emprendimientoLista(app);
 rutaEmprendimientos.emprendimientoId(app);
 
+rutaEventos.eventosLista(app);
+rutaEventos.paginaEventos(app);
+rutaEventos.formularioEventos(app);
+
 rutaFormulario(app);
 rutasLista(app);
 eventoFormulario(app);
-eventosLista(app);
-
-app.get("/formulario-eventos", (req, res) => {
-  res.render("formularioEvento", { esEdicion: false });
-});
 
 app.get("/formulario-ofertas", (req, res) => {
   res.render("formularioOfertas");
@@ -67,16 +66,6 @@ app.get("/login", (req, res) => {
 
 app.get("/mapa", (req, res) => {
   res.render("mapa");
-});
-
-app.get("/pagina-eventos", async (req, res) => {
-  const servicioEvento = require("./services/servicioEvento");
-  const eventos = await servicioEvento.obtenerTodos();
-  if (eventos.exito) {
-    res.render("paginaEventos", { eventos: eventos.data });
-  } else {
-    res.render("paginaEventos", { eventos: [] });
-  }
 });
 
 app.get("/register", (req, res) => {
