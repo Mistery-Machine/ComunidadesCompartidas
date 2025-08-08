@@ -13,10 +13,11 @@ body {
   flex-direction: column;
 }
 
-.contenedor-eventos {
+.contenedor-anuncios {
   width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
+  margin: 8rem auto 2rem;
 }
 
 .header-anuncios {
@@ -60,20 +61,20 @@ body {
   margin-bottom: 1.5rem;
 }
 
-.titulo-eventos {
+.titulo-anuncios {
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
   color: #1b1b1b;
 }
 
-.grid-eventos {
+.grid-anuncios {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
 }
 
-.tarjeta-evento {
+.tarjeta-anuncio {
   background-color: #fff;
   border-radius: 6px;
   padding: 1.2rem;
@@ -90,13 +91,13 @@ body {
   color: #1b1b1b;
 }
 
-.descripcion-evento {
+.descripcion-anuncio {
   font-size: 0.95rem;
   margin-bottom: 1rem;
   color: #444;
 }
 
-.categorias-evento {
+.categorias-anuncio {
   margin-bottom: 1rem;
 }
 
@@ -110,7 +111,7 @@ body {
   border-radius: 4px;
 }
 
-.fecha-evento {
+.fecha-anuncio {
   font-size: 0.9rem;
   margin-bottom: 1rem;
   color: #333;
@@ -131,9 +132,92 @@ body {
   background-color: #237cdd;
 }
 
-.estado-evento {
+.estado-anuncio {
   margin-top: 1rem;
   font-size: 0.9rem;
   color: #00b300;
   font-weight: bold;
+}
+
+
+.filtros-container {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.filtro-categoria {
+    padding: 0.5rem 1rem;
+    border: 2px solid #e8e8e8;
+    background-color: #fff;
+    color: #555;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+.filtro-categoria:hover {
+    border-color: #3f9bff;
+}
+.filtro-categoria.activo {
+    background-color: #3f9bff;
+    color: #fff;
+    border-color: #3f9bff;
+}
+.paginador-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+    padding: 1rem 0;
+}
+.paginador-info {
+    font-size: 0.9rem;
+    color: #555;
+}
+.paginador-botones {
+    display: flex;
+    gap: 0.5rem;
+}
+.btn-paginador {
+    padding: 0.5rem 1rem;
+    border: 1px solid #e8e8e8;
+    background-color: #fff;
+    color: #555;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+.btn-paginador:hover {
+    background-color: #f0f0f0;
+}
+.btn-paginador:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.btn-paginador.activo {
+    background-color: #3f9bff;
+    color: #fff;
+    border-color: #3f9bff;
+}
+.items-por-pagina {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+.items-por-pagina select {
+    padding: 0.3rem;
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+}
+
+.anuncios-titulo {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #3f9bff;
 }

@@ -11,12 +11,10 @@
 <main class="emprendimientos-contenedor">
     <h1 class="emprendimientos-titulo">Emprendimientos Disponibles</h1>
     <div class="filtros-container">
-        <button class="filtro-categoria activo" data-categoria="todos">Todos</button>
-        <button class="filtro-categoria" data-categoria="Electrodomésticos">Electrodomésticos</button>
-        <button class="filtro-categoria" data-categoria="Comida">Comida</button>
-        <button class="filtro-categoria" data-categoria="Ropa">Ropa</button>
-        <button class="filtro-categoria" data-categoria="Eventos">Eventos</button>
-        <button class="filtro-categoria" data-categoria="Artículos variados">Artículos variados</button>
+        <button class="filtro-categoria" data-categoria="todos">Todos</button>
+        <% for (categoria of categorias) { %>
+            <button class="filtro-categoria" data-categoria="<%= categoria %>"> <%= categoria %> </button>
+        <% } %>
     </div>
     <div class="items-por-pagina mb-2">
         <span>Mostrar:</span>

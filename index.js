@@ -16,8 +16,8 @@ app.listen(3000, () => {
   console.log("Se conecto el puerto");
 });
 
-const emprendimiento = require("./routes/formulario-emprendimiento");
-const servicioEmprendimiento = require("./routes/emprendimientos");
+const rutaFormularioEmprendimiento = require("./routes/formulario-emprendimiento");
+const rutaEmprendimientos = require("./routes/emprendimientos");
 const rutaFormulario = require("./routes/formulario-ruta");
 const rutasLista = require("./routes/rutas");
 const eventoFormulario = require("./routes/formulario-evento");
@@ -36,9 +36,12 @@ app.get("/dashboard", (req, res) => {
   res.render("dashboard");
 });
 
-emprendimiento(app);
-servicioEmprendimiento.emprendimientoLista(app);
-servicioEmprendimiento.emprendimientoId(app);
+rutaFormularioEmprendimiento.emprendimiento(app);
+rutaFormularioEmprendimiento.formularioEmprendimiento(app);
+
+rutaEmprendimientos.emprendimientoLista(app);
+rutaEmprendimientos.emprendimientoId(app);
+
 rutaFormulario(app);
 rutasLista(app);
 eventoFormulario(app);
@@ -46,10 +49,6 @@ eventosLista(app);
 
 app.get("/formulario-eventos", (req, res) => {
   res.render("formularioEvento", { esEdicion: false });
-});
-
-app.get("/formulario-emprendimiento", (req, res) => {
-  res.render("formularioEmprendimiento");
 });
 
 app.get("/formulario-ofertas", (req, res) => {

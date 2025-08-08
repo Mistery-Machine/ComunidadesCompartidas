@@ -1,11 +1,12 @@
 const servicioEmprendimiento = require('../services/servicioEmprendimiento');
+const servicioCategorias = require('../services/servicioCategorias');
 
 const emprendimientoLista = (app) => {
     app.get('/emprendimientos', async (req, res) => {
-        const emprendimientos = await servicioEmprendimiento.obtenerTodos();     
-        if (emprendimientos.exito) {
-            console.log(emprendimientos.data);
-            res.render('emprendimientos', { emprendimientos: emprendimientos.data });
+        const emprendimientos = await servicioEmprendimiento.obtenerTodos();    
+        const categorias = await servicioCategorias.obtenerCategoriaEmprendimientos();  
+        if (emprendimientos.exito && categorias.exito ) {
+            res.render('emprendimientos', { emprendimientos: emprendimientos.data, categorias: categorias.data }); 
         } else {
             res.render('formulario-error', {
                 headline: "Ha ocurrido un error",

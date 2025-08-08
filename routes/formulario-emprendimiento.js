@@ -1,4 +1,5 @@
 const servicioEmprendimiento = require('../services/servicioEmprendimiento');
+const servicioCategorias = require('../services/servicioCategorias');
 
 const emprendimiento = (app) => {
     app.post('/crear-emprendimiento', async (req, res) => {
@@ -32,4 +33,13 @@ const emprendimiento = (app) => {
     });
 }
 
-module.exports = emprendimiento;
+const formularioEmprendimiento = (app) => {
+
+    app.get('/formulario-emprendimiento', async (req, res) => {
+        const resultado = await servicioCategorias.obtenerCategoriaEmprendimientos();
+        res.render('formulario-emprendimiento', { categorias: resultado.data });
+    });
+
+}
+
+module.exports = { formularioEmprendimiento, emprendimiento };

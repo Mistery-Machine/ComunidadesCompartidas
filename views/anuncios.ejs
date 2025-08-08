@@ -8,21 +8,32 @@
   </head>
   <%- include("templates/navbar") %>
   <body>
-    <main class="contenedor-eventos">
-      <div class="header-anuncios">
-        <h1>Anuncios</h1>
-        <a href="/formulario-anuncio" class="boton-nuevo-anuncio"
-          >Nuevo Anuncio</a
-        >
+    <main class="contenedor-anuncios">
+      <h1 class="anuncios-titulo">Anuncios Disponibles</h1>
+      <div class="filtros-container">
+          <button class="filtro-categoria activo" data-categoria="todos">Todos</button>
+          <button class="filtro-categoria" data-categoria="Electrodomésticos">Electrodomésticos</button>
+          <button class="filtro-categoria" data-categoria="Comida">Comida</button>
+          <button class="filtro-categoria" data-categoria="Ropa">Ropa</button>
+          <button class="filtro-categoria" data-categoria="anuncios">anuncios</button>
+          <button class="filtro-categoria" data-categoria="Artículos variados">Artículos variados</button>
+      </div>
+      <div class="items-por-pagina mb-2">
+          <span>Mostrar:</span>
+          <select id="itemsPorPagina">
+              <option value="10">10 por página</option>
+              <option value="25" selected>25 por página</option>
+              <option value="50">50 por página</option>                                                           
+          </select>
       </div>
 
-      <div class="grid-eventos">
+      <div class="grid-anuncios">
         <% if (anuncios && anuncios.length > 0) { %> <%
         anuncios.forEach(function(anuncio) { %>
-        <div class="tarjeta-evento">
+        <div class="tarjeta-anuncio">
           <h2 class="titulo-tarjeta"><%= anuncio.titulo %></h2>
-          <p class="descripcion-evento"><%= anuncio.descripcion %></p>
-          <p class="fecha-evento">
+          <p class="descripcion-anuncio"><%= anuncio.descripcion %></p>
+          <p class="fecha-anuncio">
             <% var fecha = new Date(anuncio.fecha); var opciones = { weekday:
             'long', year: 'numeric', month: 'long', day: 'numeric' }; var
             fechaFormateada = fecha.toLocaleDateString('es-ES', opciones); %>
@@ -38,6 +49,16 @@
         </div>
         <% } %>
       </div>
+       <div class="paginador-container">
+        <div class="paginador-info">
+            Mostrando <span id="inicioRango">1</span>-<span id="finRango">9</span> de <span id="totalItems">0</span> emprendimientos
+        </div>   
+        <div class="paginador-botones">
+            <button class="btn-paginador" id="btnAnterior" disabled>Anterior</button>
+            <div id="numerosPagina"></div>
+            <button class="btn-paginador" id="btnSiguiente">Siguiente</button>
+        </div>
+    </div>
     </main>
     <%- include("templates/footer") %>
   </body>

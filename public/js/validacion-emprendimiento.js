@@ -97,7 +97,6 @@ const verificarCampos = () => {
     }
 }
 
-
 // Llamar la funcion ayuda a que el boton salga como deshabilitado al cargar la pagina.
 verificarCampos();
 
