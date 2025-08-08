@@ -88,9 +88,8 @@ app.get("/formulario-exito", (req, res) => {
 app.use("/anuncios", require("./routes/anuncios"));
 
 // Ruta específica para el formulario de anuncio
-app.get("/formulario-anuncio", (req, res) => {
-  res.render("formulario-anuncio");
-});
+const rutaFormularioAnuncio = require("./routes/formulario-anuncio");
+rutaFormularioAnuncio.formularioAnuncio(app);
 
 const rutasReportes = require("./routes/reportes");
 app.use(rutasReportes);

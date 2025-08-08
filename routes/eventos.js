@@ -20,10 +20,13 @@ const eventosLista = (app) => {
   // READ - Obtener un evento específico para editar
   app.get("/editar-evento/:id", async (req, res) => {
     const resultado = await servicioEvento.obtenerPorId(req.params.id);
+    const categorias = await servicioCategorias.obtenerCategoriaEventos();
+
     if (resultado.exito) {
       res.render("formularioEvento", {
         evento: resultado.data,
         esEdicion: true,
+        categorias: categorias.data
       });
     } else {
       res.render("formulario-error", {

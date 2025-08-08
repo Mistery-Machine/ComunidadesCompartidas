@@ -167,3 +167,22 @@ body {
 .mb-2 {
     margin-bottom: 2rem;
 }
+
+
+
+.acciones-emprendimiento {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.boton-principal,
+.boton-secundario,
+.boton-peligro {
+width: 100%;
+justify-content: center;
+margin-right: 0;
+margin-bottom: 1rem;
+}

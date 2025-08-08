@@ -38,6 +38,16 @@
         ></textarea>
       </div>
 
+      <div class="grupo-formulario" id="grupo-categoria">
+        <label class="etiqueta-formulario">Categoría</label>
+        <select class="seleccion-formulario" id="categoria" name="categoria">
+            <option disabled selected>Categoría</option>
+            <% for (let categoria of categorias) { %>
+                <option><%= categoria %></option>
+            <% } %>
+        </select>
+      </div>
+
       <div class="grupo-formulario">
         <label class="etiqueta-formulario">Fecha</label>
         <input type="date" class="campo-formulario" name="fecha" id="fecha" />

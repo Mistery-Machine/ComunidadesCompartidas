@@ -3,18 +3,18 @@ const mongoose = require('../db');
 const categoriaSchema = mongoose.Schema({
    emprendimientos: {
        type: String,
-       enum: ['Tecnología', 'Alimentación', 'Artesanías', 'Servicios', 'Textil', 
-              'Agricultura', 'Belleza', 'Educación', 'Entretenimiento', 'Salud']
+       enum: ['Tecnología', 'Alimentación', 'Hogar', 'Servicios', 
+              'Agricultura', 'Educación', 'Entretenimiento', 'Salud']
    },
    eventos: {
        type: String,
-       enum: ['Conferencias', 'Talleres', 'Networking', 'Cultural', 'Deportivo',
-              'Educativo', 'Social', 'Empresarial', 'Académico', 'Recreativo']
+       enum: ['Conferencias', 'Talleres', 'Cultural', 'Deportivo',
+              'Educativo', 'Social', 'Empresarial', 'Académico']
    },
    anuncios: {
        type: String,
-       enum: ['Retail', 'Consultoría', 'Manufactura', 'Turismo', 'Restaurante',
-              'Transporte', 'Inmobiliaria', 'Financiero', 'Legal', 'Marketing']
+    enum: [ 'Avisos', 'Ofertas', 'Descuentos', 'Promociones',
+             'Nuevos', 'Horarios', 'Ubicación', 'General']
    },
    activa: String
 }, {versionKey: false});

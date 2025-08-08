@@ -1,12 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const Anuncio = require("../models/modeloAnuncio");
+const servicioCategorias = require("../services/servicioCategorias");
+
 
 // Obtener todos los anuncios (vista)
 router.get("/", async (req, res) => {
   try {
     const anuncios = await Anuncio.find().sort({ fecha: -1 });
-    res.render("anuncios", { anuncios });
+    const categorias = await servicioCategorias.obtenerCategoriaAnuncios();
+    res.render("anuncios", { anuncios, categorias: categorias.data });
   } catch (err) {
     console.error("Error al obtener anuncios:", err);
     res.render("anuncios", { anuncios: [] });
@@ -16,11 +19,12 @@ router.get("/", async (req, res) => {
 // Crear un nuevo anuncio
 router.post("/", async (req, res) => {
   try {
-    const { titulo, descripcion, fecha } = req.body;
+    const { titulo, descripcion, fecha, categoria } = req.body;
 
     const nuevoAnuncio = new Anuncio({
       titulo,
       descripcion,
+      categoria, 
       fecha: fecha || new Date(),
     });
 
@@ -68,4 +72,7 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+
 module.exports = router;
+
+
