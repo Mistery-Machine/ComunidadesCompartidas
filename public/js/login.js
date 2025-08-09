@@ -5,7 +5,6 @@ const path = require("path");
 
 const app = express();
 
-// Middleware para parsear formularios x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const mongoURI = "mongodb+srv://sysadmin:cenfotec@comunidadescompartidas.ecw98qk.mongodb.net/?retryWrites=true&w=majority&appName=ComunidadesCompartidas";
