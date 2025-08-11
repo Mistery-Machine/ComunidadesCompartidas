@@ -8,7 +8,7 @@ const anuncioSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  estado: { type: String, enum: ["activo", "inactivo"] },
+  estado: { type: String, enum: ["activo", "inactivo"], default: "inactivo" },
 });
 
 module.exports = mongoose.model("Anuncio", anuncioSchema);

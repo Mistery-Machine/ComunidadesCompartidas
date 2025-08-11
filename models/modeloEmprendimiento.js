@@ -8,7 +8,7 @@ const emprendimientoSchema = mongoose.Schema(
     categoria: String,
     descripcion: String,
     registro: String,
-    estado: { type: String, enum: ["activo", "inactivo"] },
+    estado: { type: String, enum: ["activo", "inactivo"], default: "inactivo" },
   },
   { versionKey: false }
 );

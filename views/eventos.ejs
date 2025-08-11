@@ -11,10 +11,12 @@
 <body>
 <div class="container">
     <div class="header">
-        <h1>Gestión de Eventos</h1>
+        <h1><%= isAdmin ? 'Gestión de Eventos' : 'Eventos' %></h1>
+        <% if (isAdmin) { %>
         <a href="/formulario-eventos" class="btn-primary">
             <i class="fas fa-plus"></i> Crear Nuevo Evento
         </a>
+        <% } %>
     </div>
     <div class="filters">
         <select id="filtroCategoria" class="filter-select">
@@ -42,6 +44,7 @@
                             <%= evento.titulo %>
                             </a>
                         </h3>
+                        <% if (isAdmin) { %>
                         <div class="evento-actions">
                             <a href="/editar-evento/<%= evento._id %>" class="btn-edit">
                                 <i class="fas fa-edit"></i>
@@ -52,6 +55,7 @@
                                 </button>
                             </form>
                         </div>
+                        <% } %>
                     </div>
                     <div class="evento-info">
                         <p>

@@ -1,53 +1,72 @@
-const emprendimientoModel = require('../models/modeloEmprendimiento');
+const emprendimientoModel = require("../models/modeloEmprendimiento");
 
 const crear = async (datosEmprendimiento) => {
-    try {
-        const nuevo = new emprendimientoModel(datosEmprendimiento);
-        const guardar = await nuevo.save();
-        return {exito: true, data: guardar} // el empnredimiento se guardo sin problemas
-    } catch (error) {
-        return {exito: false, data: error.message}; // algo exploto
-    }
-}
+  try {
+    const nuevo = new emprendimientoModel(datosEmprendimiento);
+    const guardar = await nuevo.save();
+    return { exito: true, data: guardar }; // el empnredimiento se guardo sin problemas
+  } catch (error) {
+    return { exito: false, data: error.message }; // algo exploto
+  }
+};
 
 const obtenerTodos = async () => {
-    try {
-        const listaEmprendimientos = await emprendimientoModel.find();
-        return {exito: true, data: listaEmprendimientos}
-    } catch (error) {
-        return {exito: false, data: error.message}
-    }
-}
+  try {
+    const listaEmprendimientos = await emprendimientoModel.find({
+      estado: "activo",
+    });
+    return { exito: true, data: listaEmprendimientos };
+  } catch (error) {
+    return { exito: false, data: error.message };
+  }
+};
+
+const obtenerTodosParaAdmin = async () => {
+  try {
+    const listaEmprendimientos = await emprendimientoModel.find();
+    return { exito: true, data: listaEmprendimientos };
+  } catch (error) {
+    return { exito: false, data: error.message };
+  }
+};
 
 const obtenerPorId = async (id) => {
-    try {
-        const unicoEmprendimiento = await emprendimientoModel.findById(id);
-        return {exito: true, data: unicoEmprendimiento}
-    } catch (error) {
-        return {exito: false, data: error.message}
-    }
-}
+  try {
+    const unicoEmprendimiento = await emprendimientoModel.findById(id);
+    return { exito: true, data: unicoEmprendimiento };
+  } catch (error) {
+    return { exito: false, data: error.message };
+  }
+};
 
 const actualizarPorId = async (id, datosActualizados) => {
-    try {
-        const emprendimientoActualizado = await emprendimientoModel.findByIdAndUpdate(
-            id, 
-            datosActualizados, 
-            { new: true }
-        );
-        return { exito: true, data: emprendimientoActualizado }
-    } catch (error) {
-        return { exito: false, data: error.message }
-    }
-}
+  try {
+    const emprendimientoActualizado =
+      await emprendimientoModel.findByIdAndUpdate(id, datosActualizados, {
+        new: true,
+      });
+    return { exito: true, data: emprendimientoActualizado };
+  } catch (error) {
+    return { exito: false, data: error.message };
+  }
+};
 
 const eliminarPorId = async (id) => {
-    try {
-        const emprendimientoEliminado = await emprendimientoModel.findByIdAndDelete(id);
-        return { exito: true, data: emprendimientoEliminado }
-    } catch (error) {
-        return { exito: false, data: error.message }
-    }
-}
+  try {
+    const emprendimientoEliminado = await emprendimientoModel.findByIdAndDelete(
+      id
+    );
+    return { exito: true, data: emprendimientoEliminado };
+  } catch (error) {
+    return { exito: false, data: error.message };
+  }
+};
 
-module.exports = {crear, obtenerTodos, obtenerPorId, actualizarPorId, eliminarPorId } 
+module.exports = {
+  crear,
+  obtenerTodos,
+  obtenerTodosParaAdmin,
+  obtenerPorId,
+  actualizarPorId,
+  eliminarPorId,
+};

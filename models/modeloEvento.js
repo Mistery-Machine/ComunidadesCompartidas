@@ -8,7 +8,7 @@ const eventoSchema = mongoose.Schema(
     ubicacion: String,
     organizador: String,
     fechaEvento: String,
-    estado: { type: String, enum: ["activo", "inactivo"] },
+    estado: { type: String, enum: ["activo", "inactivo"], default: "inactivo" },
   },
   { versionKey: false }
 );

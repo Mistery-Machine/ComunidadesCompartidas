@@ -1,73 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    <link rel="stylesheet" href="/css/ventana-emprendimiento.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/ventana-emprendimiento.css" />
     <title>Bicentenario - emprendimiento Escolar</title>
-</head>
-<%- include("templates/navbar") %>
-<body>
-<div class="contenedor">
-    <div class="emprendimiento-header">
+  </head>
+  <%- include("templates/navbar") %>
+  <body>
+    <div class="contenedor">
+      <div class="emprendimiento-header">
         <div class="contenedor-imagen">
-            <img src="/images/banner-emprendimientos.jpg" alt="banner-emprendimientos">
+          <img
+            src="/images/banner-emprendimientos.jpg"
+            alt="banner-emprendimientos"
+          />
         </div>
 
         <div class="contenido-emprendimiento">
-
-            <h1 class="titulo-emprendimiento"><%= emprendimientos.nombre %></h1>
-            <span class="categoria-tag">
-                    <i class="fas fa-calendar-alt"></i>
-                    <b>Fecha de registro:</b> <%= emprendimientos.registro %>
-                </span>
-            <span class="categoria-tag">
-                    <%= emprendimientos.categoria %>
-                </span>
-            <p class="descripcion">
-                <%= emprendimientos.descripcion %>
-            </p>
+          <h1 class="titulo-emprendimiento"><%= emprendimientos.nombre %></h1>
+          <span class="categoria-tag">
+            <i class="fas fa-calendar-alt"></i>
+            <b>Fecha de registro:</b> <%= emprendimientos.registro %>
+          </span>
+          <span class="categoria-tag"> <%= emprendimientos.categoria %> </span>
+          <p class="descripcion"><%= emprendimientos.descripcion %></p>
         </div>
-    </div>
-    <div class="info-cards">
+      </div>
+      <div class="info-cards">
         <div class="info-card">
-            <div class="card-header">
-                <h3 class="card-titulo">Medios de Contacto</h3>
-            </div>
-            <p class="card-descripcion">
-                Te invitamos a llamar al servicio al cliente del emprendimiento o por Whatsapp al mismo número para solicitar información </p>
-            <div class="contacto-info">
-                <strong>Medios disponibles:</strong> Llamadas télefonicas y Whatsapp <br>
-                <em>Cambios sujetos segun capacidades del negocio</em>
-            </div>
+          <div class="card-header">
+            <h3 class="card-titulo">Medios de Contacto</h3>
+          </div>
+          <p class="card-descripcion">
+            Te invitamos a llamar al servicio al cliente del emprendimiento o
+            por Whatsapp al mismo número para solicitar información
+          </p>
+          <div class="contacto-info">
+            <strong>Medios disponibles:</strong> Llamadas télefonicas y Whatsapp
+            <br />
+            <em>Cambios sujetos segun capacidades del negocio</em>
+          </div>
         </div>
         <div class="info-card">
-            <div class="card-header">
-                <h3 class="card-titulo">Mas información</h3>
-            </div>
-            <p class="card-descripcion">
-                <%= emprendimientos.nombre %> registrado desde el <%= emprendimientos.registro %>. Todos los negocios
-                son previamente aprobados por el personal de moderación. </p>
-            <div class="contacto-info">
-                <strong>Contacto:</strong> <%= emprendimientos.telefono %> <br>
-                <em>Llamadas nacionales pueden generar cargos no relacionados</em>
-            </div>
+          <div class="card-header">
+            <h3 class="card-titulo">Mas información</h3>
+          </div>
+          <p class="card-descripcion">
+            <%= emprendimientos.nombre %> registrado desde el <%=
+            emprendimientos.registro %>. Todos los negocios son previamente
+            aprobados por el personal de moderación.
+          </p>
+          <div class="contacto-info">
+            <strong>Contacto:</strong> <%= emprendimientos.telefono %> <br />
+            <em>Llamadas nacionales pueden generar cargos no relacionados</em>
+          </div>
         </div>
-    </div>
-    <div class="acciones-emprendimiento">
-        <a href="/editar-emprendimiento/<%= emprendimientos._id %>" class="boton-secundario">
-            <i class="fas fa-edit"></i>
-            Editar Emprendimiento
+      </div>
+      <% if (isAdmin) { %>
+      <div class="acciones-emprendimiento">
+        <a
+          href="/editar-emprendimiento/<%= emprendimientos._id %>"
+          class="boton-secundario"
+        >
+          <i class="fas fa-edit"></i>
+          Editar Emprendimiento
         </a>
-        <form method="POST" action="/eliminar-emprendimiento/<%= emprendimientos._id %>" style="display: inline">
-            <button type="submit" class="boton-peligro" onclick="return confirm('¿Está seguro de que desea eliminar este evento?')">
-                <i class="fas fa-trash"></i>
-                Eliminar Emprendimiento
-            </button>
+        <form
+          method="POST"
+          action="/eliminar-emprendimiento/<%= emprendimientos._id %>"
+          style="display: inline"
+        >
+          <button
+            type="submit"
+            class="boton-peligro"
+            onclick="return confirm('¿Está seguro de que desea eliminar este emprendimiento?')"
+          >
+            <i class="fas fa-trash"></i>
+            Eliminar Emprendimiento
+          </button>
         </form>
+      </div>
+      <% } %>
     </div>
-</div>
-<%- include("templates/footer") %>
-</body>
+    <%- include("templates/footer") %>
+  </body>
 </html>
