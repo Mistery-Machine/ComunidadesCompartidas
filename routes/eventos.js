@@ -6,14 +6,15 @@ const eventosLista = (app) => {
   // READ - Obtener todos los eventos
   app.get("/listado-eventos", async (req, res) => {
     const eventos = await servicioEvento.obtenerTodos();
+    const categorias = await servicioCategorias.obtenerCategoriaEventos();
     if (eventos.exito) {
-      res.render("eventos", { eventos: eventos.data });
+      res.render("eventos", { eventos: eventos.data, categorias: categorias.data });
+
     } else {
       res.render("formulario-error", {
         headline: "Ha ocurrido un error",
         message: eventos.data,
-        message_secundario:
-          "Por favor verifica la consola para determinar que ocurre",
+        message_secundario: "Por favor verifica la consola para determinar que ocurre",
       });
     }
   });

@@ -93,10 +93,6 @@ rutaFormulario(app);
 rutasLista(app);
 eventoFormulario(app);
 
-app.get("/formulario-ofertas", requireAdmin, (req, res) => {
-  res.render("formularioOfertas");
-});
-
 app.get("/formulario-ruta", requireAdmin, (req, res) => {
   res.render("formularioRuta");
 });

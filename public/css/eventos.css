@@ -37,7 +37,7 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #3498db, #2980b9);
+    background: #2a91ff;
     color: white;
     padding: 0.75rem 1.5rem;
     text-decoration: none;
@@ -50,7 +50,7 @@ body {
 .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(52, 152, 219, 0.4);
-    background: linear-gradient(135deg, #2980b9, #3498db);
+    background: #0b81ff;
 }
 
 .filters {
@@ -190,36 +190,13 @@ body {
 .categoria-badge {
     display: inline-block;
     padding: 0.25rem 0.75rem;
-    border-radius: 20px;
+    border-radius: 4px;
     font-size: 0.8rem;
     font-weight: 500;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
-}
+    background-color: #e8e8e8;
+    color: #555;
 
-.categoria-concierto {
-    background-color: #e8f5e8;
-    color: #27ae60;
-}
-
-.categoria-deportivo {
-    background-color: #fff3cd;
-    color: #f39c12;
-}
-
-.categoria-educativo {
-    background-color: #d1ecf1;
-    color: #17a2b8;
-}
-
-.categoria-familiar {
-    background-color: #f8d7da;
-    color: #dc3545;
-}
-
-.categoria-cultural {
-    background-color: #e2e3f1;
-    color: #6f42c1;
 }
 
 .evento-ubicacion,
@@ -229,7 +206,7 @@ body {
 }
 
 .btn-ver-detalles {
-    background: linear-gradient(135deg, #17a2b8, #138496);
+    background: #3f9bff;
     color: white;
     padding: 0.6rem 1.2rem;
     text-decoration: none;
@@ -243,7 +220,7 @@ body {
 }
 
 .btn-ver-detalles:hover {
-    background: linear-gradient(135deg, #138496, #17a2b8);
+    background: #2a91ff;
     transform: translateY(-1px);
     box-shadow: 0 2px 4px rgba(23, 162, 184, 0.3);
 }

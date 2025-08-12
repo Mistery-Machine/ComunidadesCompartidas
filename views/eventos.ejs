@@ -20,12 +20,10 @@
     </div>
     <div class="filters">
         <select id="filtroCategoria" class="filter-select">
-            <option value="">Todas las categorías</option>
-            <option value="Concierto">Concierto</option>
-            <option value="Deportivo">Deportivo</option>
-            <option value="Educativo">Educativo</option>
-            <option value="Familiar">Familiar</option>
-            <option value="Cultural">Cultural</option>
+            <option disabled <%= !eventos ? 'selected' : '' %>>Categoría</option>
+            <% for (let categoria of categorias) { %>
+                <option <%= eventos && eventos.categoria === categoria ? 'selected' : '' %>><%= categoria %></option>
+            <% } %>
         </select>
         <input type="text" id="busqueda" placeholder="Buscar eventos..." class="search-input"/>
     </div>
@@ -35,14 +33,7 @@
                 <div class="evento-card" data-categoria="<%= evento.categoria %>">
                     <div class="evento-header">
                         <h3>
-
-                            href="/evento/<%= evento._id %>"
-                            style="color: inherit; text-decoration: none;"
-                            onmouseover="this.style.color='#2980b9'"
-                            onmouseout="this.style.color='inherit'"
-                            >
-                            <%= evento.titulo %>
-                            </a>
+                            <strong><%= evento.titulo %></strong>
                         </h3>
                         <% if (isAdmin) { %>
                         <div class="evento-actions">

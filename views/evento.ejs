@@ -15,21 +15,7 @@
     <div class="contenedor">
       <div class="evento-header">
         <div class="contenedor-imagen">
-          <% let imagenCategoria = ''; switch (evento.categoria.toLowerCase()) {
-          case 'concierto': imagenCategoria =
-          'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=400&fit=crop';
-          break; case 'deportivo': imagenCategoria =
-          'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=400&fit=crop';
-          break; case 'educativo': imagenCategoria =
-          'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&h=400&fit=crop';
-          break; case 'familiar': imagenCategoria =
-          'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=400&fit=crop';
-          break; case 'cultural': imagenCategoria =
-          'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=400&fit=crop';
-          break; default: imagenCategoria =
-          'https://via.placeholder.com/800x400/3f9bff/ffffff?text=' +
-          evento.categoria; } %>
-          <img src="<%= imagenCategoria %>" alt="<%= evento.titulo %>" />
+          <img src="/images/event.jpg" alt="banner-evento">
         </div>
         <div class="contenido-evento">
           <div class="fecha-badge">
