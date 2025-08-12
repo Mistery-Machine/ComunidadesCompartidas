@@ -117,9 +117,13 @@ router.post("/register", async (req, res) => {
     };
 
     res.render("formulario-exito", {
-      mensaje: "Registro exitoso. Bienvenido!",
       usuario: req.session.usuario,
+      headline: "Registro Exitoso",
+      message: "Te has registrado correctamente",
+      message_secundario: "Ahora puedes iniciar sesión. Da click en volver al inicio para ir a la página principal",
+
     });
+
   } catch (error) {
     console.error("Error en registro:", error);
     res.render("register", { error: "Error interno del servidor" });

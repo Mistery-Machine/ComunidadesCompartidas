@@ -3,8 +3,6 @@ const cors = require("cors");
 const Usuario = require("./models/Usuario");
 
 const app = express();
-const port = 3000;
-
 app.use(cors());
 app.use(express.json());
 
@@ -30,8 +28,4 @@ app.post("/api/registro", async (req, res) => {
     console.error(error);
     res.status(500).json({ error: "Error en el servidor" });
   }
-});
-
-app.listen(port, () => {
-  console.log(`Servidor Express escuchando en http://localhost:${port}`);
 });
