@@ -1,76 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8"/>
     <title>Registro de Usuario - Comunidades Conectadas</title>
-    <link rel="stylesheet" href="/css/auth.css" />
-  </head>
-  <body>
-    <div class="contenedor">
-      <h1>Comunidades Conectadas</h1>
+    <link rel="stylesheet" href="/css/auth.css"/>
+</head>
+<body>
+<div class="contenedor">
+    <h1>Comunidades Conectadas</h1>
 
-      <% if (typeof error !== 'undefined') { %>
-      <div class="error-mensaje"><%= error %></div>
-      <% } %>
+    <% if (typeof error !== 'undefined') { %>
+        <div class="error-mensaje"><%= error %></div>
+    <% } %>
 
-      <form action="/register" method="POST">
+    <form action="/register" method="POST">
         <div class="entrada-grupo">
-          <label for="nombre">Nombre Completo:</label>
-          <input type="text" id="nombre" name="nombre" required minlength="3" />
+            <label for="nombre">Nombre Completo:</label>
+            <input type="text" id="nombre" name="nombre" required minlength="3"/>
         </div>
 
         <div class="entrada-grupo">
-          <label for="correo">Correo Electrónico:</label>
-          <input type="email" id="correo" name="correo" required />
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" required/>
         </div>
 
         <div class="entrada-grupo">
-          <label for="contrasena">Contraseña:</label>
-          <input
-            type="password"
-            id="contrasena"
-            name="contrasena"
-            required
-            minlength="8"
-          />
-          <small>Mínimo 8 caracteres</small>
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" required minlength="8"/>
+            <small>Mínimo 8 caracteres</small>
         </div>
 
         <div class="entrada-grupo">
-          <label for="rol">Rol:</label>
-          <select id="rol" name="rol" required>
-            <option value="">-- Selecciona un rol --</option>
-            <option value="cliente">Cliente</option>
-            <option value="emprendedor">Emprendedor</option>
-            <option value="administrador">Administrador</option>
-          </select>
+            <label for="rol">Rol:</label>
+            <select id="rol" name="rol" required>
+                <option value="">-- Selecciona un rol --</option>
+                <option value="cliente">Cliente</option>
+                <option value="emprendedor">Emprendedor</option>
+                <option value="administrador">Administrador</option>
+            </select>
         </div>
 
         <div class="entrada-grupo">
-          <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-          <input
-            type="date"
-            id="fechaNacimiento"
-            name="fechaNacimiento"
-            required
-          />
+            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fechaNacimiento" name="fechaNacimiento" required/>
         </div>
 
         <div class="entrada-grupo">
-          <label for="telefono">Teléfono:</label>
-          <input
-            type="tel"
-            id="telefono"
-            name="telefono"
-            pattern="[0-9]{8}"
-            required
-          />
-          <small>8 dígitos</small>
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" pattern="[0-9]{8}" required/>
+            <small>8 dígitos</small>
         </div>
 
-        <input type="submit" value="Registrarse" />
+        <input type="submit" value="Registrarse"/>
         <a href="/login">¿Ya tienes cuenta? Inicia sesión</a>
-      </form>
-    </div>
-  </body>
+    </form>
+</div>
+</body>
 </html>

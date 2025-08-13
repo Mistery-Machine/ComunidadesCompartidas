@@ -14,9 +14,22 @@
             font-size: 14px;
             margin-top: 10px;
         }
-        .estado-pendiente { color: #f39c12; font-weight: bold; }
-        .estado-proceso { color: #3498db; font-weight: bold; }
-        .estado-resuelto { color: #27ae60; font-weight: bold; }
+
+        .estado-pendiente {
+            color: #f39c12;
+            font-weight: bold;
+        }
+
+        .estado-proceso {
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .estado-resuelto {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
         .info-reporte {
             margin: 10px 0;
             font-size: 14px;
@@ -28,14 +41,14 @@
 <body>
 <main class="contenedor-eventos">
     <h1 style="text-align: center; margin-bottom: 30px; color: #333;">Gestión de Reportes</h1>
-    
+
     <% if (reportes && reportes.length > 0) { %>
         <div class="grid-eventos">
             <% reportes.forEach(reporte => { %>
                 <div class="tarjeta-evento">
                     <h2 class="titulo-tarjeta"><%= reporte.tipo || 'Reporte' %></h2>
                     <p class="descripcion-evento"><%= reporte.descripcion %></p>
-                    
+
                     <div class="info-reporte">
                         <p><strong>Autor:</strong> <%= reporte.Autor %></p>
                         <p><strong>Fecha:</strong> <%= new Date(reporte.fecha).toLocaleDateString('es-ES') %></p>
@@ -44,7 +57,7 @@
                     <p class="estado-evento estado-<%= reporte.estado.toLowerCase().replace(' ', '-') %>">
                         Estado: <%= reporte.estado %>
                     </p>
-                    
+
                     <select class="estado-select" onchange="cambiarEstadoReporte('<%= reporte._id %>', this.value)">
                         <option value="Pendiente" <%= reporte.estado === 'Pendiente' ? 'selected' : '' %>>Pendiente</option>
                         <option value="En proceso" <%= reporte.estado === 'En proceso' ? 'selected' : '' %>>En proceso</option>
@@ -71,7 +84,7 @@
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ estado: nuevoEstado }),
+                body: JSON.stringify({estado: nuevoEstado}),
             });
 
             if (response.ok) {

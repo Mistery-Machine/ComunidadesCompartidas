@@ -1,76 +1,77 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Anuncios</title>
-    <link rel="stylesheet" href="/css/anuncios.css" />
-  </head>
-  <%- include("templates/navbar") %>
-  <body>
-    <main class="contenedor-anuncios">
-      <h1 class="anuncios-titulo">Anuncios Disponibles</h1>
-      <div class="filtros-container">
+    <link rel="stylesheet" href="/css/anuncios.css"/>
+</head>
+<%- include("templates/navbar") %>
+<body>
+<main class="contenedor-anuncios">
+    <h1 class="anuncios-titulo">Anuncios Disponibles</h1>
+    <div class="filtros-container">
         <button class="filtro-categoria activo" data-categoria="todos">
-          Todos
+            Todos
         </button>
         <% for (categoria of categorias) { %>
-        <button class="filtro-categoria" data-categoria="<%= categoria %>">
-          <%= categoria %>
-        </button>
+            <button class="filtro-categoria" data-categoria="<%= categoria %>">
+                <%= categoria %>
+            </button>
         <% } %>
-      </div>
-      <div class="items-por-pagina mb-2">
+    </div>
+    <div class="items-por-pagina mb-2">
         <span>Mostrar:</span>
         <select id="itemsPorPagina">
-          <option value="10">10 por página</option>
-          <option value="25" selected>25 por página</option>
-          <option value="50">50 por página</option>
+            <option value="10">10 por página</option>
+            <option value="25" selected>25 por página</option>
+            <option value="50">50 por página</option>
         </select>
-      </div>
+    </div>
 
-      <div class="grid-anuncios">
+    <div class="grid-anuncios">
         <% if (anuncios && anuncios.length > 0) { %> <%
         anuncios.forEach(function(anuncio) { %>
-        <div class="tarjeta-anuncio" data-categoria="<%= anuncio.categoria %>">
-          <h2 class="titulo-tarjeta"><%= anuncio.titulo %></h2>
-          <p class="descripcion-anuncio"><%= anuncio.descripcion %></p>
-          <div class="categorias-anuncio">
-            <span class="categoria"><%= anuncio.categoria %></span>
-          </div>
-          <p class="fecha-anuncio">
-            <% var fecha = new Date(anuncio.fecha); var opciones = { weekday:
-            'long', year: 'numeric', month: 'long', day: 'numeric' }; var
-            fechaFormateada = fecha.toLocaleDateString('es-ES', opciones); %>
-            <%= fechaFormateada %>
-          </p>
-        </div>
-        <% }); %> <% } else { %>
-        <div class="mensaje-vacio">
-          <p>No hay anuncios disponibles.</p>
-          <% if (isAdmin) { %>
-          <a href="/formulario-anuncio" class="boton-participar"
-            >Crear primer anuncio</a
-          >
-          <% } %>
-        </div>
+            <div class="tarjeta-anuncio" data-categoria="<%= anuncio.categoria %>">
+                <h2 class="titulo-tarjeta"><%= anuncio.titulo %></h2>
+                <p class="descripcion-anuncio"><%= anuncio.descripcion %></p>
+                <div class="categorias-anuncio">
+                    <span class="categoria"><%= anuncio.categoria %></span>
+                </div>
+                <p class="fecha-anuncio">
+                    <% var fecha = new Date(anuncio.fecha); var opciones = {
+                        weekday:
+                                'long', year: 'numeric', month: 'long', day: 'numeric'
+                    }; var
+                            fechaFormateada = fecha.toLocaleDateString('es-ES', opciones); %>
+                    <%= fechaFormateada %>
+                </p>
+            </div>
+        <% }); %>
+        <% } else { %>
+            <div class="mensaje-vacio">
+                <p>No hay anuncios disponibles.</p>
+                <% if (isAdmin) { %>
+                    <a href="/formulario-anuncio" class="boton-participar">Crear primer anuncio</a>
+                <% } %>
+            </div>
         <% } %>
-      </div>
-      <div class="paginador-container">
+    </div>
+    <div class="paginador-container">
         <div class="paginador-info">
-          Mostrando <span id="inicioRango">1</span>-<span id="finRango">9</span>
-          de <span id="totalItems">0</span> anuncios
+            Mostrando <span id="inicioRango">1</span>-<span id="finRango">9</span>
+            de <span id="totalItems">0</span> anuncios
         </div>
         <div class="paginador-botones">
-          <button class="btn-paginador" id="btnAnterior" disabled>
-            Anterior
-          </button>
-          <div id="numerosPagina"></div>
-          <button class="btn-paginador" id="btnSiguiente">Siguiente</button>
+            <button class="btn-paginador" id="btnAnterior" disabled>
+                Anterior
+            </button>
+            <div id="numerosPagina"></div>
+            <button class="btn-paginador" id="btnSiguiente">Siguiente</button>
         </div>
-      </div>
-      <script src="/js/paginador-anuncios.js"></script>
-    </main>
-    <%- include("templates/footer") %>
-  </body>
+    </div>
+    <script src="/js/paginador-anuncios.js"></script>
+</main>
+<%- include("templates/footer") %>
+</body>
 </html>

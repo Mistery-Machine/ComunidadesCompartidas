@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>
-      <%= typeof title !== 'undefined' ? title : 'Comunidades Conectadas' %>
+        <%= typeof title !== 'undefined' ? title : 'Comunidades Conectadas' %>
     </title>
-    <link rel="stylesheet" href="/css/style.css" />
-  </head>
-  <body>
-    <nav class="navbar">
-      <div class="nav-container">
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+<nav class="navbar">
+    <div class="nav-container">
         <a href="/" class="nav-logo">Comunidades Conectadas</a>
 
         <div class="nav-menu">
-          <a href="/" class="nav-link">Inicio</a>
-          <a href="/emprendimientos" class="nav-link">Emprendimientos</a>
-          <a href="/eventos" class="nav-link">Eventos</a>
-          <a href="/rutas" class="nav-link">Rutas</a>
-          <a href="/mapa" class="nav-link">Mapa</a>
+            <a href="/" class="nav-link">Inicio</a>
+            <a href="/emprendimientos" class="nav-link">Emprendimientos</a>
+            <a href="/eventos" class="nav-link">Eventos</a>
+            <a href="/rutas" class="nav-link">Rutas</a>
+            <a href="/mapa" class="nav-link">Mapa</a>
 
-          <% if (isAuthenticated) { %>
-          <a href="/calendario" class="nav-link">Calendario</a>
+            <% if (isAuthenticated) { %>
+                <a href="/calendario" class="nav-link">Calendario</a>
 
-          <% if (isAdmin) { %>
-          <a href="/dashboard" class="nav-link">Dashboard</a>
-          <a href="/reportes" class="nav-link">Reportes</a>
-          <a href="/ver-reportes" class="nav-link">Ver Reportes</a>
-          <% } %> <% if (isCliente) { %>
-          <a href="/formulario-ofertas" class="nav-link">Crear Oferta</a>
-          <a href="/formulario-ruta" class="nav-link">Crear Ruta</a>
-          <% } %>
+                <% if (isAdmin) { %>
+                    <a href="/dashboard" class="nav-link">Dashboard</a>
+                    <a href="/reportes" class="nav-link">Reportes</a>
+                    <a href="/ver-reportes" class="nav-link">Ver Reportes</a>
+                <% } %> <% if (isCliente) { %>
+                    <a href="/formulario-ofertas" class="nav-link">Crear Oferta</a>
+                    <a href="/formulario-ruta" class="nav-link">Crear Ruta</a>
+                <% } %>
 
-          <div class="nav-user">
-            <span>Hola, <%= usuario.nombre %> (<%= usuario.rol %>)</span>
-            <form action="/logout" method="POST" style="display: inline">
-              <button type="submit" class="logout-btn">Cerrar Sesión</button>
-            </form>
-          </div>
-          <% } else { %>
-          <a href="/login" class="nav-link">Iniciar Sesión</a>
-          <a href="/register" class="nav-link">Registrarse</a>
-          <% } %>
+                <div class="nav-user">
+                    <span>Hola, <%= usuario.nombre %> (<%= usuario.rol %>)</span>
+                    <form action="/logout" method="POST" style="display: inline">
+                        <button type="submit" class="logout-btn">Cerrar Sesión</button>
+                    </form>
+                </div>
+            <% } else { %>
+                <a href="/login" class="nav-link">Iniciar Sesión</a>
+                <a href="/register" class="nav-link">Registrarse</a>
+            <% } %>
         </div>
-      </div>
-    </nav>
+    </div>
+</nav>
 
-    <main class="main-content"></main>
-  </body>
+<main class="main-content"></main>
+</body>
 </html>

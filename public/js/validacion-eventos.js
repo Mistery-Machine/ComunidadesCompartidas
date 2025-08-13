@@ -52,7 +52,7 @@ const validarFormulario = (e) => {
 // Función para validar campo individual
 const validarCampo = (expresion, input, campo) => {
     const mensajeError = document.querySelector(`#error-${campo}`);
-    
+
     if (expresion.test(input.value)) {
         // Validación correcta
         input.classList.remove("campo-incorrecto");
@@ -77,7 +77,7 @@ const validarCampo = (expresion, input, campo) => {
 const validarFecha = (input) => {
     const mensajeError = document.querySelector("#error-fechaEvento");
     const fechaSeleccionada = input.value;
-    
+
     if (fechaSeleccionada === "") {
         input.classList.add("campo-incorrecto");
         input.classList.remove("campo-correcto");
@@ -108,7 +108,7 @@ const validarFecha = (input) => {
 // Función para verificar todos los campos
 const verificarCampos = () => {
     const todosValidos = Object.values(campos).every(campo => campo === true);
-    
+
     if (todosValidos) {
         boton.disabled = false;
         boton.classList.remove('boton-deshabilitado');

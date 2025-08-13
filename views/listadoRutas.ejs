@@ -1,134 +1,113 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/listadoRutas.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/css/listadoRutas.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <title>Rutas y Horarios - Transporte Público</title>
-  </head>
-  <%- include("templates/navbar") %>
-  <body>
-    <div class="container">
-      <div class="header">
+</head>
+<%- include("templates/navbar") %>
+<body>
+<div class="container">
+    <div class="header">
         <div class="header-content">
-          <div class="header-title">Rutas y Horarios</div>
-          <div class="header-subtitle">
-            Información actualizada de transporte público
-          </div>
+            <div class="header-title">Rutas y Horarios</div>
+            <div class="header-subtitle">
+                Información actualizada de transporte público
+            </div>
         </div>
         <div class="date-info">Actualizado: Lunes 23 de junio, 2025</div>
-      </div>
+    </div>
 
-      <% if (isAdmin) { %>
-      <div class="actions-bar">
-        <a href="/formulario-ruta" class="btn-new-route">
-          <i class="fas fa-plus"></i> Nueva Ruta
-        </a>
-      </div>
-      <% } %>
+    <% if (isAdmin) { %>
+        <div class="actions-bar">
+            <a href="/formulario-ruta" class="btn-new-route">
+                <i class="fas fa-plus"></i> Nueva Ruta
+            </a>
+        </div>
+    <% } %>
 
-      <div class="content">
+    <div class="content">
         <table class="routes-table">
-          <thead>
+            <thead>
             <tr>
-              <th>Ruta</th>
-              <th>Recorrido</th>
-              <th>Horarios</th>
-              <th>Frecuencia</th>
-              <th>Estado</th>
-              <th>Acciones</th>
+                <th>Ruta</th>
+                <th>Recorrido</th>
+                <th>Horarios</th>
+                <th>Frecuencia</th>
+                <th>Estado</th>
+                <th>Acciones</th>
             </tr>
-          </thead>
-          <tbody>
+            </thead>
+            <tbody>
             <% if (typeof rutas !== 'undefined' && rutas.length > 0) { %> <%
             rutas.forEach(ruta => { %>
-            <tr>
-              <td><span class="route-number"><%= ruta.numeroRuta %></span></td>
-              <td>
-                <div class="route-name">Ruta <%= ruta.numeroRuta %></div>
-                <div class="route-details"><%= ruta.recorrido %></div>
-              </td>
-              <td>
-                <div class="schedule-grid">
-                  <div class="schedule-item">
-                    <div class="schedule-day">Lun-Vie</div>
-                    <div class="schedule-time"><%= ruta.horarioLunVie %></div>
-                  </div>
-                  <div class="schedule-item">
-                    <div class="schedule-day">Sábado</div>
-                    <div class="schedule-time"><%= ruta.horarioSabado %></div>
-                  </div>
-                  <div class="schedule-item">
-                    <div class="schedule-day">Domingo</div>
-                    <div class="schedule-time"><%= ruta.horarioDomingo %></div>
-                  </div>
-                </div>
-              </td>
-              <td><span class="frequency"><%= ruta.frecuencia %></span></td>
-              <td>
-                <span
-                  class="status-<%= ruta.estado.toLowerCase().replace(' ', '-') %>"
-                >
+                <tr>
+                    <td><span class="route-number"><%= ruta.numeroRuta %></span></td>
+                    <td>
+                        <div class="route-name">Ruta <%= ruta.numeroRuta %></div>
+                        <div class="route-details"><%= ruta.recorrido %></div>
+                    </td>
+                    <td>
+                        <div class="schedule-grid">
+                            <div class="schedule-item">
+                                <div class="schedule-day">Lun-Vie</div>
+                                <div class="schedule-time"><%= ruta.horarioLunVie %></div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-day">Sábado</div>
+                                <div class="schedule-time"><%= ruta.horarioSabado %></div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-day">Domingo</div>
+                                <div class="schedule-time"><%= ruta.horarioDomingo %></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><span class="frequency"><%= ruta.frecuencia %></span></td>
+                    <td>
+                <span class="status-<%= ruta.estado.toLowerCase().replace(' ', '-') %>">
                   <%= ruta.estado %>
                 </span>
-              </td>
-              <td>
-                <div class="action-buttons">
-                  <a
-                    href="/ruta/<%= ruta._id %>"
-                    class="btn-view"
-                    title="Ver ruta"
-                  >
-                    <i class="fas fa-eye"></i>
-                  </a>
-                  <% if (isAdmin) { %>
-                  <a
-                    href="/editar-ruta/<%= ruta._id %>"
-                    class="btn-edit"
-                    title="Editar ruta"
-                  >
-                    <i class="fas fa-edit"></i>
-                  </a>
-                  <form
-                    method="POST"
-                    action="/eliminar-ruta/<%= ruta._id %>"
-                    style="display: inline; margin: 0"
-                    onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta ruta?')"
-                  >
-                    <button
-                      type="submit"
-                      class="btn-delete"
-                      title="Eliminar ruta"
-                    >
-                      <i class="fas fa-trash-alt"></i>
-                    </button>
-                  </form>
-                  <% } %>
-                </div>
-              </td>
-            </tr>
-            <% }); %> <% } else { %>
-            <tr>
-              <td colspan="6" style="text-align: center; padding: 20px">
-                No hay rutas registradas
-              </td>
-            </tr>
+                    </td>
+                    <td>
+                        <div class="action-buttons">
+                            <a href="/ruta/<%= ruta._id %>" class="btn-view" title="Ver ruta">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <% if (isAdmin) { %>
+                                <a href="/editar-ruta/<%= ruta._id %>" class="btn-edit" title="Editar ruta">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <form method="POST" action="/eliminar-ruta/<%= ruta._id %>" style="display: inline; margin: 0" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta ruta?')">
+                                    <button type="submit" class="btn-delete" title="Eliminar ruta">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </form>
+                            <% } %>
+                        </div>
+                    </td>
+                </tr>
+            <% }); %>
+            <% } else { %>
+                <tr>
+                    <td colspan="6" style="text-align: center; padding: 20px">
+                        No hay rutas registradas
+                    </td>
+                </tr>
             <% } %>
-          </tbody>
+            </tbody>
         </table>
 
         <div class="update-info">
-          <strong>Información Importante:</strong> Los horarios pueden variar
-          durante días festivos o condiciones climáticas adversas. Se recomienda
-          confirmar la información directamente con las empresas de transporte
-          antes de viajar. Última actualización: 20 de junio, 2025.
+            <strong>Información Importante:</strong> Los horarios pueden variar
+            durante días festivos o condiciones climáticas adversas. Se recomienda
+            confirmar la información directamente con las empresas de transporte
+            antes de viajar. Última actualización: 20 de junio, 2025.
         </div>
-      </div>
     </div>
-    <%- include("templates/footer") %>
-  </body>
+</div>
+<%- include("templates/footer") %>
+</body>
 </html>

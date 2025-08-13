@@ -7,29 +7,29 @@ const session = require("express-session");
 const app = express();
 const path = require("path");
 const {
-  addUserToViews,
-  requireAuth,
-  requireAdmin,
+    addUserToViews,
+    requireAuth,
+    requireAdmin,
 } = require("./middleware/auth");
 
 app.set("views", path.join(__dirname, "views"));
 app.engine("html", require("ejs").renderFile);
 app.set("view engine", "ejs");
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, "public")));
 
 // Configurar express-session
 app.use(
-  session({
-    secret: process.env.SESSION_SECRET || "tu-clave-secreta-muy-segura-aqui",
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      secure: process.env.NODE_ENV === "production",
-      maxAge: 24 * 60 * 60 * 1000,
-    },
-  })
+    session({
+        secret: process.env.SESSION_SECRET || "tu-clave-secreta-muy-segura-aqui",
+        resave: false,
+        saveUninitialized: false,
+        cookie: {
+            secure: process.env.NODE_ENV === "production",
+            maxAge: 24 * 60 * 60 * 1000,
+        },
+    })
 );
 
 // Middleware para pasar información del usuario a todas las vistas
@@ -47,40 +47,40 @@ const rutaEventos = require("./routes/eventos");
 
 // RUTAS
 app.get("/", (req, res) => {
-  res.render("index");
+    res.render("index");
 });
 
 app.get("/calendario", requireAuth, (req, res) => {
-  res.render("calendario");
+    res.render("calendario");
 });
 
 app.get("/dashboard", requireAdmin, async (req, res) => {
-  try {
-    const Anuncio = require("./models/modeloAnuncio");
-    const eventoModel = require("./models/modeloEvento");
-    const emprendimientoModel = require("./models/modeloEmprendimiento");
-    const Usuario = require("./models/modeloUsuario");
+    try {
+        const Anuncio = require("./models/modeloAnuncio");
+        const eventoModel = require("./models/modeloEvento");
+        const emprendimientoModel = require("./models/modeloEmprendimiento");
+        const Usuario = require("./models/modeloUsuario");
 
-    const anuncios = await Anuncio.find().sort({ fecha: -1 });
-    const eventos = await eventoModel.find().sort({ fechaGeneracion: -1 });
-    const emprendimientos = await emprendimientoModel.find().sort({ _id: -1 });
-    const usuarios = await Usuario.find().sort({ nombre: 1 });
+        const anuncios = await Anuncio.find().sort({fecha: -1});
+        const eventos = await eventoModel.find().sort({fechaGeneracion: -1});
+        const emprendimientos = await emprendimientoModel.find().sort({_id: -1});
+        const usuarios = await Usuario.find().sort({nombre: 1});
 
-    res.render("dashboard", {
-      anuncios,
-      eventos,
-      emprendimientos,
-      usuarios,
-    });
-  } catch (error) {
-    console.error("Error al cargar dashboard:", error);
-    res.render("dashboard", {
-      anuncios: [],
-      eventos: [],
-      emprendimientos: [],
-      usuarios: [],
-    });
-  }
+        res.render("dashboard", {
+            anuncios,
+            eventos,
+            emprendimientos,
+            usuarios,
+        });
+    } catch (error) {
+        console.error("Error al cargar dashboard:", error);
+        res.render("dashboard", {
+            anuncios: [],
+            eventos: [],
+            emprendimientos: [],
+            usuarios: [],
+        });
+    }
 });
 
 // Rutas del dashboard
@@ -101,51 +101,51 @@ rutasLista(app);
 eventoFormulario(app);
 
 app.get("/formulario-ruta", requireAdmin, (req, res) => {
-  res.render("formularioRuta");
+    res.render("formularioRuta");
 });
 
 // Ruta manejada por rutasLista
 
 app.get("/login", (req, res) => {
-  if (req.session.usuario) {
-    return res.redirect("/dashboard");
-  }
-  res.render("login");
+    if (req.session.usuario) {
+        return res.redirect("/dashboard");
+    }
+    res.render("login");
 });
 
 app.get("/mapa", (req, res) => {
-  res.render("mapa", {
-    googleApiKey: process.env.GOOGLE_API_KEY_MAP,
-  });
+    res.render("mapa", {
+        googleApiKey: process.env.GOOGLE_API_KEY_MAP,
+    });
 });
 
 app.get("/register", (req, res) => {
-  if (req.session.usuario) {
-    return res.redirect("/dashboard");
-  }
-  res.render("register");
+    if (req.session.usuario) {
+        return res.redirect("/dashboard");
+    }
+    res.render("register");
 });
 
 app.get("/reportes", requireAuth, (req, res) => {
-  res.render("reportes", {
-    usuario: req.session.usuario,
-  });
+    res.render("reportes", {
+        usuario: req.session.usuario,
+    });
 });
 
 app.get("/ver-reportes", requireAdmin, async (req, res) => {
-  try {
-    const Reporte = require("./models/modeloReporte");
-    const reportes = await Reporte.find().sort({ fecha: -1 });
+    try {
+        const Reporte = require("./models/modeloReporte");
+        const reportes = await Reporte.find().sort({fecha: -1});
 
-    res.render("verReportes", { reportes });
-  } catch (error) {
-    console.error("Error al cargar reportes:", error);
-    res.render("verReportes", { reportes: [] });
-  }
+        res.render("verReportes", {reportes});
+    } catch (error) {
+        console.error("Error al cargar reportes:", error);
+        res.render("verReportes", {reportes: []});
+    }
 });
 
 app.get("/formulario-exito", (req, res) => {
-  res.render("formulario-exito");
+    res.render("formulario-exito");
 });
 
 // Rutas de anuncios (protegidas)
@@ -159,5 +159,5 @@ const rutasReportes = require("./routes/reportes");
 app.use(rutasReportes);
 //Encender el servidor
 app.listen(3000, () => {
-  console.log("Servidor conectado en puerto 3000");
+    console.log("Servidor conectado en puerto 3000");
 });

@@ -1,239 +1,212 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/dashboard.css" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/css/dashboard.css"/>
     <title>Dashboard de Administración</title>
-  </head>
-  <%- include("templates/navbar") %>
-  <body>
-    <div class="contenedor-principal">
-      <div class="contenedor-tabla">
+</head>
+<%- include("templates/navbar") %>
+<body>
+<div class="contenedor-principal">
+    <div class="contenedor-tabla">
         <div class="encabezado-tabla">Usuarios Registrados</div>
         <table class="tabla">
-          <thead>
+            <thead>
             <tr>
-              <th class="encabezado-columna">Nombre</th>
-              <th class="encabezado-columna">Correo Electrónico</th>
-              <th class="encabezado-columna">Rol</th>
-              <th class="encabezado-columna">Estado</th>
-              <th class="encabezado-columna">Acciones</th>
+                <th class="encabezado-columna">Nombre</th>
+                <th class="encabezado-columna">Correo Electrónico</th>
+                <th class="encabezado-columna">Rol</th>
+                <th class="encabezado-columna">Estado</th>
+                <th class="encabezado-columna">Acciones</th>
             </tr>
-          </thead>
-          <tbody>
+            </thead>
+            <tbody>
             <% usuarios.forEach(usuario => { %>
-            <tr class="fila-tabla">
-              <td class="celda-tabla"><%= usuario.nombre %></td>
-              <td class="celda-tabla"><%= usuario.correo %></td>
-              <td class="celda-tabla">
+                <tr class="fila-tabla">
+                    <td class="celda-tabla"><%= usuario.nombre %></td>
+                    <td class="celda-tabla"><%= usuario.correo %></td>
+                    <td class="celda-tabla">
                 <span class="etiqueta <%= usuario.rol === 'administrador' ? 'etiqueta-admin' : (usuario.rol === 'emprendedor' ? 'etiqueta-emprendedor' : 'etiqueta-usuario') %>">
                   <%= usuario.rol %>
                 </span>
-              </td>
-              <td class="celda-tabla">
-                <span class="estado-activo">Activo</span>
-              </td>
-              <td class="celda-tabla">
-                <select class="seleccion-formulario" onchange="cambiarRolUsuario('<%= usuario._id %>', this.value)">
-                  <option value="cliente" <%= usuario.rol === 'cliente' ? 'selected' : '' %>>Cliente</option>
-                  <option value="emprendedor" <%= usuario.rol === 'emprendedor' ? 'selected' : '' %>>Emprendedor</option>
-                  <option value="administrador" <%= usuario.rol === 'administrador' ? 'selected' : '' %>>Administrador</option>
-                </select>
-              </td>
-            </tr>
+                    </td>
+                    <td class="celda-tabla">
+                        <span class="estado-activo">Activo</span>
+                    </td>
+                    <td class="celda-tabla">
+                        <select class="seleccion-formulario" onchange="cambiarRolUsuario('<%= usuario._id %>', this.value)">
+                            <option value="cliente" <%= usuario.rol === 'cliente' ? 'selected' : '' %>>Cliente</option>
+                            <option value="emprendedor" <%= usuario.rol === 'emprendedor' ? 'selected' : '' %>>Emprendedor</option>
+                            <option value="administrador" <%= usuario.rol === 'administrador' ? 'selected' : '' %>>Administrador</option>
+                        </select>
+                    </td>
+                </tr>
             <% }); %>
-          </tbody>
+            </tbody>
         </table>
-      </div>
-      <div class="contenedor-tabla">
+    </div>
+    <div class="contenedor-tabla">
         <div class="encabezado-tabla">Gestión de Contenido</div>
         <table class="tabla" id="tabla-contenido">
-          <thead>
+            <thead>
             <tr>
-              <th class="encabezado-columna">Título</th>
-              <th class="encabezado-columna">Tipo</th>
-              <th class="encabezado-columna">Estado</th>
-              <th class="encabezado-columna">Fecha</th>
-              <th class="encabezado-columna">Acciones</th>
+                <th class="encabezado-columna">Título</th>
+                <th class="encabezado-columna">Tipo</th>
+                <th class="encabezado-columna">Estado</th>
+                <th class="encabezado-columna">Fecha</th>
+                <th class="encabezado-columna">Acciones</th>
             </tr>
-          </thead>
-          <tbody id="contenido-tabla">
+            </thead>
+            <tbody id="contenido-tabla">
             <!-- Anuncios -->
             <% anuncios.forEach(anuncio => { %>
-            <tr class="fila-tabla">
-              <td class="celda-tabla"><%= anuncio.titulo %></td>
-              <td class="celda-tabla">Anuncio</td>
-              <td class="celda-tabla">
-                <span
-                  class="<%= (anuncio.estado === 'activo') ? 'estado-activo' : 'estado-inactivo' %>"
-                >
+                <tr class="fila-tabla">
+                    <td class="celda-tabla"><%= anuncio.titulo %></td>
+                    <td class="celda-tabla">Anuncio</td>
+                    <td class="celda-tabla">
+                <span class="<%= (anuncio.estado === 'activo') ? 'estado-activo' : 'estado-inactivo' %>">
                   <%= (anuncio.estado === 'activo') ? 'Activo' : 'Inactivo' %>
                 </span>
-              </td>
-              <td class="celda-tabla">
-                <%= new Date(anuncio.fecha).toLocaleDateString() %>
-              </td>
-              <td class="celda-tabla">
-                <button
-                  class="<%= (anuncio.estado === 'activo') ? 'boton-desactivar' : 'boton-subir' %>"
-                  onclick="cambiarEstado('<%= anuncio._id %>', 'anuncio', '<%= (anuncio.estado === 'activo') ? 'inactivo' : 'activo' %>')"
-                >
-                  <%= (anuncio.estado === 'activo') ? 'Desactivar' : 'Activar'
-                  %>
-                </button>
-                <button
-                  class="boton-eliminar"
-                  onclick="eliminarElemento('<%= anuncio._id %>', 'anuncio')"
-                  style="margin-left: 5px;"
-                >
-                  Eliminar
-                </button>
-              </td>
-            </tr>
+                    </td>
+                    <td class="celda-tabla">
+                        <%= new Date(anuncio.fecha).toLocaleDateString() %>
+                    </td>
+                    <td class="celda-tabla">
+                        <button class="<%= (anuncio.estado === 'activo') ? 'boton-desactivar' : 'boton-subir' %>" onclick="cambiarEstado('<%= anuncio._id %>', 'anuncio', '<%= (anuncio.estado === 'activo') ? 'inactivo' : 'activo' %>')">
+                            <%= (anuncio.estado === 'activo') ? 'Desactivar' : 'Activar'
+                            %>
+                        </button>
+                        <button class="boton-eliminar" onclick="eliminarElemento('<%= anuncio._id %>', 'anuncio')" style="margin-left: 5px;">
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
             <% }); %>
 
             <!-- Eventos -->
             <% eventos.forEach(evento => { %>
-            <tr class="fila-tabla">
-              <td class="celda-tabla"><%= evento.titulo %></td>
-              <td class="celda-tabla">Evento</td>
-              <td class="celda-tabla">
-                <span
-                  class="<%= (evento.estado === 'activo') ? 'estado-activo' : 'estado-inactivo' %>"
-                >
+                <tr class="fila-tabla">
+                    <td class="celda-tabla"><%= evento.titulo %></td>
+                    <td class="celda-tabla">Evento</td>
+                    <td class="celda-tabla">
+                <span class="<%= (evento.estado === 'activo') ? 'estado-activo' : 'estado-inactivo' %>">
                   <%= (evento.estado === 'activo') ? 'Activo' : 'Inactivo' %>
                 </span>
-              </td>
-              <td class="celda-tabla">
-                <%= evento.fechaEvento || evento.fechaGeneracion || 'N/A' %>
-              </td>
-              <td class="celda-tabla">
-                <button
-                  class="<%= (evento.estado === 'activo') ? 'boton-desactivar' : 'boton-subir' %>"
-                  onclick="cambiarEstado('<%= evento._id %>', 'evento', '<%= (evento.estado === 'activo') ? 'inactivo' : 'activo' %>')"
-                >
-                  <%= (evento.estado === 'activo') ? 'Desactivar' : 'Activar' %>
-                </button>
-                <button
-                  class="boton-eliminar"
-                  onclick="eliminarElemento('<%= evento._id %>', 'evento')"
-                  style="margin-left: 5px;"
-                >
-                  Eliminar
-                </button>
-              </td>
-            </tr>
+                    </td>
+                    <td class="celda-tabla">
+                        <%= evento.fechaEvento || evento.fechaGeneracion || 'N/A' %>
+                    </td>
+                    <td class="celda-tabla">
+                        <button class="<%= (evento.estado === 'activo') ? 'boton-desactivar' : 'boton-subir' %>" onclick="cambiarEstado('<%= evento._id %>', 'evento', '<%= (evento.estado === 'activo') ? 'inactivo' : 'activo' %>')">
+                            <%= (evento.estado === 'activo') ? 'Desactivar' : 'Activar' %>
+                        </button>
+                        <button class="boton-eliminar" onclick="eliminarElemento('<%= evento._id %>', 'evento')" style="margin-left: 5px;">
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
             <% }); %>
 
             <!-- Emprendimientos -->
             <% emprendimientos.forEach(emprendimiento => { %>
-            <tr class="fila-tabla">
-              <td class="celda-tabla"><%= emprendimiento.nombre %></td>
-              <td class="celda-tabla">Emprendimiento</td>
-              <td class="celda-tabla">
-                <span
-                  class="<%= (emprendimiento.estado === 'activo') ? 'estado-activo' : 'estado-inactivo' %>"
-                >
+                <tr class="fila-tabla">
+                    <td class="celda-tabla"><%= emprendimiento.nombre %></td>
+                    <td class="celda-tabla">Emprendimiento</td>
+                    <td class="celda-tabla">
+                <span class="<%= (emprendimiento.estado === 'activo') ? 'estado-activo' : 'estado-inactivo' %>">
                   <%= (emprendimiento.estado === 'activo') ? 'Activo' :
-                  'Inactivo' %>
+                          'Inactivo' %>
                 </span>
-              </td>
-              <td class="celda-tabla">N/A</td>
-              <td class="celda-tabla">
-                <button
-                  class="<%= (emprendimiento.estado === 'activo') ? 'boton-desactivar' : 'boton-subir' %>"
-                  onclick="cambiarEstado('<%= emprendimiento._id %>', 'emprendimiento', '<%= (emprendimiento.estado === 'activo') ? 'inactivo' : 'activo' %>')"
-                >
-                  <%= (emprendimiento.estado === 'activo') ? 'Desactivar' :
-                  'Activar' %>
-                </button>
-                <button
-                  class="boton-eliminar"
-                  onclick="eliminarElemento('<%= emprendimiento._id %>', 'emprendimiento')"
-                  style="margin-left: 5px;"
-                >
-                  Eliminar
-                </button>
-              </td>
-            </tr>
+                    </td>
+                    <td class="celda-tabla">N/A</td>
+                    <td class="celda-tabla">
+                        <button class="<%= (emprendimiento.estado === 'activo') ? 'boton-desactivar' : 'boton-subir' %>" onclick="cambiarEstado('<%= emprendimiento._id %>', 'emprendimiento', '<%= (emprendimiento.estado === 'activo') ? 'inactivo' : 'activo' %>')">
+                            <%= (emprendimiento.estado === 'activo') ? 'Desactivar' :
+                                    'Activar' %>
+                        </button>
+                        <button class="boton-eliminar" onclick="eliminarElemento('<%= emprendimiento._id %>', 'emprendimiento')" style="margin-left: 5px;">
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
             <% }); %>
-          </tbody>
+            </tbody>
         </table>
-      </div>
     </div>
-    <%- include("templates/footer") %>
+</div>
+<%- include("templates/footer") %>
 
-    <script>
-      // Cambiar estado de un elemento
-      async function cambiarEstado(id, tipo, nuevoEstado) {
+<script>
+    // Cambiar estado de un elemento
+    async function cambiarEstado(id, tipo, nuevoEstado) {
         try {
-          const response = await fetch(`/dashboard/${tipo}/${id}/estado`, {
-            method: "PATCH",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ estado: nuevoEstado }),
-          });
-
-          if (response.ok) {
-            // Recargar la página para mostrar los cambios
-            window.location.reload();
-          } else {
-            alert("Error al cambiar el estado");
-          }
-        } catch (error) {
-          console.error("Error:", error);
-          alert("Error al cambiar el estado");
-        }
-      }
-
-      // Cambiar rol de usuario
-      async function cambiarRolUsuario(id, nuevoRol) {
-        try {
-          const response = await fetch(`/dashboard/usuario/${id}/rol`, {
-            method: "PATCH",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ rol: nuevoRol }),
-          });
-
-          if (response.ok) {
-            // Recargar la página para mostrar los cambios
-            window.location.reload();
-          } else {
-            alert("Error al cambiar el rol del usuario");
-          }
-        } catch (error) {
-          console.error("Error:", error);
-          alert("Error al cambiar el rol del usuario");
-        }
-      }
-
-      // Eliminar elemento
-      async function eliminarElemento(id, tipo) {
-        if (confirm(`¿Estás seguro de que quieres eliminar este ${tipo}? Esta acción no se puede deshacer.`)) {
-          try {
-            const response = await fetch(`/dashboard/${tipo}/${id}`, {
-              method: "DELETE",
-              headers: {
-                "Content-Type": "application/json",
-              },
+            const response = await fetch(`/dashboard/${tipo}/${id}/estado`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({estado: nuevoEstado}),
             });
 
             if (response.ok) {
-              // Recargar la página para mostrar los cambios
-              window.location.reload();
+                // Recargar la página para mostrar los cambios
+                window.location.reload();
             } else {
-              alert(`Error al eliminar el ${tipo}`);
+                alert("Error al cambiar el estado");
             }
-          } catch (error) {
+        } catch (error) {
             console.error("Error:", error);
-            alert(`Error al eliminar el ${tipo}`);
-          }
+            alert("Error al cambiar el estado");
         }
-      }
-    </script>
-  </body>
+    }
+
+    // Cambiar rol de usuario
+    async function cambiarRolUsuario(id, nuevoRol) {
+        try {
+            const response = await fetch(`/dashboard/usuario/${id}/rol`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({rol: nuevoRol}),
+            });
+
+            if (response.ok) {
+                // Recargar la página para mostrar los cambios
+                window.location.reload();
+            } else {
+                alert("Error al cambiar el rol del usuario");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Error al cambiar el rol del usuario");
+        }
+    }
+
+    // Eliminar elemento
+    async function eliminarElemento(id, tipo) {
+        if (confirm(`¿Estás seguro de que quieres eliminar este ${tipo}? Esta acción no se puede deshacer.`)) {
+            try {
+                const response = await fetch(`/dashboard/${tipo}/${id}`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
+
+                if (response.ok) {
+                    // Recargar la página para mostrar los cambios
+                    window.location.reload();
+                } else {
+                    alert(`Error al eliminar el ${tipo}`);
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert(`Error al eliminar el ${tipo}`);
+            }
+        }
+    }
+</script>
+</body>
 </html>

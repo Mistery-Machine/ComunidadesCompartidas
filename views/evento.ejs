@@ -1,126 +1,111 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="/css/ventana-evento.css" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="/css/ventana-evento.css"/>
     <title><%= evento.titulo %> - Evento <%= evento.categoria %></title>
-  </head>
-  <%- include("templates/navbar") %>
-  <body>
-    <div class="contenedor">
-      <div class="evento-header">
+</head>
+<%- include("templates/navbar") %>
+<body>
+<div class="contenedor">
+    <div class="evento-header">
         <div class="contenedor-imagen">
-          <img src="/images/event.jpg" alt="banner-evento">
+            <img src="/images/event.jpg" alt="banner-evento">
         </div>
         <div class="contenido-evento">
-          <div class="fecha-badge">
-            <i class="fas fa-calendar-alt"></i>
-            <%= new Date(evento.fechaEvento +
-            'T00:00:00').toLocaleDateString('es-ES', { weekday: 'long', year:
-            'numeric', month: 'long', day: 'numeric' }) %>
-          </div>
-          <h1 class="titulo-evento"><%= evento.titulo %></h1>
-          <span
-            class="categoria-tag categoria-<%= evento.categoria.toLowerCase() %>"
-            ><%= evento.categoria %></span
-          >
-          <p class="descripcion">
-            Este evento de categoría <%= evento.categoria.toLowerCase() %> se
-            realizará en <%= evento.ubicacion %>. Organizado por <%=
-            evento.organizador %>, promete ser una experiencia única para toda
-            la comunidad. ¡No te pierdas esta oportunidad de participar y
-            conectar con tu comunidad!
-          </p>
+            <div class="fecha-badge">
+                <i class="fas fa-calendar-alt"></i>
+                <%= new Date(evento.fechaEvento +
+                        'T00:00:00').toLocaleDateString('es-ES', {
+                    weekday: 'long', year:
+                            'numeric', month: 'long', day: 'numeric'
+                }) %>
+            </div>
+            <h1 class="titulo-evento"><%= evento.titulo %></h1>
+            <span class="categoria-tag categoria-<%= evento.categoria.toLowerCase() %>"><%= evento.categoria %></span>
+            <p class="descripcion">
+                Este evento de categoría <%= evento.categoria.toLowerCase() %> se
+                realizará en <%= evento.ubicacion %>. Organizado por <%=
+                evento.organizador %>, promete ser una experiencia única para toda
+                la comunidad. ¡No te pierdas esta oportunidad de participar y
+                conectar con tu comunidad! </p>
         </div>
-      </div>
-
-      <div class="info-cards">
-        <div class="info-card">
-          <div class="card-header">
-            <h3 class="card-titulo">¿Cómo Participar?</h3>
-          </div>
-          <p class="card-descripcion">
-            Para participar en este evento, puedes contactar directamente al
-            organizador. Se recomienda confirmar asistencia con anticipación
-            para garantizar tu lugar.
-          </p>
-          <a href="tel:<%= evento.telefono %>" class="boton-principal">
-            <i class="fas fa-phone"></i>
-            Contactar Organizador
-          </a>
-        </div>
-
-        <div class="info-card">
-          <div class="card-header">
-            <h3 class="card-titulo">Información del Evento</h3>
-          </div>
-          <p class="card-descripcion">
-            <strong><%= evento.organizador %></strong><br />
-            Organizador principal del evento.
-          </p>
-          <div class="contacto-info">
-            <div class="info-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <strong>Ubicación:</strong> <%= evento.ubicacion %>
-            </div>
-            <div class="info-item">
-              <i class="fas fa-user"></i>
-              <strong>Organizador:</strong> <%= evento.organizador %>
-            </div>
-            <div class="info-item">
-              <i class="fas fa-phone"></i>
-              <strong>Teléfono:</strong> <%= evento.telefono %>
-            </div>
-            <div class="info-item">
-              <i class="fas fa-calendar-plus"></i>
-              <strong>Registrado:</strong> <%= evento.fechaGeneracion %>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="acciones-evento">
-        <% if (isAdmin) { %>
-        <a href="/editar-evento/<%= evento._id %>" class="boton-secundario">
-          <i class="fas fa-edit"></i>
-          Editar Evento
-        </a>
-        <% } %>
-        <% if (isAdmin) { %>
-          <a href="/listado-eventos" class="boton-secundario">
-            <i class="fas fa-arrow-left"></i>
-            Volver al Listado
-          </a>
-        <% } else { %>
-          <a href="/pagina-eventos" class="boton-secundario">
-            <i class="fas fa-arrow-left"></i>
-            Volver al Listado
-          </a>
-        <% } %>
-
-        <% if (isAdmin) { %>
-        <form
-          method="POST"
-          action="/eliminar-evento/<%= evento._id %>"
-          style="display: inline"
-        >
-          <button
-            type="submit"
-            class="boton-peligro"
-            onclick="return confirm('¿Está seguro de que desea eliminar este evento?')"
-          >
-            <i class="fas fa-trash"></i>
-            Eliminar Evento
-          </button>
-        </form>
-        <% } %>
-      </div>
     </div>
-    <%- include("templates/footer") %>
-  </body>
+
+    <div class="info-cards">
+        <div class="info-card">
+            <div class="card-header">
+                <h3 class="card-titulo">¿Cómo Participar?</h3>
+            </div>
+            <p class="card-descripcion">
+                Para participar en este evento, puedes contactar directamente al
+                organizador. Se recomienda confirmar asistencia con anticipación
+                para garantizar tu lugar. </p>
+            <a href="tel:<%= evento.telefono %>" class="boton-principal">
+                <i class="fas fa-phone"></i>
+                Contactar Organizador
+            </a>
+        </div>
+
+        <div class="info-card">
+            <div class="card-header">
+                <h3 class="card-titulo">Información del Evento</h3>
+            </div>
+            <p class="card-descripcion">
+                <strong><%= evento.organizador %></strong><br/>
+                Organizador principal del evento. </p>
+            <div class="contacto-info">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <strong>Ubicación:</strong> <%= evento.ubicacion %>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-user"></i>
+                    <strong>Organizador:</strong> <%= evento.organizador %>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <strong>Teléfono:</strong> <%= evento.telefono %>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-calendar-plus"></i>
+                    <strong>Registrado:</strong> <%= evento.fechaGeneracion %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="acciones-evento">
+        <% if (isAdmin) { %>
+            <a href="/editar-evento/<%= evento._id %>" class="boton-secundario">
+                <i class="fas fa-edit"></i>
+                Editar Evento
+            </a>
+        <% } %>
+        <% if (isAdmin) { %>
+            <a href="/listado-eventos" class="boton-secundario">
+                <i class="fas fa-arrow-left"></i>
+                Volver al Listado
+            </a>
+        <% } else { %>
+            <a href="/pagina-eventos" class="boton-secundario">
+                <i class="fas fa-arrow-left"></i>
+                Volver al Listado
+            </a>
+        <% } %>
+
+        <% if (isAdmin) { %>
+            <form method="POST" action="/eliminar-evento/<%= evento._id %>" style="display: inline">
+                <button type="submit" class="boton-peligro" onclick="return confirm('¿Está seguro de que desea eliminar este evento?')">
+                    <i class="fas fa-trash"></i>
+                    Eliminar Evento
+                </button>
+            </form>
+        <% } %>
+    </div>
+</div>
+<%- include("templates/footer") %>
+</body>
 </html>

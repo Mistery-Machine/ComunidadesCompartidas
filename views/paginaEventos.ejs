@@ -1,119 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/ventana-grupo-eventos.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/css/ventana-grupo-eventos.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <title>Pagina de eventos</title>
-  </head>
-  <%- include("templates/navbar") %>
-  <body>
-    <main style="flex: 1">
-      <div class="contenedor mb-2">
+</head>
+<%- include("templates/navbar") %>
+<body>
+<main style="flex: 1">
+    <div class="contenedor mb-2">
         <h1 class="evento-titulo">Eventos Disponibles</h1>
         <div class="filtros-container">
-          <button class="filtro-categoria activo" data-categoria="todos">
-            Todos
-          </button>
-          <% for (categoria of categorias) { %>
-          <button class="filtro-categoria" data-categoria="<%= categoria %>">
-            <%= categoria %>
-          </button>
-          <% } %>
+            <button class="filtro-categoria activo" data-categoria="todos">
+                Todos
+            </button>
+            <% for (categoria of categorias) { %>
+                <button class="filtro-categoria" data-categoria="<%= categoria %>">
+                    <%= categoria %>
+                </button>
+            <% } %>
         </div>
 
         <!-- Selector de items por página -->
         <div class="items-por-pagina mb-2">
-          <span>Mostrar:</span>
-          <select id="itemsPorPagina">
-            <option value="10">10 por página</option>
-            <option value="25" selected>25 por página</option>
-            <option value="50">50 por página</option>
-          </select>
+            <span>Mostrar:</span>
+            <select id="itemsPorPagina">
+                <option value="10">10 por página</option>
+                <option value="25" selected>25 por página</option>
+                <option value="50">50 por página</option>
+            </select>
         </div>
 
         <div class="grid" id="eventosGrid">
-          <% if (eventos && eventos.length > 0) { %> <%
-          eventos.forEach(function(evento) { %>
-          <div
-            class="columna-grid tarjeta-evento"
-            data-categoria="<%= evento.categoria %>"
-          >
-            <div class="tarjeta">
-              <div class="contenido">
-                <h2 class="titulo"><%= evento.titulo %></h2>
-                <p class="descripcion">
-                  Evento de <%= evento.categoria.toLowerCase() %> en <%=
-                  evento.ubicacion %>. Organizado por <%= evento.organizador %>.
-                </p>
-                <div class="etiquetas">
-                  <span class="etiqueta"><%= evento.categoria %></span>
-                </div>
-                <div>
+            <% if (eventos && eventos.length > 0) { %> <%
+            eventos.forEach(function(evento) { %>
+                <div class="columna-grid tarjeta-evento" data-categoria="<%= evento.categoria %>">
+                    <div class="tarjeta">
+                        <div class="contenido">
+                            <h2 class="titulo"><%= evento.titulo %></h2>
+                            <p class="descripcion">
+                                Evento de <%= evento.categoria.toLowerCase() %> en <%=
+                                    evento.ubicacion %>. Organizado por <%= evento.organizador %>. </p>
+                            <div class="etiquetas">
+                                <span class="etiqueta"><%= evento.categoria %></span>
+                            </div>
+                            <div>
                   <span class="texto-secundario">
-                    <% const fechaEvento = new Date(evento.fechaEvento +
-                    'T00:00:00'); const fechaFormateada =
-                    fechaEvento.toLocaleDateString('es-ES', { weekday: 'long',
-                    year: 'numeric', month: 'long', day: 'numeric' }); %> <%=
-                    fechaFormateada %>
+                      <% const fechaEvento = new Date(evento.fechaEvento +
+                              'T00:00:00'); const fechaFormateada =
+                              fechaEvento.toLocaleDateString('es-ES', {
+                                  weekday: 'long',
+                                  year: 'numeric', month: 'long', day: 'numeric'
+                              }); %>
+                      <%=
+                          fechaFormateada %>
                   </span>
+                            </div>
+                            <a href="/evento/<%= evento._id %>" class="boton-subir">Ver mas</a>
+                            <div class="info-adicional">
+                                <div class="estado">Activo</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <a href="/evento/<%= evento._id %>" class="boton-subir"
-                  >Ver mas</a
-                >
-                <div class="info-adicional">
-                  <div class="estado">Activo</div>
+            <% }) %>
+            <% } else { %>
+                <div class="columna-grid" style="grid-column: 1 / -1; text-align: center; padding: 2rem" id="noResults">
+                    <div class="tarjeta">
+                        <div class="contenido">
+                            <h2 class="titulo">No hay eventos disponibles</h2>
+                            <p class="descripcion">
+                                Actualmente no hay eventos programados. ¡Vuelve pronto para
+                                ver nuevos eventos! </p>
+                            <% if (isAdmin) { %>
+                                <a href="/formulario-eventos" class="boton-subir">Crear Evento</a>
+                            <% } %>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <% }) %> <% } else { %>
-          <div
-            class="columna-grid"
-            style="grid-column: 1 / -1; text-align: center; padding: 2rem"
-            id="noResults"
-          >
-            <div class="tarjeta">
-              <div class="contenido">
-                <h2 class="titulo">No hay eventos disponibles</h2>
-                <p class="descripcion">
-                  Actualmente no hay eventos programados. ¡Vuelve pronto para
-                  ver nuevos eventos!
-                </p>
-                <% if (isAdmin) { %>
-                <a href="/formulario-eventos" class="boton-subir"
-                  >Crear Evento</a
-                >
-                <% } %>
-              </div>
-            </div>
-          </div>
-          <% } %>
+            <% } %>
         </div>
 
         <!-- Paginador -->
         <div class="paginador-container">
-          <div class="paginador-info">
-            Mostrando <span id="inicioRango">1</span>-<span id="finRango"
-              >9</span
-            >
-            de <span id="totalItems">0</span> eventos
-          </div>
-          <div class="paginador-botones">
-            <button class="btn-paginador" id="btnAnterior" disabled>
-              Anterior
-            </button>
-            <div id="numerosPagina"></div>
-            <button class="btn-paginador" id="btnSiguiente">Siguiente</button>
-          </div>
+            <div class="paginador-info">
+                Mostrando <span id="inicioRango">1</span>-<span id="finRango">9</span>
+                de <span id="totalItems">0</span> eventos
+            </div>
+            <div class="paginador-botones">
+                <button class="btn-paginador" id="btnAnterior" disabled>
+                    Anterior
+                </button>
+                <div id="numerosPagina"></div>
+                <button class="btn-paginador" id="btnSiguiente">Siguiente</button>
+            </div>
         </div>
-      </div>
-    </main>
-    <%- include("templates/footer") %>
-    <script src="/js/paginador-eventos.js"></script>
-  </body>
+    </div>
+</main>
+<%- include("templates/footer") %>
+<script src="/js/paginador-eventos.js"></script>
+</body>
 </html>

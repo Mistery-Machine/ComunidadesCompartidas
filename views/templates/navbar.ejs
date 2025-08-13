@@ -1,154 +1,102 @@
 <!-- views/templates/navbar.ejs -->
-<link rel="stylesheet" href="/css/navbar.css" />
+<link rel="stylesheet" href="/css/navbar.css"/>
 
 <header>
-  <nav class="barra-navegacion">
-    <div class="contenedor-navegacion">
-      <a href="/" class="logo-navegacion">Comunidades Conectadas</a>
-      <ul class="navegacion-principal">
-        <li class="elemento-navegacion">
-          <a href="/" class="enlace-navegacion">Inicio</a>
-        </li>
-        <li class="elemento-navegacion menu-desplegable">
-          <a href="#" class="enlace-navegacion desplegable-toggle">Comunidad</a>
-          <div class="submenu-desplegable">
-            <% if (isAuthenticated) { %>
-            <a href="/calendario" class="elemento-desplegable"
-              >Calendario de Eventos</a
-            >
-            <% } %>
-            <a href="/mapa" class="elemento-desplegable">Mapa Interactivo</a>
-            <a href="/reportes" class="elemento-desplegable"
-              >Reportes y Sugerencias</a
-            >
-          </div>
-        </li>
-        <li class="elemento-navegacion menu-desplegable">
-          <a href="#" class="enlace-navegacion desplegable-toggle">Explorar</a>
-          <div class="submenu-desplegable">
-            <a href="/anuncios" class="elemento-desplegable">Anuncios</a>
-            <a href="/pagina-eventos" class="elemento-desplegable">Eventos</a>
-            <a href="/emprendimientos" class="elemento-desplegable"
-              >Emprendimientos</a
-            >
-          </div>
-        </li>
-        <li class="elemento-navegacion menu-desplegable">
-          <a href="#" class="enlace-navegacion desplegable-toggle"
-            >Transporte</a
-          >
-          <div class="submenu-desplegable">
-            <a href="/listado-rutas" class="elemento-desplegable"
-              >Listado de Rutas</a
-            >
-          </div>
-        </li>
-        <% if (isAdmin) { %>
-        <li class="elemento-navegacion menu-desplegable">
-          <a href="#" class="enlace-navegacion desplegable-toggle">Creacion</a>
-          <div class="submenu-desplegable">
-            <a href="/formulario-eventos" class="elemento-desplegable"
-              >Crear Evento</a
-            >
-            <a href="/formulario-anuncio" class="elemento-desplegable"
-              >Crear Anuncio</a
-            >
-            <a href="/formulario-emprendimiento" class="elemento-desplegable"
-              >Crear Emprendimiento</a
-            >
-            <a href="/formulario-ruta" class="elemento-desplegable"
-              >Crear Ruta</a
-            >
-          </div>
-        </li>
-        <% } else if (isEmprendedor) { %>
-        <li class="elemento-navegacion menu-desplegable">
-          <a href="#" class="enlace-navegacion desplegable-toggle">Crear</a>
-          <div class="submenu-desplegable">
-            <a href="/formulario-anuncio" class="elemento-desplegable"
-              >Crear Anuncio</a
-            >
-            <a href="/formulario-emprendimiento" class="elemento-desplegable"
-              >Crear Emprendimiento</a
-            >
-          </div>
-        </li>
-        <% } %> <% if (isAuthenticated && isAdmin) { %>
-        <li class="elemento-navegacion menu-desplegable">
-          <a href="#" class="enlace-navegacion desplegable-toggle">Panel</a>
-          <div class="submenu-desplegable">
-            <a href="/dashboard" class="elemento-desplegable">Dashboard</a>
-            <a href="/ver-reportes" class="elemento-desplegable"
-              >Ver Reportes</a
-            >
-          </div>
-        </li>
-        <% } %> <% if (isAuthenticated) { %>
-        <li class="elemento-navegacion">
-          <form action="/logout" method="POST" class="logout-form">
-            <button
-              type="submit"
-              class="enlace-navegacion logout-btn"
-              title="Cerrar Sesión"
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M16 17L21 12L16 7"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M21 12H9"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
-          </form>
-        </li>
-        <% } else { %>
-        <li class="elemento-navegacion">
-          <a href="/login" class="enlace-navegacion">Iniciar Sesión</a>
-        </li>
-        <li class="elemento-navegacion">
-          <a href="/register" class="enlace-navegacion">Registrarse</a>
-        </li>
-        <% } %>
-      </ul>
-      <div class="seccion-usuario">
-        <% if (isAuthenticated) { %>
-        <div class="info-usuario">
-          <div class="avatar-usuario">
-            <%= usuario.nombre.charAt(0).toUpperCase() %>
-          </div>
-          <span class="correo-usuario"
-            ><%= usuario.nombre %> (<%= usuario.rol %>)</span
-          >
+    <nav class="barra-navegacion">
+        <div class="contenedor-navegacion">
+            <a href="/" class="logo-navegacion">Comunidades Conectadas</a>
+            <ul class="navegacion-principal">
+                <li class="elemento-navegacion">
+                    <a href="/" class="enlace-navegacion">Inicio</a>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Comunidad</a>
+                    <div class="submenu-desplegable">
+                        <% if (isAuthenticated) { %>
+                            <a href="/calendario" class="elemento-desplegable">Calendario de Eventos</a>
+                        <% } %>
+                        <a href="/mapa" class="elemento-desplegable">Mapa Interactivo</a>
+                        <a href="/reportes" class="elemento-desplegable">Reportes y Sugerencias</a>
+                    </div>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Explorar</a>
+                    <div class="submenu-desplegable">
+                        <a href="/anuncios" class="elemento-desplegable">Anuncios</a>
+                        <a href="/pagina-eventos" class="elemento-desplegable">Eventos</a>
+                        <a href="/emprendimientos" class="elemento-desplegable">Emprendimientos</a>
+                    </div>
+                </li>
+                <li class="elemento-navegacion menu-desplegable">
+                    <a href="#" class="enlace-navegacion desplegable-toggle">Transporte</a>
+                    <div class="submenu-desplegable">
+                        <a href="/listado-rutas" class="elemento-desplegable">Listado de Rutas</a>
+                    </div>
+                </li>
+                <% if (isAdmin) { %>
+                    <li class="elemento-navegacion menu-desplegable">
+                        <a href="#" class="enlace-navegacion desplegable-toggle">Creacion</a>
+                        <div class="submenu-desplegable">
+                            <a href="/formulario-eventos" class="elemento-desplegable">Crear Evento</a>
+                            <a href="/formulario-anuncio" class="elemento-desplegable">Crear Anuncio</a>
+                            <a href="/formulario-emprendimiento" class="elemento-desplegable">Crear Emprendimiento</a>
+                            <a href="/formulario-ruta" class="elemento-desplegable">Crear Ruta</a>
+                        </div>
+                    </li>
+                <% } else if (isEmprendedor) { %>
+                    <li class="elemento-navegacion menu-desplegable">
+                        <a href="#" class="enlace-navegacion desplegable-toggle">Crear</a>
+                        <div class="submenu-desplegable">
+                            <a href="/formulario-anuncio" class="elemento-desplegable">Crear Anuncio</a>
+                            <a href="/formulario-emprendimiento" class="elemento-desplegable">Crear Emprendimiento</a>
+                        </div>
+                    </li>
+                <% } %>
+                <% if (isAuthenticated && isAdmin) { %>
+                    <li class="elemento-navegacion menu-desplegable">
+                        <a href="#" class="enlace-navegacion desplegable-toggle">Panel</a>
+                        <div class="submenu-desplegable">
+                            <a href="/dashboard" class="elemento-desplegable">Dashboard</a>
+                            <a href="/ver-reportes" class="elemento-desplegable">Ver Reportes</a>
+                        </div>
+                    </li>
+                <% } %>
+                <% if (isAuthenticated) { %>
+                    <li class="elemento-navegacion">
+                        <form action="/logout" method="POST" class="logout-form">
+                            <button type="submit" class="enlace-navegacion logout-btn" title="Cerrar Sesión">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M16 17L21 12L16 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M21 12H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </li>
+                <% } else { %>
+                    <li class="elemento-navegacion">
+                        <a href="/login" class="enlace-navegacion">Iniciar Sesión</a>
+                    </li>
+                    <li class="elemento-navegacion">
+                        <a href="/register" class="enlace-navegacion">Registrarse</a>
+                    </li>
+                <% } %>
+            </ul>
+            <div class="seccion-usuario">
+                <% if (isAuthenticated) { %>
+                    <div class="info-usuario">
+                        <div class="avatar-usuario">
+                            <%= usuario.nombre.charAt(0).toUpperCase() %>
+                        </div>
+                        <span class="correo-usuario"><%= usuario.nombre %> (<%= usuario.rol %>)</span>
+                    </div>
+                <% } else { %>
+                    <div class="info-usuario">
+                        <div class="avatar-usuario">?</div>
+                        <span class="correo-usuario">No autenticado</span>
+                    </div>
+                <% } %>
+            </div>
         </div>
-        <% } else { %>
-        <div class="info-usuario">
-          <div class="avatar-usuario">?</div>
-          <span class="correo-usuario">No autenticado</span>
-        </div>
-        <% } %>
-      </div>
-    </div>
-  </nav>
+    </nav>
 </header>

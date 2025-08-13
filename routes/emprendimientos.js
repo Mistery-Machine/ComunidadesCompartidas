@@ -39,7 +39,7 @@ const emprendimientoId = (app) => {
         const categorias = await servicioCategorias.obtenerCategoriaEmprendimientos();
         if (emprendimiento.exito && categorias.exito) {
             res.render('formulario-emprendimiento', {
-                emprendimientos: emprendimiento.data, 
+                emprendimientos: emprendimiento.data,
                 categorias: categorias.data
             });
         } else {
@@ -89,4 +89,4 @@ const emprendimientoId = (app) => {
     });
 }
 
-module.exports = {emprendimientoLista, emprendimientoId };
+module.exports = {emprendimientoLista, emprendimientoId};
