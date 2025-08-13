@@ -126,12 +126,22 @@ app.get("/register", (req, res) => {
   res.render("register");
 });
 
-app.get("/reportes", requireAdmin, (req, res) => {
-  res.render("reportes");
+app.get("/reportes", requireAuth, (req, res) => {
+  res.render("reportes", {
+    usuario: req.session.usuario,
+  });
 });
 
-app.get("/ver-reportes", requireAdmin, (req, res) => {
-  res.render("verReportes");
+app.get("/ver-reportes", requireAdmin, async (req, res) => {
+  try {
+    const Reporte = require("./models/modeloReporte");
+    const reportes = await Reporte.find().sort({ fecha: -1 });
+
+    res.render("verReportes", { reportes });
+  } catch (error) {
+    console.error("Error al cargar reportes:", error);
+    res.render("verReportes", { reportes: [] });
+  }
 });
 
 app.get("/formulario-exito", (req, res) => {

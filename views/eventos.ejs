@@ -12,11 +12,6 @@
 <div class="container">
     <div class="header">
         <h1><%= isAdmin ? 'Gestión de Eventos' : 'Eventos' %></h1>
-        <% if (isAdmin) { %>
-        <a href="/formulario-eventos" class="btn-primary">
-            <i class="fas fa-plus"></i> Crear Nuevo Evento
-        </a>
-        <% } %>
     </div>
     <div class="filters">
         <select id="filtroCategoria" class="filter-select">

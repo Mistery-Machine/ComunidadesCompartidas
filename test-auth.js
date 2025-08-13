@@ -27,10 +27,24 @@ async function crearUsuariosPrueba() {
       telefono: "87654321",
     });
 
+    // Crear un emprendedor de prueba
+    const emprendedorPassword = await bcrypt.hash("emprendedor123", 10);
+    const emprendedor = new Usuario({
+      nombre: "Emprendedor Prueba",
+      correo: "emprendedor@test.com",
+      contrasena: emprendedorPassword,
+      rol: "emprendedor",
+      fechaNacimiento: new Date("1995-01-01"),
+      telefono: "12342222",
+    });
+
     // Verificar si ya existen
     const adminExistente = await Usuario.findOne({ correo: "admin@test.com" });
     const clienteExistente = await Usuario.findOne({
       correo: "cliente@test.com",
+    });
+    const emprendedorExistente = await Usuario.findOne({
+      correo: "emprendedor@test.com",
     });
 
     if (!adminExistente) {
@@ -47,9 +61,19 @@ async function crearUsuariosPrueba() {
       console.log("ℹ️  Usuario cliente ya existe");
     }
 
+    if (!emprendedorExistente) {
+      await emprendedor.save();
+      console.log(
+        "✅ Usuario emprendedor creado: emprendedor@test.com / emprendedor123"
+      );
+    } else {
+      console.log("ℹ️  Usuario emprendedor ya existe");
+    }
+
     console.log("\n🚀 Usuarios de prueba listos. Puedes usar:");
     console.log("   Admin: admin@test.com / admin123");
     console.log("   Cliente: cliente@test.com / cliente123");
+    console.log("   Emprendedor: emprendedor@test.com / emprendedor123");
   } catch (error) {
     console.error("❌ Error creando usuarios de prueba:", error);
   } finally {

@@ -27,7 +27,7 @@
               <td class="celda-tabla"><%= usuario.nombre %></td>
               <td class="celda-tabla"><%= usuario.correo %></td>
               <td class="celda-tabla">
-                <span class="etiqueta <%= usuario.rol === 'administrador' ? 'etiqueta-admin' : 'etiqueta-usuario' %>">
+                <span class="etiqueta <%= usuario.rol === 'administrador' ? 'etiqueta-admin' : (usuario.rol === 'emprendedor' ? 'etiqueta-emprendedor' : 'etiqueta-usuario') %>">
                   <%= usuario.rol %>
                 </span>
               </td>
@@ -37,6 +37,7 @@
               <td class="celda-tabla">
                 <select class="seleccion-formulario" onchange="cambiarRolUsuario('<%= usuario._id %>', this.value)">
                   <option value="cliente" <%= usuario.rol === 'cliente' ? 'selected' : '' %>>Cliente</option>
+                  <option value="emprendedor" <%= usuario.rol === 'emprendedor' ? 'selected' : '' %>>Emprendedor</option>
                   <option value="administrador" <%= usuario.rol === 'administrador' ? 'selected' : '' %>>Administrador</option>
                 </select>
               </td>
@@ -81,6 +82,13 @@
                   <%= (anuncio.estado === 'activo') ? 'Desactivar' : 'Activar'
                   %>
                 </button>
+                <button
+                  class="boton-eliminar"
+                  onclick="eliminarElemento('<%= anuncio._id %>', 'anuncio')"
+                  style="margin-left: 5px;"
+                >
+                  Eliminar
+                </button>
               </td>
             </tr>
             <% }); %>
@@ -107,6 +115,13 @@
                 >
                   <%= (evento.estado === 'activo') ? 'Desactivar' : 'Activar' %>
                 </button>
+                <button
+                  class="boton-eliminar"
+                  onclick="eliminarElemento('<%= evento._id %>', 'evento')"
+                  style="margin-left: 5px;"
+                >
+                  Eliminar
+                </button>
               </td>
             </tr>
             <% }); %>
@@ -132,6 +147,13 @@
                 >
                   <%= (emprendimiento.estado === 'activo') ? 'Desactivar' :
                   'Activar' %>
+                </button>
+                <button
+                  class="boton-eliminar"
+                  onclick="eliminarElemento('<%= emprendimiento._id %>', 'emprendimiento')"
+                  style="margin-left: 5px;"
+                >
+                  Eliminar
                 </button>
               </td>
             </tr>
@@ -186,6 +208,30 @@
         } catch (error) {
           console.error("Error:", error);
           alert("Error al cambiar el rol del usuario");
+        }
+      }
+
+      // Eliminar elemento
+      async function eliminarElemento(id, tipo) {
+        if (confirm(`¿Estás seguro de que quieres eliminar este ${tipo}? Esta acción no se puede deshacer.`)) {
+          try {
+            const response = await fetch(`/dashboard/${tipo}/${id}`, {
+              method: "DELETE",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            });
+
+            if (response.ok) {
+              // Recargar la página para mostrar los cambios
+              window.location.reload();
+            } else {
+              alert(`Error al eliminar el ${tipo}`);
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            alert(`Error al eliminar el ${tipo}`);
+          }
         }
       }
     </script>

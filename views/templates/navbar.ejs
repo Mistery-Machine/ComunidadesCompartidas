@@ -18,11 +18,9 @@
             >
             <% } %>
             <a href="/mapa" class="elemento-desplegable">Mapa Interactivo</a>
-            <% if (isAdmin) { %>
             <a href="/reportes" class="elemento-desplegable"
               >Reportes y Sugerencias</a
             >
-            <% } %>
           </div>
         </li>
         <li class="elemento-navegacion menu-desplegable">
@@ -63,6 +61,18 @@
             >
           </div>
         </li>
+        <% } else if (isEmprendedor) { %>
+        <li class="elemento-navegacion menu-desplegable">
+          <a href="#" class="enlace-navegacion desplegable-toggle">Crear</a>
+          <div class="submenu-desplegable">
+            <a href="/formulario-anuncio" class="elemento-desplegable"
+              >Crear Anuncio</a
+            >
+            <a href="/formulario-emprendimiento" class="elemento-desplegable"
+              >Crear Emprendimiento</a
+            >
+          </div>
+        </li>
         <% } %> <% if (isAuthenticated && isAdmin) { %>
         <li class="elemento-navegacion menu-desplegable">
           <a href="#" class="enlace-navegacion desplegable-toggle">Panel</a>
@@ -76,11 +86,39 @@
         <% } %> <% if (isAuthenticated) { %>
         <li class="elemento-navegacion">
           <form action="/logout" method="POST" class="logout-form">
-            <button type="submit" class="enlace-navegacion logout-btn" title="Cerrar Sesión">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M16 17L21 12L16 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M21 12H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <button
+              type="submit"
+              class="enlace-navegacion logout-btn"
+              title="Cerrar Sesión"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M16 17L21 12L16 7"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M21 12H9"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
               </svg>
             </button>
           </form>

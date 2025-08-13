@@ -2,7 +2,11 @@ const express = require("express");
 const router = express.Router();
 const Anuncio = require("../models/modeloAnuncio");
 const servicioCategorias = require("../services/servicioCategorias");
-const { requireAuth, requireAdmin } = require("../middleware/auth");
+const {
+  requireAuth,
+  requireAdmin,
+  requireEmprendedorOrAdmin,
+} = require("../middleware/auth");
 
 // Obtener todos los anuncios (vista)
 router.get("/", async (req, res) => {
@@ -18,24 +22,41 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Crear un nuevo anuncio (solo usuarios autenticados)
-router.post("/", requireAuth, async (req, res) => {
+// Crear un nuevo anuncio (emprendedores y administradores)
+router.post("/", requireEmprendedorOrAdmin, async (req, res) => {
   try {
     const { titulo, descripcion, fecha, categoria } = req.body;
+
+    // Los emprendedores siempre crean en estado inactivo, los admins pueden crear activo
+    const esEmprendedor = req.session.usuario.rol === "emprendedor";
 
     const nuevoAnuncio = new Anuncio({
       titulo,
       descripcion,
       categoria,
       fecha: fecha || new Date(),
+      estado: esEmprendedor ? "inactivo" : req.body.estado || "activo",
     });
 
     await nuevoAnuncio.save();
-    res.redirect("/anuncios");
+
+    if (esEmprendedor) {
+      res.render("formulario-exito", {
+        headline: "Anuncio creado con éxito",
+        message:
+          "Tu anuncio ha sido registrado correctamente y está en proceso de aprobación.",
+        message_secundario:
+          "El anuncio será visible una vez sea aprobado por un administrador.",
+      });
+    } else {
+      res.redirect("/anuncios");
+    }
   } catch (err) {
     console.error("Error al crear anuncio:", err);
     res.render("formulario-error", {
-      mensaje: "Error al crear el anuncio. Por favor, intenta de nuevo.",
+      headline: "Error al crear anuncio",
+      message: "Error al crear el anuncio. Por favor, intenta de nuevo.",
+      message_secundario: "Si el problema persiste, contacta al administrador.",
     });
   }
 });

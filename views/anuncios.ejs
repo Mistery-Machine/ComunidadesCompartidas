@@ -32,7 +32,7 @@
       <div class="grid-anuncios">
         <% if (anuncios && anuncios.length > 0) { %> <%
         anuncios.forEach(function(anuncio) { %>
-        <div class="tarjeta-anuncio">
+        <div class="tarjeta-anuncio" data-categoria="<%= anuncio.categoria %>">
           <h2 class="titulo-tarjeta"><%= anuncio.titulo %></h2>
           <p class="descripcion-anuncio"><%= anuncio.descripcion %></p>
           <div class="categorias-anuncio">
