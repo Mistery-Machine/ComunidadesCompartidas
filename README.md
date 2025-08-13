@@ -34,6 +34,7 @@ npm run dev
 
 - **Administrador**: admin@test.com / admin123
 - **Cliente**: cliente@test.com / cliente123
+- **Emrpendedor**: emprendedor@test.com / emprendedor123
 
 # Tecnologías
 
