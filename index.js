@@ -1,3 +1,6 @@
+//Cargar variables de entorno
+require("dotenv").config();
+
 //Utilizar express
 const express = require("express");
 const session = require("express-session");
@@ -107,7 +110,9 @@ app.get("/login", (req, res) => {
 });
 
 app.get("/mapa", (req, res) => {
-  res.render("mapa");
+  res.render("mapa", {
+    googleApiKey: process.env.GOOGLE_API_KEY_MAP,
+  });
 });
 
 app.get("/register", (req, res) => {
