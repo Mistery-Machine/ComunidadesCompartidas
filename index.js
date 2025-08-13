@@ -59,15 +59,18 @@ app.get("/dashboard", requireAdmin, async (req, res) => {
     const Anuncio = require("./models/modeloAnuncio");
     const eventoModel = require("./models/modeloEvento");
     const emprendimientoModel = require("./models/modeloEmprendimiento");
+    const Usuario = require("./models/modeloUsuario");
 
     const anuncios = await Anuncio.find().sort({ fecha: -1 });
     const eventos = await eventoModel.find().sort({ fechaGeneracion: -1 });
     const emprendimientos = await emprendimientoModel.find().sort({ _id: -1 });
+    const usuarios = await Usuario.find().sort({ nombre: 1 });
 
     res.render("dashboard", {
       anuncios,
       eventos,
       emprendimientos,
+      usuarios,
     });
   } catch (error) {
     console.error("Error al cargar dashboard:", error);
@@ -75,6 +78,7 @@ app.get("/dashboard", requireAdmin, async (req, res) => {
       anuncios: [],
       eventos: [],
       emprendimientos: [],
+      usuarios: [],
     });
   }
 });

@@ -9,24 +9,6 @@
   <%- include("templates/navbar") %>
   <body>
     <div class="contenedor-principal">
-      <div class="contenedor-estadisticas">
-        <div class="tarjeta-estadistica">
-          <div class="titulo-estadistica">Usuarios Registrados</div>
-          <div class="numero-estadistica">245</div>
-        </div>
-        <div class="tarjeta-estadistica">
-          <div class="titulo-estadistica">Tickets Totales</div>
-          <div class="numero-estadistica">89</div>
-        </div>
-        <div class="tarjeta-estadistica">
-          <div class="titulo-estadistica">Tickets Pendientes</div>
-          <div class="numero-estadistica">12</div>
-        </div>
-        <div class="tarjeta-estadistica">
-          <div class="titulo-estadistica">Tickets Aprobados</div>
-          <div class="numero-estadistica">3</div>
-        </div>
-      </div>
       <div class="contenedor-tabla">
         <div class="encabezado-tabla">Usuarios Registrados</div>
         <table class="tabla">
@@ -40,57 +22,26 @@
             </tr>
           </thead>
           <tbody>
+            <% usuarios.forEach(usuario => { %>
             <tr class="fila-tabla">
-              <td class="celda-tabla">Juan Pérez</td>
-              <td class="celda-tabla">juan@correo.com</td>
+              <td class="celda-tabla"><%= usuario.nombre %></td>
+              <td class="celda-tabla"><%= usuario.correo %></td>
               <td class="celda-tabla">
-                <span class="etiqueta etiqueta-usuario">usuario</span>
+                <span class="etiqueta <%= usuario.rol === 'administrador' ? 'etiqueta-admin' : 'etiqueta-usuario' %>">
+                  <%= usuario.rol %>
+                </span>
               </td>
               <td class="celda-tabla">
                 <span class="estado-activo">Activo</span>
               </td>
               <td class="celda-tabla">
-                <select class="seleccion-formulario">
-                  <option value="usuario" selected>Usuario</option>
-                  <option value="moderador">Moderador</option>
-                  <option value="admin">Administrador</option>
+                <select class="seleccion-formulario" onchange="cambiarRolUsuario('<%= usuario._id %>', this.value)">
+                  <option value="cliente" <%= usuario.rol === 'cliente' ? 'selected' : '' %>>Cliente</option>
+                  <option value="administrador" <%= usuario.rol === 'administrador' ? 'selected' : '' %>>Administrador</option>
                 </select>
               </td>
             </tr>
-            <tr class="fila-tabla">
-              <td class="celda-tabla">María García</td>
-              <td class="celda-tabla">maria@correo.com</td>
-              <td class="celda-tabla">
-                <span class="etiqueta etiqueta-admin">admin</span>
-              </td>
-              <td class="celda-tabla">
-                <span class="estado-activo">Activo</span>
-              </td>
-              <td class="celda-tabla">
-                <select class="seleccion-formulario">
-                  <option value="usuario">Usuario</option>
-                  <option value="moderador">Moderador</option>
-                  <option value="admin" selected>Administrador</option>
-                </select>
-              </td>
-            </tr>
-            <tr class="fila-tabla">
-              <td class="celda-tabla">Carlos López</td>
-              <td class="celda-tabla">carlos@correo.com</td>
-              <td class="celda-tabla">
-                <span class="etiqueta etiqueta-usuario">usuario</span>
-              </td>
-              <td class="celda-tabla">
-                <span class="estado-inactivo">Inactivo</span>
-              </td>
-              <td class="celda-tabla">
-                <select class="seleccion-formulario">
-                  <option value="usuario" selected>Usuario</option>
-                  <option value="moderador">Moderador</option>
-                  <option value="admin">Administrador</option>
-                </select>
-              </td>
-            </tr>
+            <% }); %>
           </tbody>
         </table>
       </div>
@@ -212,6 +163,29 @@
         } catch (error) {
           console.error("Error:", error);
           alert("Error al cambiar el estado");
+        }
+      }
+
+      // Cambiar rol de usuario
+      async function cambiarRolUsuario(id, nuevoRol) {
+        try {
+          const response = await fetch(`/dashboard/usuario/${id}/rol`, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ rol: nuevoRol }),
+          });
+
+          if (response.ok) {
+            // Recargar la página para mostrar los cambios
+            window.location.reload();
+          } else {
+            alert("Error al cambiar el rol del usuario");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert("Error al cambiar el rol del usuario");
         }
       }
     </script>
