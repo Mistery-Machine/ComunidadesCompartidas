@@ -152,6 +152,8 @@ body {
 .boton-deshabilitado {
     cursor: not-allowed;
     opacity: 0.5;
+    background-color: #ccc !important;
+    cursor: not-allowed !important;
 }
 
 .mensaje-error {
@@ -167,11 +169,6 @@ body {
 
 .campo-incorrecto {
     border: 2px solid #dc3545 !important;
-}
-
-.boton-deshabilitado {
-    background-color: #ccc !important;
-    cursor: not-allowed !important;
 }
 
 .mensaje-error {

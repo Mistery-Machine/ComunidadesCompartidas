@@ -1,136 +1,152 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const titulo = document.getElementById("titulo");
-    const categoria = document.getElementById("categoria");
-    const fechaEvento = document.getElementById("fechaEvento");
-    const ubicacion = document.getElementById("ubicacion");
-    const organizador = document.getElementById("organizador");
-    const telefono = document.getElementById("telefono");
-    const botonCrear = document.getElementById("crear-evento");
-    const formulario = document.querySelector("form");
+// Obtener elementos del DOM
+const inputs = document.querySelectorAll('#formulario-eventos input');
+const textarea = document.querySelectorAll('#formulario-eventos textarea');
+const selectArea = document.querySelectorAll('#formulario-eventos select');
+const formulario = document.querySelector("form");
+const boton = document.querySelector("#crear-evento");
 
-    // Elementos de error
-    const errorTitulo = document.getElementById("error-titulo");
-    const errorFechaEvento = document.getElementById("error-fechaEvento");
-    const errorUbicacion = document.getElementById("error-ubicacion");
-    const errorOrganizador = document.getElementById("error-organizador");
-    const errorTelefono = document.getElementById("error-telefono");
+// Expresiones regulares
+const expresiones = {
+    titulo: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s\d\.,\-]{10,100}$/,
+    ubicacion: /^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s\.,#\-]{10,100}$/,
+    organizador: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{5,50}$/,
+    telefono: /^[\+]?[0-9\s\-\(\)]{8,15}$/,
+    categoria: /^(?!Seleccione una categoría$).+$/,
+    fechaEvento: /^\d{4}-\d{2}-\d{2}$/
+};
 
-    // Establecer fecha mínima como hoy
-    const hoy = new Date().toISOString().split("T")[0];
-    fechaEvento.min = hoy;
+// Estado de los campos
+const campos = {
+    titulo: false,
+    categoria: false,
+    fechaEvento: false,
+    ubicacion: false,
+    organizador: false,
+    telefono: false
+};
 
-    // Función para validar campos
-    function validarCampo(campo, mensajeError, elemento) {
-        if (campo.value.trim() === "") {
-            elemento.textContent = mensajeError;
-            elemento.style.display = "block";
-            return false;
-        } else {
-            elemento.textContent = "";
-            elemento.style.display = "none";
-            return true;
+// Establecer fecha mínima como hoy
+const fechaEvento = document.getElementById("fechaEvento");
+const hoy = new Date().toISOString().split("T")[0];
+fechaEvento.min = hoy;
+
+// Función principal de validación
+const validarFormulario = (e) => {
+    const nombreCampo = e.target.name;
+    switch (nombreCampo) {
+        case "titulo":
+        case "categoria":
+        case "fechaEvento":
+        case "ubicacion":
+        case "organizador":
+        case "telefono":
+            if (nombreCampo === "fechaEvento") {
+                validarFecha(e.target);
+            } else {
+                validarCampo(expresiones[nombreCampo], e.target, nombreCampo);
+            }
+            break;
+    }
+};
+
+// Función para validar campo individual
+const validarCampo = (expresion, input, campo) => {
+    const mensajeError = document.querySelector(`#error-${campo}`);
+    
+    if (expresion.test(input.value)) {
+        // Validación correcta
+        input.classList.remove("campo-incorrecto");
+        input.classList.add("campo-correcto");
+        if (mensajeError) {
+            mensajeError.classList.remove("input-error-activo");
         }
+        campos[campo] = true;
+    } else {
+        // Validación incorrecta
+        input.classList.add("campo-incorrecto");
+        input.classList.remove("campo-correcto");
+        if (mensajeError) {
+            mensajeError.classList.add("input-error-activo");
+        }
+        campos[campo] = false;
+    }
+    verificarCampos();
+};
+
+// Función especial para validar fecha
+const validarFecha = (input) => {
+    const mensajeError = document.querySelector("#error-fechaEvento");
+    const fechaSeleccionada = input.value;
+    
+    if (fechaSeleccionada === "") {
+        input.classList.add("campo-incorrecto");
+        input.classList.remove("campo-correcto");
+        if (mensajeError) {
+            mensajeError.textContent = "La fecha del evento es obligatoria";
+            mensajeError.classList.add("input-error-activo");
+        }
+        campos.fechaEvento = false;
+    } else if (fechaSeleccionada < hoy) {
+        input.classList.add("campo-incorrecto");
+        input.classList.remove("campo-correcto");
+        if (mensajeError) {
+            mensajeError.textContent = "La fecha del evento no puede ser anterior a hoy";
+            mensajeError.classList.add("input-error-activo");
+        }
+        campos.fechaEvento = false;
+    } else {
+        input.classList.remove("campo-incorrecto");
+        input.classList.add("campo-correcto");
+        if (mensajeError) {
+            mensajeError.classList.remove("input-error-activo");
+        }
+        campos.fechaEvento = true;
+    }
+    verificarCampos();
+};
+
+// Función para verificar todos los campos
+const verificarCampos = () => {
+    const todosValidos = Object.values(campos).every(campo => campo === true);
+    
+    if (todosValidos) {
+        boton.disabled = false;
+        boton.classList.remove('boton-deshabilitado');
+    } else {
+        boton.disabled = true;
+        boton.classList.add('boton-deshabilitado');
+    }
+};
+
+// Llamar la función para que el botón salga como deshabilitado al cargar la página
+verificarCampos();
+
+// Event listeners
+inputs.forEach((input) => {
+    input.addEventListener("keyup", validarFormulario);
+    input.addEventListener("blur", validarFormulario);
+});
+
+textarea.forEach((textarea) => {
+    textarea.addEventListener("keyup", validarFormulario);
+    textarea.addEventListener("blur", validarFormulario);
+});
+
+selectArea.forEach((select) => {
+    select.addEventListener("change", validarFormulario);
+    select.addEventListener("blur", validarFormulario);
+});
+
+// Envío del formulario
+formulario.addEventListener("submit", function (e) {
+    if (!Object.values(campos).every(campo => campo === true)) {
+        e.preventDefault();
+        return false;
     }
 
-    // Función para validar fecha
-    function validarFecha() {
-        if (fechaEvento.value === "") {
-            errorFechaEvento.textContent = "La fecha del evento es obligatoria";
-            errorFechaEvento.style.display = "block";
-            return false;
-        } else if (fechaEvento.value < hoy) {
-            errorFechaEvento.textContent =
-                "La fecha del evento no puede ser anterior a hoy";
-            errorFechaEvento.style.display = "block";
-            return false;
-        } else {
-            errorFechaEvento.textContent = "";
-            errorFechaEvento.style.display = "none";
-            return true;
-        }
-    }
+    // Cambiar texto del botón mientras se procesa
+    boton.textContent = "Creando...";
+    boton.disabled = true;
 
-    // Función para validar teléfono
-    function validarTelefono() {
-        const telefonoRegex = /^[\+]?[0-9\s\-\(\)]{8,15}$/;
-        if (telefono.value.trim() === "") {
-            errorTelefono.textContent = "El teléfono es obligatorio";
-            errorTelefono.style.display = "block";
-            return false;
-        } else if (!telefonoRegex.test(telefono.value.trim())) {
-            errorTelefono.textContent = "Formato de teléfono inválido";
-            errorTelefono.style.display = "block";
-            return false;
-        } else {
-            errorTelefono.textContent = "";
-            errorTelefono.style.display = "none";
-            return true;
-        }
-    }
-
-    // Función para validar formulario completo
-    function validarFormulario() {
-        const tituloValido = validarCampo(
-            titulo,
-            "El título es obligatorio",
-            errorTitulo
-        );
-        const fechaValida = validarFecha();
-        const ubicacionValida = validarCampo(
-            ubicacion,
-            "La ubicación es obligatoria",
-            errorUbicacion
-        );
-        const organizadorValido = validarCampo(
-            organizador,
-            "El organizador es obligatorio",
-            errorOrganizador
-        );
-        const telefonoValido = validarTelefono();
-        const categoriaValida = categoria.value !== "Seleccione una categoría";
-
-        const formularioValido =
-            tituloValido &&
-            fechaValida &&
-            ubicacionValida &&
-            organizadorValido &&
-            telefonoValido &&
-            categoriaValida;
-
-        if (formularioValido) {
-            botonCrear.disabled = false;
-            botonCrear.classList.remove("boton-deshabilitado");
-        } else {
-            botonCrear.disabled = true;
-            botonCrear.classList.add("boton-deshabilitado");
-        }
-
-        return formularioValido;
-    }
-
-    // Event listeners para validación en tiempo real
-    titulo.addEventListener("input", validarFormulario);
-    categoria.addEventListener("change", validarFormulario);
-    fechaEvento.addEventListener("change", validarFormulario);
-    ubicacion.addEventListener("input", validarFormulario);
-    organizador.addEventListener("input", validarFormulario);
-    telefono.addEventListener("input", validarFormulario);
-
-    // Validación inicial
-    validarFormulario();
-
-    // Envío del formulario
-    formulario.addEventListener("submit", function (e) {
-        if (!validarFormulario()) {
-            e.preventDefault();
-            return false;
-        }
-
-        // Cambiar texto del botón mientras se procesa
-        botonCrear.textContent = "Creando...";
-        botonCrear.disabled = true;
-
-        // Permitir que el formulario se envíe normalmente
-        return true;
-    });
+    return true;
 });

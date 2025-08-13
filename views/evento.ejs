@@ -91,10 +91,18 @@
           Editar Evento
         </a>
         <% } %>
-        <a href="/listado-eventos" class="boton-secundario">
-          <i class="fas fa-arrow-left"></i>
-          Volver al Listado
-        </a>
+        <% if (isAdmin) { %>
+          <a href="/listado-eventos" class="boton-secundario">
+            <i class="fas fa-arrow-left"></i>
+            Volver al Listado
+          </a>
+        <% } else { %>
+          <a href="/pagina-eventos" class="boton-secundario">
+            <i class="fas fa-arrow-left"></i>
+            Volver al Listado
+          </a>
+        <% } %>
+
         <% if (isAdmin) { %>
         <form
           method="POST"

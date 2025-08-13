@@ -61,8 +61,13 @@
           </div>
         </div>
       </div>
-      <% if (isAdmin) { %>
+
       <div class="acciones-emprendimiento">
+        <a href="/emprendimientos" class="boton-secundario">
+            <i class="fas fa-arrow-left"></i>
+            Volver al Listado
+        </a>
+        <% if (isAdmin) { %>
         <a
           href="/editar-emprendimiento/<%= emprendimientos._id %>"
           class="boton-secundario"
@@ -84,8 +89,8 @@
             Eliminar Emprendimiento
           </button>
         </form>
+        <% } %>
       </div>
-      <% } %>
     </div>
     <%- include("templates/footer") %>
   </body>

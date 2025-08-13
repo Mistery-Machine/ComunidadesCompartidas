@@ -13,13 +13,13 @@
         <%= esEdicion ? 'Edición de Evento' : 'Creación de Eventos' %>
     </h2>
 
-    <form method="POST" action="<%= esEdicion ? '/actualizar-evento/' + evento._id : '/crear-evento' %>">
+    <form method="POST" action="<%= esEdicion ? '/actualizar-evento/' + evento._id : '/crear-evento' %>" id="formulario-eventos">
         <!-- TÍTULO -->
         <div class="evento-grupo-formulario">
             <label class="evento-etiqueta-formulario" for="titulo">Título del Evento</label>
             <textarea class="evento-area-texto" id="titulo" name="titulo" placeholder="Ej: Festival Cultural 2025" required><%= esEdicion ? evento.titulo : '' %></textarea>
             <% if (!esEdicion) { %>
-                <p class="mensaje-error" id="error-titulo"></p>
+                <p class="formulario-input-error" id="error-titulo">El título debe tener entre 10 y 100 caracteres.</p>
             <% } %>
         </div>
 
@@ -32,6 +32,9 @@
                     <option value="<%= categoria %>" <%= esEdicion && evento.categoria === categoria ? 'selected' : '' %>><%= categoria %></option>
                 <% } %>
             </select>
+            <% if (!esEdicion) { %>
+                <p class="formulario-input-error" id="error-categoria">Es necesario seleccionar una categoría.</p>
+            <% } %>
         </div>
 
         <!-- FECHA Y UBICACIÓN -->
@@ -44,7 +47,7 @@
                 <label class="evento-etiqueta-formulario" for="fechaEvento">Fecha del Evento</label>
                 <input class="evento-campo-formulario" type="date" id="fechaEvento" name="fechaEvento" value="<%= esEdicion ? evento.fechaEvento : '' %>" required/>
                 <% if (!esEdicion) { %>
-                    <p class="mensaje-error" id="error-fechaEvento"></p>
+                    <p class="formulario-input-error" id="error-fechaEvento">La fecha del evento es obligatoria.</p>
                 <% } %>
             </div>
         </div>
@@ -54,7 +57,7 @@
             <label class="evento-etiqueta-formulario" for="ubicacion">Ubicación</label>
             <input class="evento-campo-formulario" type="text" id="ubicacion" name="ubicacion" placeholder="Ciudad, provincia o lugar específico" value="<%= esEdicion ? evento.ubicacion : '' %>" required/>
             <% if (!esEdicion) { %>
-                <p class="mensaje-error" id="error-ubicacion"></p>
+                <p class="formulario-input-error" id="error-ubicacion">La ubicación debe tener entre 10 y 100 caracteres.</p>
             <% } %>
         </div>
 
@@ -63,7 +66,7 @@
             <label class="evento-etiqueta-formulario" for="organizador">Organizador</label>
             <input class="evento-campo-formulario" type="text" id="organizador" name="organizador" placeholder="Nombre del organizador" value="<%= esEdicion ? evento.organizador : '' %>" required/>
             <% if (!esEdicion) { %>
-                <p class="mensaje-error" id="error-organizador"></p>
+                <p class="formulario-input-error" id="error-organizador">El organizador debe tener entre 5 y 50 caracteres.</p>
             <% } %>
         </div>
 
@@ -72,7 +75,7 @@
             <label class="evento-etiqueta-formulario" for="telefono">Teléfono de Contacto</label>
             <input class="evento-campo-formulario" type="tel" id="telefono" name="telefono" placeholder="Ej: +506 8888-2234" value="<%= esEdicion ? evento.telefono : '' %>" required/>
             <% if (!esEdicion) { %>
-                <p class="mensaje-error" id="error-telefono"></p>
+                <p class="formulario-input-error" id="error-telefono">Formato de teléfono inválido.</p>
             <% } %>
         </div>
 
@@ -87,7 +90,8 @@
 
             <p class="evento-texto-aviso">
                 Al <%= esEdicion ? 'actualizar' : 'registrar' %> este evento, usted confirma que la información
-                proporcionada es precisa y actualizada. </p>
+                proporcionada es precisa y actualizada.
+            </p>
         </div>
     </form>
 </div>

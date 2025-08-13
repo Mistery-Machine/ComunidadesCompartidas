@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Crear Reporte Ciudadano</title>
-    <link rel="stylesheet" href="/css/styleReporte.css" />
+    <link rel="stylesheet" href="/css/formulario-reportes.css" />
   </head>
   <%- include("templates/navbar") %>
   <body>
@@ -39,24 +39,6 @@
           La descripción debe tener entre 20 y 500 caracteres.
         </p>
       </div>
-      <!-- 
-    <div class="formulario-fila">
-        <div class="formulario-columna">
-            <label class="formulario-etiqueta">Fecha de Inicio</label>
-            <input class="formulario-campo" type="text" value="6/20/2025" disabled/>
-        </div>
-        <div class="formulario-columna">
-            <label class="formulario-etiqueta">Fecha de Finalización</label>
-            <input class="formulario-campo" type="text" value="6/20/2025" disabled/>
-        </div>
-    </div>
-    -->
-      <!-- 
-    <div class="formulario-grupo">
-        <label class="formulario-etiqueta">Imagen de Promoción</label>
-        <div class="formulario-fila sin-espacio"></div>
-    </div>
-    -->
 
       <div class="formulario-grupo">
         <button
@@ -74,7 +56,6 @@
     </div>
 
     <script>
-      // Pasar datos del usuario al JavaScript
       window.usuarioActual = {
         nombre: '<%= usuario ? usuario.nombre : "Usuario Anónimo" %>',
       };
